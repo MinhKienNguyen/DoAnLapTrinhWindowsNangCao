@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NhapHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PH_CT_PhieuDat">
+    <Key>
+      <PropertyRef Name="MaCT_PhieuDat" />
+    </Key>
+    <Property Name="MaCT_PhieuDat" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaLoaiHang" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaHangHoa" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaPhieuDH" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaMau" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaSize" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Barcode" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="SoLuongHangDat" Type="Int32" />
+    <Property Name="DonGiaDat" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PH_PhieuDatHang">
+    <Key>
+      <PropertyRef Name="MaPhieuDH" />
+    </Key>
+    <Property Name="MaPhieuDH" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MaNCC" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="NgayLap" Type="DateTime" Precision="0" />
+    <Property Name="TrangThaiDH" Type="Boolean" />
+    <Property Name="TongTienPDH" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="ShopThoiTrangEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PH_CT_PhieuDat" EntityType="Self.PH_CT_PhieuDat" />
+    <EntitySet Name="PH_PhieuDatHang" EntityType="Self.PH_PhieuDatHang" />
+  </EntityContainer>
+</Schema>

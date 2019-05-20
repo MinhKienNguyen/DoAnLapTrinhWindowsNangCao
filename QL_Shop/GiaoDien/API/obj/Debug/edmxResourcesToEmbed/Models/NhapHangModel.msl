@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HeThong_ShopThoiTrangModelStoreContainer" CdmEntityContainer="ShopTTEntities">
+    <EntitySetMapping Name="PH_CT_PhieuDat">
+      <EntityTypeMapping TypeName="HeThong_ShopThoiTrangModel.PH_CT_PhieuDat">
+        <MappingFragment StoreEntitySet="PH_CT_PhieuDat">
+          <ScalarProperty Name="MaCT_PhieuDat" ColumnName="MaCT_PhieuDat" />
+          <ScalarProperty Name="MaLoaiHang" ColumnName="MaLoaiHang" />
+          <ScalarProperty Name="MaHangHoa" ColumnName="MaHangHoa" />
+          <ScalarProperty Name="TenHangHoa" ColumnName="TenHangHoa" />
+          <ScalarProperty Name="MaHinhAnh" ColumnName="MaHinhAnh" />
+          <ScalarProperty Name="MaPhieuDH" ColumnName="MaPhieuDH" />
+          <ScalarProperty Name="MaMau" ColumnName="MaMau" />
+          <ScalarProperty Name="MaSize" ColumnName="MaSize" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="SoLuongHangDat" ColumnName="SoLuongHangDat" />
+          <ScalarProperty Name="DonGiaDat" ColumnName="DonGiaDat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PH_PhieuDatHang">
+      <EntityTypeMapping TypeName="HeThong_ShopThoiTrangModel.PH_PhieuDatHang">
+        <MappingFragment StoreEntitySet="PH_PhieuDatHang">
+          <ScalarProperty Name="MaPhieuDH" ColumnName="MaPhieuDH" />
+          <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="TrangThaiDH" ColumnName="TrangThaiDH" />
+          <ScalarProperty Name="TongTienPDH" ColumnName="TongTienPDH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

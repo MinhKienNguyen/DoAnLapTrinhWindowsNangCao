@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NhapHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PH_CT_PhieuDat">
+    <Key>
+      <PropertyRef Name="MaCT_PhieuDat" />
+    </Key>
+    <Property Name="MaCT_PhieuDat" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaLoaiHang" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaHangHoa" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaPhieuDH" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaMau" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaSize" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Barcode" Type="nchar" MaxLength="100" />
+    <Property Name="SoLuongHangDat" Type="int" />
+    <Property Name="DonGiaDat" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PH_PhieuDatHang">
+    <Key>
+      <PropertyRef Name="MaPhieuDH" />
+    </Key>
+    <Property Name="MaPhieuDH" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaNCC" Type="nchar" MaxLength="20" />
+    <Property Name="NgayLap" Type="date" />
+    <Property Name="TrangThaiDH" Type="bit" />
+    <Property Name="TongTienPDH" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="NhapHangModelStoreContainer">
+    <EntitySet Name="PH_CT_PhieuDat" EntityType="Self.PH_CT_PhieuDat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PH_PhieuDatHang" EntityType="Self.PH_PhieuDatHang" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

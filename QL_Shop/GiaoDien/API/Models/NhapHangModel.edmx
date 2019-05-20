@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HeThong_ShopThoiTrangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PH_CT_PhieuDat">
+          <Key>
+            <PropertyRef Name="MaCT_PhieuDat" />
+          </Key>
+          <Property Name="MaCT_PhieuDat" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaLoaiHang" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaHangHoa" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="TenHangHoa" Type="nvarchar" MaxLength="200" />
+          <Property Name="MaHinhAnh" Type="nchar" MaxLength="50" />
+          <Property Name="MaPhieuDH" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaMau" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaSize" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Barcode" Type="nchar" MaxLength="100" />
+          <Property Name="SoLuongHangDat" Type="int" />
+          <Property Name="DonGiaDat" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PH_PhieuDatHang">
+          <Key>
+            <PropertyRef Name="MaPhieuDH" />
+          </Key>
+          <Property Name="MaPhieuDH" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaNCC" Type="nchar" MaxLength="20" />
+          <Property Name="NgayLap" Type="date" />
+          <Property Name="TrangThaiDH" Type="bit" />
+          <Property Name="TongTienPDH" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="HeThong_ShopThoiTrangModelStoreContainer">
+          <EntitySet Name="PH_CT_PhieuDat" EntityType="Self.PH_CT_PhieuDat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PH_PhieuDatHang" EntityType="Self.PH_PhieuDatHang" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HeThong_ShopThoiTrangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PH_CT_PhieuDat">
+          <Key>
+            <PropertyRef Name="MaCT_PhieuDat" />
+          </Key>
+          <Property Name="MaCT_PhieuDat" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaLoaiHang" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaHangHoa" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TenHangHoa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MaHinhAnh" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="MaPhieuDH" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaMau" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaSize" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Barcode" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="SoLuongHangDat" Type="Int32" />
+          <Property Name="DonGiaDat" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PH_PhieuDatHang">
+          <Key>
+            <PropertyRef Name="MaPhieuDH" />
+          </Key>
+          <Property Name="MaPhieuDH" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaNCC" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="NgayLap" Type="DateTime" Precision="0" />
+          <Property Name="TrangThaiDH" Type="Boolean" />
+          <Property Name="TongTienPDH" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="ShopTTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PH_CT_PhieuDat" EntityType="Self.PH_CT_PhieuDat" />
+          <EntitySet Name="PH_PhieuDatHang" EntityType="Self.PH_PhieuDatHang" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HeThong_ShopThoiTrangModelStoreContainer" CdmEntityContainer="ShopTTEntities">
+          <EntitySetMapping Name="PH_CT_PhieuDat">
+            <EntityTypeMapping TypeName="HeThong_ShopThoiTrangModel.PH_CT_PhieuDat">
+              <MappingFragment StoreEntitySet="PH_CT_PhieuDat">
+                <ScalarProperty Name="MaCT_PhieuDat" ColumnName="MaCT_PhieuDat" />
+                <ScalarProperty Name="MaLoaiHang" ColumnName="MaLoaiHang" />
+                <ScalarProperty Name="MaHangHoa" ColumnName="MaHangHoa" />
+                <ScalarProperty Name="TenHangHoa" ColumnName="TenHangHoa" />
+                <ScalarProperty Name="MaHinhAnh" ColumnName="MaHinhAnh" />
+                <ScalarProperty Name="MaPhieuDH" ColumnName="MaPhieuDH" />
+                <ScalarProperty Name="MaMau" ColumnName="MaMau" />
+                <ScalarProperty Name="MaSize" ColumnName="MaSize" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="SoLuongHangDat" ColumnName="SoLuongHangDat" />
+                <ScalarProperty Name="DonGiaDat" ColumnName="DonGiaDat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PH_PhieuDatHang">
+            <EntityTypeMapping TypeName="HeThong_ShopThoiTrangModel.PH_PhieuDatHang">
+              <MappingFragment StoreEntitySet="PH_PhieuDatHang">
+                <ScalarProperty Name="MaPhieuDH" ColumnName="MaPhieuDH" />
+                <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="TrangThaiDH" ColumnName="TrangThaiDH" />
+                <ScalarProperty Name="TongTienPDH" ColumnName="TongTienPDH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
