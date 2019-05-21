@@ -50,6 +50,8 @@ namespace GiaoDien.Views
             {
                 Program.mainForm = new frmMain();
             }
+            GiaoDien.Properties.Settings.Default.MaNV = table.Rows[0]["MaNhanVien"].ToString();
+            GiaoDien.Properties.Settings.Default.TenNV = table.Rows[0]["TenNhanVien"].ToString();
             Program.mainForm.TenNhanVien = table.Rows[0]["TenNhanVien"].ToString();
             Program.mainForm.TenDangNhap = txttaikhoan.Text;
             this.Hide();

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
             this.repositoryItemProgressBar2 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
@@ -310,7 +311,7 @@
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemImageEdit1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1356, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(1356, 162);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // skinRibbonGalleryBarItem1
@@ -518,7 +519,7 @@
             // 
             this.btnnhanvien.Caption = "Nhân viên";
             this.btnnhanvien.Id = 32;
-            this.btnnhanvien.ImageOptions.Image = global::GiaoDien.Properties.Resources.tải_xuống__2_1;
+            this.btnnhanvien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnnhanvien.ImageOptions.Image")));
             this.btnnhanvien.Name = "btnnhanvien";
             this.btnnhanvien.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
             this.btnnhanvien.Tag = "MHNV";
@@ -529,7 +530,7 @@
             // 
             this.btnkhachhang.Caption = "Khách hàng";
             this.btnkhachhang.Id = 33;
-            this.btnkhachhang.ImageOptions.Image = global::GiaoDien.Properties.Resources.if_preferences_desktop_user_8806;
+            this.btnkhachhang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnkhachhang.ImageOptions.Image")));
             this.btnkhachhang.Name = "btnkhachhang";
             this.btnkhachhang.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
             this.btnkhachhang.Tag = "KhachHang";
@@ -540,7 +541,7 @@
             // 
             this.btnHangHoa.Caption = "Quản lý hàng";
             this.btnHangHoa.Id = 34;
-            this.btnHangHoa.ImageOptions.Image = global::GiaoDien.Properties.Resources.tải_xuống;
+            this.btnHangHoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHangHoa.ImageOptions.Image")));
             this.btnHangHoa.Name = "btnHangHoa";
             this.btnHangHoa.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnHangHoa.Tag = "QLHang";
@@ -654,17 +655,18 @@
             // 
             this.btnNhapHang.Caption = "Nhập hàng";
             this.btnNhapHang.Id = 55;
-            this.btnNhapHang.ImageOptions.Image = global::GiaoDien.Properties.Resources.if_hot_dogs_truck_food_delivery_street_3558109;
+            this.btnNhapHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapHang.ImageOptions.Image")));
             this.btnNhapHang.Name = "btnNhapHang";
             this.btnNhapHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnNhapHang.Tag = "NhapHang";
             this.btnNhapHang.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnNhapHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapHang_ItemClick);
             // 
             // btnkhuyenmai
             // 
             this.btnkhuyenmai.Caption = "Khuyến mãi";
             this.btnkhuyenmai.Id = 56;
-            this.btnkhuyenmai.ImageOptions.Image = global::GiaoDien.Properties.Resources.images1;
+            this.btnkhuyenmai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnkhuyenmai.ImageOptions.Image")));
             this.btnkhuyenmai.Name = "btnkhuyenmai";
             this.btnkhuyenmai.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnkhuyenmai.Tag = "KhuyenMai";
@@ -816,7 +818,7 @@
             // 
             this.btnBanHang.Caption = "Bán hàng";
             this.btnBanHang.Id = 76;
-            this.btnBanHang.ImageOptions.Image = global::GiaoDien.Properties.Resources.ban_hang1;
+            this.btnBanHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBanHang.ImageOptions.Image")));
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnBanHang.Tag = "BanHang";
@@ -834,7 +836,7 @@
             // 
             this.btnqlnguoidung.Caption = "Quản lý người dùng";
             this.btnqlnguoidung.Id = 78;
-            this.btnqlnguoidung.ImageOptions.Image = global::GiaoDien.Properties.Resources.if_preferences_contact_list_24249;
+            this.btnqlnguoidung.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnqlnguoidung.ImageOptions.Image")));
             this.btnqlnguoidung.Name = "btnqlnguoidung";
             this.btnqlnguoidung.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnqlnguoidung.Tag = "QLNguoiDung";
@@ -845,7 +847,7 @@
             // 
             this.btnthemngdungvaonhom.Caption = "Thêm người dùng vào nhóm";
             this.btnthemngdungvaonhom.Id = 79;
-            this.btnthemngdungvaonhom.ImageOptions.Image = global::GiaoDien.Properties.Resources.AddUsers;
+            this.btnthemngdungvaonhom.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnthemngdungvaonhom.ImageOptions.Image")));
             this.btnthemngdungvaonhom.Name = "btnthemngdungvaonhom";
             this.btnthemngdungvaonhom.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnthemngdungvaonhom.Tag = "TNND";
@@ -886,7 +888,7 @@
             // 
             this.btnphanquyen.Caption = "Phân quyền theo nhóm";
             this.btnphanquyen.Id = 85;
-            this.btnphanquyen.ImageOptions.Image = global::GiaoDien.Properties.Resources.nguoi_su_dung;
+            this.btnphanquyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnphanquyen.ImageOptions.Image")));
             this.btnphanquyen.Name = "btnphanquyen";
             this.btnphanquyen.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnphanquyen.Tag = "MHPQ";
@@ -897,7 +899,7 @@
             // 
             this.btnloai.Caption = "Nhà cung cấp";
             this.btnloai.Id = 86;
-            this.btnloai.ImageOptions.Image = global::GiaoDien.Properties.Resources._1392798221_ả1;
+            this.btnloai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnloai.ImageOptions.Image")));
             this.btnloai.Name = "btnloai";
             this.btnloai.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnloai.Tag = "NCC";
@@ -908,7 +910,7 @@
             // 
             this.barButtonItem3.Caption = "Đổi mật khẩu";
             this.barButtonItem3.Id = 87;
-            this.barButtonItem3.ImageOptions.Image = global::GiaoDien.Properties.Resources.if_change_password_63985;
+            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem3.Tag = "DoiMK";
@@ -928,7 +930,7 @@
             // 
             this.btnDoiTra.Caption = "Đổi trả hàng";
             this.btnDoiTra.Id = 89;
-            this.btnDoiTra.ImageOptions.Image = global::GiaoDien.Properties.Resources.huong_dan_doi_tra_hang1;
+            this.btnDoiTra.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiTra.ImageOptions.Image")));
             this.btnDoiTra.Name = "btnDoiTra";
             this.btnDoiTra.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnDoiTra.Tag = "DoiTra";
@@ -957,6 +959,7 @@
             // 
             this.barButtonItem32.Caption = "Đơn hàng từ nhà cung cấp";
             this.barButtonItem32.Id = 93;
+            this.barButtonItem32.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem32.ImageOptions.Image")));
             this.barButtonItem32.Name = "barButtonItem32";
             this.barButtonItem32.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem32.Tag = "DonHang";
@@ -970,6 +973,7 @@
             this.ribbonPageGroup14,
             this.rpgSkins,
             this.ribbonPageGroup20});
+            this.ribbonPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.ImageOptions.Image")));
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Hệ thống";
             // 
@@ -1015,6 +1019,7 @@
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup13,
             this.ribbonPageGroup1});
+            this.ribbonPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage2.ImageOptions.Image")));
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Danh mục";
             // 
@@ -1147,10 +1152,10 @@
             // 
             this.xtraTabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.xtraTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl.Location = new System.Drawing.Point(0, 143);
+            this.xtraTabControl.Location = new System.Drawing.Point(0, 162);
             this.xtraTabControl.Name = "xtraTabControl";
             this.xtraTabControl.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl.Size = new System.Drawing.Size(1356, 593);
+            this.xtraTabControl.Size = new System.Drawing.Size(1356, 574);
             this.xtraTabControl.TabIndex = 3;
             this.xtraTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -1161,7 +1166,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.layoutControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1350, 565);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1350, 546);
             this.xtraTabPage1.Text = "Giới thiệu";
             // 
             // layoutControl1
@@ -1172,7 +1177,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(753, 450, 650, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1350, 565);
+            this.layoutControl1.Size = new System.Drawing.Size(1350, 546);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -1191,7 +1196,7 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Location = new System.Drawing.Point(12, 12);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1326, 541);
+            this.panelControl1.Size = new System.Drawing.Size(1326, 522);
             this.panelControl1.TabIndex = 4;
             // 
             // label9
@@ -1311,7 +1316,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1350, 565);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1350, 546);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -1319,16 +1324,16 @@
             this.layoutControlItem1.Control = this.panelControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1330, 545);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1330, 526);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 143);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 162);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1356, 624);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1356, 605);
             this.fluentDesignFormContainer1.TabIndex = 6;
             // 
             // ribbonPageGroup2

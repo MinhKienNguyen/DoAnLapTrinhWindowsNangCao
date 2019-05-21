@@ -16,6 +16,7 @@ namespace GiaoDien
         public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
         private string tenDangNhap;
         public string TenNhanVien { get => tenNhanVien; set => tenNhanVien = value; }
+        
 
         NguoiDungNhomNgDungModel _nguoiDungNhomNgDungModel = new NguoiDungNhomNgDungModel();
         PhanQuyenModel _phanQuyenModel = new PhanQuyenModel();
@@ -244,6 +245,12 @@ namespace GiaoDien
         {
             UC_NhaCungCap ncc = new UC_NhaCungCap();
             AddTabControl(ncc, "Danh mục nhà cung cấp");
+        }
+
+        private void btnNhapHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_NhapHang uC_Nhap = new UC_NhapHang();
+            AddTabControl(uC_Nhap, "Nhập hàng");
         }
     }
 }
