@@ -60,7 +60,7 @@ namespace GiaoDien.Views
             string strCode = string.Empty;
             for (int i = 0; i < i + 1; i++)
             {
-                int dtCout = _nhanvienModel.GetEmployessCde("NV0000" + i).Rows.Count;
+                int dtCout = _nhanvienModel.GetEmployessCde("NV0000" + i).Rows.Count; 
                 if (dtCout == 0)
                 {
                     strCode = "NV0000" + i;
