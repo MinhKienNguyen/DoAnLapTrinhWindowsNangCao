@@ -24,5 +24,20 @@ namespace GiaoDien.Controllers
         {
             return _unity.filldb("HH_HangHoa_InsertEmployess", Image);
         }
+
+        public DataTable GetDataHangHoaDonHang(string _maNhapHang)
+        {
+            return _unity.filldb("PH_CT_DatHang_GetData", _maNhapHang);
+        }
+
+        public DataTable InsertHangHoa(string _maHang, string _tenLoaiHang, string _barcode, string _tenHang, byte[] Image, string _maLoaiHang, string _maGia)
+        {
+            return _unity.filldb("HH_HangHoa_InsertOrUpdate", _maHang, _tenLoaiHang, _barcode, _tenHang, Image, _maLoaiHang, _maGia);
+        }
+
+        //public DataTable InsertCTHangHoa(string _maCT, string _maHang, string _maMau, string _maDVT, string _maSize, int _sl)
+        //{
+        //    return _unity.filldb("HH_CT_HangHoa_InsertOrUpdate", _maHang, _tenLoaiHang, _barcode, _tenHang, Image, _maLoaiHang, _maGia);
+        //}
     }
 }
