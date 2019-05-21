@@ -20,14 +20,18 @@ namespace GiaoDien.Models
             return _hangHoaControllers.GetImage(EmployessCde.ToString());
         }
 
-        public DataTable InsertEmployess( byte[] Image)
+        public DataTable InsertEmployess(string ma, byte[] Image)
         {
-            return _hangHoaControllers.InsertEmployess(Image);
+            return _hangHoaControllers.InsertEmployess(ma,Image);
         }
 
         public DataTable GetDataHangHoaDonHang(string _maNhapHang)
         {
             return _hangHoaControllers.GetDataHangHoaDonHang(_maNhapHang);
+        }
+        public DataTable Getlkloaihang()
+        {
+            return _hangHoaControllers.Getlkloaihang();
         }
     }
 }

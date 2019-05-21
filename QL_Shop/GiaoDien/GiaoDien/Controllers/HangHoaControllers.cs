@@ -20,9 +20,9 @@ namespace GiaoDien.Controllers
             var result = _unity.filldb("HH_HangHoa_GetImage", EmployessCde.ToString());
             return result;
         }
-        public DataTable InsertEmployess( byte[] Image)
+        public DataTable InsertEmployess( string ma ,byte[] Image)
         {
-            return _unity.filldb("HH_HangHoa_InsertEmployess", Image);
+            return _unity.filldb("HH_HangHoa_InsertEmployess",ma, Image);
         }
 
         public DataTable GetDataHangHoaDonHang(string _maNhapHang)
@@ -39,5 +39,9 @@ namespace GiaoDien.Controllers
         //{
         //    return _unity.filldb("HH_CT_HangHoa_InsertOrUpdate", _maHang, _tenLoaiHang, _barcode, _tenHang, Image, _maLoaiHang, _maGia);
         //}
+        public DataTable Getlkloaihang()
+        {
+            return _unity.filldb("HH_LoaiHangHoa_Getlkhanghoa");
+        }
     }
 }

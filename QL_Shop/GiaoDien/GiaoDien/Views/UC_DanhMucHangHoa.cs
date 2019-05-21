@@ -23,16 +23,30 @@ namespace GiaoDien.Views
         public UC_DanhMucHangHoa()
         {
             InitializeComponent();
+            LoadGridProduct();
+            Loadlkloaihang();          
+            lk_size.ReadOnly = true;
+            lk_mausac.ReadOnly = true;
+            txtGia.ReadOnly = true;
+            lk_dvt.ReadOnly = true;
+            lk_loaihang.ReadOnly = true;
+            txtSoLuong.ReadOnly = true;
         }
-
-       
+        #region "các hàm con"
         private void LoadGridProduct()
         {
             DataTable dt = _hangHoaModel.GetDataProduct(txtMaHH.Text, txtTenHH.Text);
             iDataSource = dt.Copy();
             grdHangHoa.DataSource = iDataSource.Copy();
         }
-
+        public void Loadlkloaihang()
+        {
+            DataTable dtDuty = _hangHoaModel.Getlkloaihang();
+            lk_loaihang.Properties.DataSource = dtDuty.Copy();
+            lk_loaihang.Properties.DisplayMember = "TenLoaiHangHoa";
+            lk_loaihang.Properties.ValueMember = "MaLoaiHangHoa";
+        }
+        #endregion
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadGridProduct();
@@ -43,17 +57,68 @@ namespace GiaoDien.Views
             DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
             txtMaHH.Text = row[0].ToString();
             txtTenHH.Text = row[1].ToString();
-            txtSize.Text = row[10].ToString();        
-            txtmausat.Text = row[8].ToString();
+            lk_size.Properties.NullText = row[10].ToString();        
+            lk_mausac.Properties.NullText = row[8].ToString();
             txtGia.Text = row[3].ToString();
-            txtdvt.Text = row[11].ToString();
-            txtlhang.Text = row[5].ToString();
+            lk_dvt.Properties.NullText = row[11].ToString();
+            lk_loaihang.Properties.NullText = row[5].ToString();
             txtSoLuong.Text = row[6].ToString();
             DataTable dt = _hangHoaModel.GetImage(txtMaHH.Text);       
           //  byte[] arrpic = (new UnicodeEncoding()).GetBytes(dt.Rows[0]["HinhAnh"].ToString());
            // pichinh.Image = _unityClass.CovertBytetoImage(arrpic);
         }
 
+        private void bt_chonanh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = Commons.FilterImage;
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                imgChonAnh.ImageLocation = openFileDialog.FileName;
+            }
+        }
 
+        private void bt_luu_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(imgChonAnh.ImageLocation))
+            {
+                XtraMessageBox.Show(Commons.ChooseImage, Commons.Notify, MessageBoxButtons.OK);
+                return;
+            }
+            DataTable dtCheckInsert;
+            byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
+            dtCheckInsert = _hangHoaModel.InsertEmployess(txtMaHH.Text, image);
+            if (dtCheckInsert.Rows.Count > 0 && dtCheckInsert != null)
+            {
+                XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
+                txtMaHH.Text = string.Empty;
+                txtTenHH.Text = string.Empty;
+                LoadGridProduct();
+                return;
+            }
+            XtraMessageBox.Show(Commons.InsertError, Commons.Notify, MessageBoxButtons.OK);
+
+        }
+
+        private void txtMaHH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.PerformClick();
+
+            }
+        }
+
+        private void txtTenHH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.PerformClick();
+
+            }
+        }
     }
 }
