@@ -22,6 +22,8 @@ namespace GiaoDien.Views
             InitializeComponent();
             LoadComboboxDuty();
             txtMaNV.Text = EmployessCde();
+            LoadGridEmployess();
+          //  lkuChucVu.ReadOnly = true;
         }
 
         /// <summary>
@@ -103,7 +105,7 @@ namespace GiaoDien.Views
                 XtraMessageBox.Show(Commons.WritePass, Commons.Notify, MessageBoxButtons.OK);
                 return;
             }
-            DataTable dtCheckInsert;
+            DataTable dtCheckInsert; 
             byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
             if (rdoNam.Checked == true)
             {
@@ -130,7 +132,8 @@ namespace GiaoDien.Views
         /// <param name="e"></param>
         private void btnThem_Click(object sender, EventArgs e)
         {
-            foreach(Control item in this.groupThongtinnhanvien.Controls)
+           // lkuChucVu.ReadOnly = false;
+            foreach (Control item in this.groupThongtinnhanvien.Controls)
             {
                 if (item.GetType() == typeof(TextEdit) || item.GetType() == typeof(LookUpEdit))
                 {
@@ -142,7 +145,7 @@ namespace GiaoDien.Views
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
-        {
+        {    
             DataRowView row = (DataRowView)tileViewNhanVien.GetRow(tileViewNhanVien.GetSelectedRows()[0]);
             bool checkDelete = _nhanvienModel.DeleteEmployess(row["MaNhanVien"].ToString(), row["Username"].ToString());
             if (checkDelete == false)
@@ -161,14 +164,15 @@ namespace GiaoDien.Views
 
         private void tileViewNhanVien_ItemDoubleClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
         {
-            DataRowView row = (DataRowView)tileViewNhanVien.GetRow(tileViewNhanVien.GetSelectedRows()[0]);
-            txtMaNV.Text = row[1].ToString();
-            txtTenNV.Text = row[2].ToString();
-            txtSDT.Text = row[7].ToString();
-            txtDiaChi.Text = row[4].ToString();
-            txtUser.Text = row[5].ToString();
-            txtPass.Text = row[6].ToString();
-            if(row[3].ToString().Trim() == Set.Nam)
+            
+            DataRowView row = (DataRowView)tileViewNhanVien.GetRow(tileViewNhanVien.GetSelectedRows()[0]);           
+            txtMaNV.Text = row[0].ToString();
+            txtTenNV.Text = row[1].ToString();
+            txtSDT.Text = row[6].ToString();
+            txtDiaChi.Text = row[3].ToString();
+            txtUser.Text = row[4].ToString();
+            txtPass.Text = row[5].ToString();
+            if(row[2].ToString().Trim() == Set.Nam)
             {
                 rdoNam.Checked = true;
                 rdoNu.Checked = false;
@@ -178,13 +182,23 @@ namespace GiaoDien.Views
                 rdoNam.Checked = false;
                 rdoNu.Checked = true;
             }
-            lkuChucVu.EditValue = row[9].ToString();
+           
+            lkuChucVu.Properties.NullText= row[9].ToString();
             DataTable dt = _nhanvienModel.GetImage(txtMaNV.Text);
             //BinaryFormatter bf = new BinaryFormatter();
             //MemoryStream ms = new MemoryStream();
             //bf.Serialize(ms, dt.Rows[0]["HinhAnhNV"]);
             //byte[] arrpic = (new UnicodeEncoding()).GetBytes(dt.Rows[0]["HinhAnhNV"].ToString());
             //imgChonAnh.Image = _unityClass.CovertBytetoImage(arrpic);
+        }
+
+        private void txtEmployessName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+
+            }
         }
     }
 }
