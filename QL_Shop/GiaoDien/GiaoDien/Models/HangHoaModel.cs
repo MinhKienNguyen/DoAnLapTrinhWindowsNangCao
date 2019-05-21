@@ -24,5 +24,10 @@ namespace GiaoDien.Models
         {
             return _hangHoaControllers.InsertEmployess(Image);
         }
+
+        public DataTable GetDataHangHoaDonHang(string _maNhapHang)
+        {
+            return _hangHoaControllers.GetDataHangHoaDonHang(_maNhapHang);
+        }
     }
 }
