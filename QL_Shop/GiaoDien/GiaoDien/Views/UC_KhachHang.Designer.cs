@@ -54,6 +54,7 @@
             this.CustPhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CustAdress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txt_makhachhang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupSearch)).BeginInit();
             this.groupSearch.SuspendLayout();
@@ -89,7 +90,7 @@
             this.txt_makhachhang.Name = "txt_makhachhang";
             this.txt_makhachhang.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_makhachhang.Properties.Appearance.Options.UseFont = true;
-            this.txt_makhachhang.Size = new System.Drawing.Size(279, 26);
+            this.txt_makhachhang.Size = new System.Drawing.Size(279, 28);
             this.txt_makhachhang.TabIndex = 33;
             // 
             // labelControl11
@@ -98,7 +99,7 @@
             this.labelControl11.Appearance.Options.UseFont = true;
             this.labelControl11.Location = new System.Drawing.Point(14, 34);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(96, 19);
+            this.labelControl11.Size = new System.Drawing.Size(123, 22);
             this.labelControl11.TabIndex = 34;
             this.labelControl11.Text = "Mã khách hàng:";
             // 
@@ -123,7 +124,7 @@
             this.lblTenKhachHang.Appearance.Options.UseFont = true;
             this.lblTenKhachHang.Location = new System.Drawing.Point(14, 66);
             this.lblTenKhachHang.Name = "lblTenKhachHang";
-            this.lblTenKhachHang.Size = new System.Drawing.Size(98, 19);
+            this.lblTenKhachHang.Size = new System.Drawing.Size(127, 22);
             this.lblTenKhachHang.TabIndex = 36;
             this.lblTenKhachHang.Text = "Tên khách hàng:";
             // 
@@ -134,7 +135,7 @@
             this.txt_tenkhachhang.Name = "txt_tenkhachhang";
             this.txt_tenkhachhang.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_tenkhachhang.Properties.Appearance.Options.UseFont = true;
-            this.txt_tenkhachhang.Size = new System.Drawing.Size(279, 26);
+            this.txt_tenkhachhang.Size = new System.Drawing.Size(279, 28);
             this.txt_tenkhachhang.TabIndex = 35;
             // 
             // txtmakh
@@ -145,7 +146,7 @@
             this.txtmakh.Name = "txtmakh";
             this.txtmakh.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmakh.Properties.Appearance.Options.UseFont = true;
-            this.txtmakh.Size = new System.Drawing.Size(278, 26);
+            this.txtmakh.Size = new System.Drawing.Size(278, 28);
             this.txtmakh.TabIndex = 3;
             // 
             // txttenkh
@@ -155,7 +156,7 @@
             this.txttenkh.Name = "txttenkh";
             this.txttenkh.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttenkh.Properties.Appearance.Options.UseFont = true;
-            this.txttenkh.Size = new System.Drawing.Size(278, 26);
+            this.txttenkh.Size = new System.Drawing.Size(278, 28);
             this.txttenkh.TabIndex = 4;
             // 
             // labelControl1
@@ -164,7 +165,7 @@
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(14, 44);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(99, 19);
+            this.labelControl1.Size = new System.Drawing.Size(129, 22);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Mã khách hàng::";
             // 
@@ -174,7 +175,7 @@
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(15, 79);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(98, 19);
+            this.labelControl2.Size = new System.Drawing.Size(127, 22);
             this.labelControl2.TabIndex = 7;
             this.labelControl2.Text = "Tên khách hàng:";
             // 
@@ -188,7 +189,7 @@
             this.txtsdt.Properties.Appearance.Options.UseFont = true;
             this.txtsdt.Properties.Mask.EditMask = "(999) 000-0000";
             this.txtsdt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.txtsdt.Size = new System.Drawing.Size(279, 26);
+            this.txtsdt.Size = new System.Drawing.Size(279, 28);
             this.txtsdt.TabIndex = 9;
             // 
             // labelControl4
@@ -197,7 +198,7 @@
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(15, 147);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(45, 19);
+            this.labelControl4.Size = new System.Drawing.Size(64, 22);
             this.labelControl4.TabIndex = 10;
             this.labelControl4.Text = "Địa chỉ:";
             // 
@@ -208,7 +209,7 @@
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdiachi.Properties.Appearance.Options.UseFont = true;
-            this.txtdiachi.Size = new System.Drawing.Size(279, 26);
+            this.txtdiachi.Size = new System.Drawing.Size(279, 28);
             this.txtdiachi.TabIndex = 15;
             // 
             // labelControl6
@@ -217,7 +218,7 @@
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(15, 112);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(82, 19);
+            this.labelControl6.Size = new System.Drawing.Size(110, 22);
             this.labelControl6.TabIndex = 16;
             this.labelControl6.Text = "Số điện thoại:";
             // 
@@ -293,11 +294,12 @@
             // 
             // griKhachHang
             // 
-            this.griKhachHang.Appearance.Row.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.griKhachHang.Appearance.Row.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.griKhachHang.Appearance.Row.Options.UseFont = true;
-            this.griKhachHang.AppearancePrint.Row.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.griKhachHang.AppearancePrint.Row.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.griKhachHang.AppearancePrint.Row.Options.UseFont = true;
             this.griKhachHang.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
             this.CustomerCode,
             this.CustName,
             this.CustPhone,
@@ -311,9 +313,9 @@
             // 
             // CustomerCode
             // 
-            this.CustomerCode.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerCode.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustomerCode.AppearanceCell.Options.UseFont = true;
-            this.CustomerCode.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerCode.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustomerCode.AppearanceHeader.Options.UseFont = true;
             this.CustomerCode.AppearanceHeader.Options.UseTextOptions = true;
             this.CustomerCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -321,14 +323,14 @@
             this.CustomerCode.FieldName = "MaKhachHang";
             this.CustomerCode.Name = "CustomerCode";
             this.CustomerCode.Visible = true;
-            this.CustomerCode.VisibleIndex = 0;
-            this.CustomerCode.Width = 50;
+            this.CustomerCode.VisibleIndex = 1;
+            this.CustomerCode.Width = 188;
             // 
             // CustName
             // 
-            this.CustName.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustName.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustName.AppearanceCell.Options.UseFont = true;
-            this.CustName.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustName.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustName.AppearanceHeader.Options.UseFont = true;
             this.CustName.AppearanceHeader.Options.UseTextOptions = true;
             this.CustName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -336,14 +338,14 @@
             this.CustName.FieldName = "TenKhachHang";
             this.CustName.Name = "CustName";
             this.CustName.Visible = true;
-            this.CustName.VisibleIndex = 1;
-            this.CustName.Width = 70;
+            this.CustName.VisibleIndex = 2;
+            this.CustName.Width = 265;
             // 
             // CustPhone
             // 
-            this.CustPhone.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustPhone.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustPhone.AppearanceCell.Options.UseFont = true;
-            this.CustPhone.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustPhone.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustPhone.AppearanceHeader.Options.UseFont = true;
             this.CustPhone.AppearanceHeader.Options.UseTextOptions = true;
             this.CustPhone.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -351,14 +353,14 @@
             this.CustPhone.FieldName = "SDT_KH";
             this.CustPhone.Name = "CustPhone";
             this.CustPhone.Visible = true;
-            this.CustPhone.VisibleIndex = 2;
-            this.CustPhone.Width = 50;
+            this.CustPhone.VisibleIndex = 3;
+            this.CustPhone.Width = 188;
             // 
             // CustAdress
             // 
-            this.CustAdress.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustAdress.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustAdress.AppearanceCell.Options.UseFont = true;
-            this.CustAdress.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustAdress.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.CustAdress.AppearanceHeader.Options.UseFont = true;
             this.CustAdress.AppearanceHeader.Options.UseTextOptions = true;
             this.CustAdress.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -366,7 +368,8 @@
             this.CustAdress.FieldName = "DiaChiKhachHang";
             this.CustAdress.Name = "CustAdress";
             this.CustAdress.Visible = true;
-            this.CustAdress.VisibleIndex = 3;
+            this.CustAdress.VisibleIndex = 4;
+            this.CustAdress.Width = 290;
             // 
             // gridControl1
             // 
@@ -378,9 +381,25 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.griKhachHang});
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn1.AppearanceCell.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.Caption = "STT";
+            this.gridColumn1.FieldName = "ROW";
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 82;
+            // 
             // UC_KhachHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupControl2);
@@ -435,5 +454,6 @@
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.SimpleButton btnXoa;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }
