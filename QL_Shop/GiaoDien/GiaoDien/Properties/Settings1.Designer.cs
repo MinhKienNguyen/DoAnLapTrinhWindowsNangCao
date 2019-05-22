@@ -59,5 +59,29 @@ namespace GiaoDien.Properties {
                 this["Pass"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MaNV {
+            get {
+                return ((string)(this["MaNV"]));
+            }
+            set {
+                this["MaNV"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TenNV {
+            get {
+                return ((string)(this["TenNV"]));
+            }
+            set {
+                this["TenNV"] = value;
+            }
+        }
     }
 }
