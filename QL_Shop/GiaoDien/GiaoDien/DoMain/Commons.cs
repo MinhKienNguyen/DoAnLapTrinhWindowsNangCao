@@ -34,11 +34,21 @@
         public const string Nu = "Nữ";
     }
 
-    public class ScanBarcode
+    public class Stautus
+    {
+        public const int Moi = 0;
+        public const int DangGiao = 1;
+        public const int HoanThanh = 2;
+    }
+public class ScanBarcode
     {
         public const string PhieuKhongTonTai = "Phiếu không tồn tại";
         public const string SoLuongQuetPhaiLon0 = "Số lượng phải lớn hơn không";
         public const string SoLuogLonHonSLQuet = "Số lượng mặt hàng vượt quá số lượng trong đơn";
         public const string HangKoTonTai = "Mặt hàng không tồn tại trong đơn hàng";
+        public const string SoLuongNhapThieu = "Số lượng nhập không đủ với số lượng đặt";
+        public const string BanMuonLuu = "Bạn có muốn nhập hàng không?";
+        public const string NhapThanhCong = "Nhập hàng thành công";
+        public const string NhapThatBai = "Nhập hàng thất bại";
     }
 }
