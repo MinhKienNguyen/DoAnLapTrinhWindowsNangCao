@@ -45,9 +45,9 @@ namespace GiaoDien.Models
             return _hangHoaControllers.InsertHangHoa(_maHang, _tenHang, _maLoaiHang, _maCT, _barcode, _maMau, _maDVT, _maSize, _SL);
         }
 
-        public bool UPdateStatusAndQuantity(string _maDH, int _trangThai, string _maCT_DH, int _SLGiao)
+        public bool UPdateStatusAndQuantity(string _maDH, int _trangThai, string _maCT_DH, int _SLGiao, decimal _tienNhan)
         {
-            return _hangHoaControllers.UPdateStatusAndQuantity(_maDH, _trangThai, _maCT_DH, _SLGiao);
+            return _hangHoaControllers.UPdateStatusAndQuantity(_maDH, _trangThai, _maCT_DH, _SLGiao, _tienNhan);
         }
 
         public DataTable GetDetailProduct(string _maCTHH)
