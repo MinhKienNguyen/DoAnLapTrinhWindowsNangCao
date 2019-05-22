@@ -8,7 +8,7 @@ namespace API.Controllers
     [RoutePrefix("api/nhaphang")]
     public class NhapHangController : ApiController
     {
-        private ShopTTEntities _shopDBEntities = new ShopTTEntities();
+        private ShopThoiTrangEntities _shopDBEntities = new ShopThoiTrangEntities();
         [HttpPost]
         [Route("InsertPhDat")]
         public HttpResponseMessage InsertPhDat(PH_PhieuDatHang datHang)
@@ -34,7 +34,7 @@ namespace API.Controllers
             {
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 _shopDBEntities.PH_CT_PhieuDat.Add(ph_ct_PhieuDat);
-                _shopDBEntities.SaveChanges();
+                _shopDBEntities.SaveChanges(); 
                 return result;
             }
             catch
