@@ -27,10 +27,11 @@ namespace GiaoDien.Views
             Loadlkloaihang();          
             lk_size.ReadOnly = true;
             lk_mausac.ReadOnly = true;
-            txtGia.ReadOnly = true;
+            txtGianhap.ReadOnly = true;
             lk_dvt.ReadOnly = true;
             lk_loaihang.ReadOnly = true;
             txtSoLuong.ReadOnly = true;
+            txt_Barcode.ReadOnly = true;
         }
         #region "các hàm con"
         private void LoadGridProduct()
@@ -59,13 +60,15 @@ namespace GiaoDien.Views
             txtTenHH.Text = row[1].ToString();
             lk_size.Properties.NullText = row[10].ToString();        
             lk_mausac.Properties.NullText = row[8].ToString();
-            txtGia.Text = row[3].ToString();
+            txtGianhap.Text = row[13].ToString();
+            txtgiaban.Text = row[3].ToString();
             lk_dvt.Properties.NullText = row[11].ToString();
             lk_loaihang.Properties.NullText = row[5].ToString();
             txtSoLuong.Text = row[6].ToString();
-            DataTable dt = _hangHoaModel.GetImage(txtMaHH.Text);       
-          //  byte[] arrpic = (new UnicodeEncoding()).GetBytes(dt.Rows[0]["HinhAnh"].ToString());
-           // pichinh.Image = _unityClass.CovertBytetoImage(arrpic);
+            txt_Barcode.Text = row[12].ToString();
+             
+           //byte[] arrpic = (new UnicodeEncoding()).GetBytes(dt.Rows[0]["HinhAnh"].ToString());
+           // imgChonAnh.Image = _unityClass.CovertBytetoImage(arrpic);
         }
 
         private void bt_chonanh_Click(object sender, EventArgs e)
@@ -88,10 +91,11 @@ namespace GiaoDien.Views
                 XtraMessageBox.Show(Commons.ChooseImage, Commons.Notify, MessageBoxButtons.OK);
                 return;
             }
-            DataTable dtCheckInsert;
+         
             byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
-            dtCheckInsert = _hangHoaModel.InsertEmployess(txtMaHH.Text, image);
-            if (dtCheckInsert.Rows.Count > 0 && dtCheckInsert != null)
+            DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
+            string mau = row[7].ToString();
+            if (_hangHoaModel.UpdateGiaHinhAnh(txtMaHH.Text, mau, image, txtgiaban.Text))
             {
                 XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
                 txtMaHH.Text = string.Empty;
