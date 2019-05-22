@@ -252,5 +252,10 @@ namespace GiaoDien
             UC_NhapHang uC_Nhap = new UC_NhapHang();
             AddTabControl(uC_Nhap, "Nhập hàng");
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

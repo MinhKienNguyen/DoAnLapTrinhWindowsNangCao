@@ -170,6 +170,8 @@ namespace GiaoDien.Views
                 dr["MaMau"] = drRow["MaMau"];
                 dr["TenSize"] = drRow["TenSize"];
                 dr["MaSize"] = drRow["MaSize"];
+                dr["MaDVT"] = drRow["MaDVT"];
+                dr["TenDonViTinh"] = drRow["TenDonViTinh"];
                 dr["SoLuongHangDat"] = drRow["SoLuongHangDat"];
                 dr["SoLuongGiao"] = quantityBarcode;
                 dr["DonGiaDat"] = drRow["DonGiaDat"];
@@ -207,6 +209,96 @@ namespace GiaoDien.Views
             {
                 return;
             }
+        }
+
+        private void btnNhapHang_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.iGridDataSource == null || this.iGridDataSource.Rows.Count <= 0 || this.iGridDataSourceScanBarCode == null || this.iGridDataSourceScanBarCode.Rows.Count <= 0)
+                {
+                    XtraMessageBox.Show(ScanBarcode.PhieuKhongTonTai, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
+                int sumQuantity = Convert.ToInt32(this.iGridDataSource.Compute("sum(SoLuongHangDat)", "").ToString());
+                int sumQuantityScan = Convert.ToInt32(this.iGridDataSourceScanBarCode.Compute("sum(SoLuongGiao)", "").ToString());
+                if (sumQuantity != sumQuantityScan)
+                {
+                    XtraMessageBox.Show(ScanBarcode.SoLuongNhapThieu, Commons.Notify, MessageBoxButtons.OK);
+                    if (XtraMessageBox.Show(ScanBarcode.BanMuonLuu, Commons.Notify, MessageBoxButtons.YesNo) != DialogResult.No)
+                    {
+                        if (InsertOrUpdateProduct())
+                        {
+                            XtraMessageBox.Show(ScanBarcode.NhapThanhCong, Commons.Notify, MessageBoxButtons.OK);
+                            return;
+                        }
+                        XtraMessageBox.Show(ScanBarcode.NhapThatBai, Commons.Notify, MessageBoxButtons.OK);
+                        return;
+                    }
+                }
+                if (InsertOrUpdateProduct())
+                {
+                    XtraMessageBox.Show(ScanBarcode.NhapThanhCong, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
+                XtraMessageBox.Show(ScanBarcode.NhapThatBai, Commons.Notify, MessageBoxButtons.OK);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
+
+        private bool InsertOrUpdateProduct()
+        {
+            
+            using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
+                    new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+            {
+                foreach (DataRow dr in this.iGridDataSourceScanBarCode.Rows)
+                {
+                    string _maCTHH = MaCTHangHoa();
+                    if (_hangModel.InsertHangHoa(
+                        dr["MaHangHoa"].ToString(),
+                        dr["TenHangHoa"].ToString(),
+                        dr["MaLoaiHangHoa"].ToString(),
+                        _maCTHH.ToString(),
+                        dr["Barcode"].ToString(),
+                        dr["MaMau"].ToString(),
+                        dr["MaDVT"].ToString(),
+                        dr["MaSize"].ToString(),
+                        Convert.ToInt32(dr["SoLuongGiao"].ToString())) == false)
+                    {
+                        return false;
+                    }
+                    if (_hangModel.UPdateStatusAndQuantity(
+                         dr["MaPhieuDH"].ToString(),
+                         Stautus.DangGiao,
+                         dr["MaCT_PhieuDat"].ToString(),
+                         Convert.ToInt32(dr["SoLuongGiao"].ToString())) == false)
+                    {
+                        return false;
+                    }
+                }
+                tran.Complete();
+                return true;
+            }
+        }
+
+        public string MaCTHangHoa()
+        {
+            string strCode = string.Empty;
+            for (int i = 0; i < i + 1; i++)
+            {
+                int dtCout = _hangModel.GetDetailProduct("MCT000" + i).Rows.Count;
+                if (dtCout == 0)
+                {
+                    strCode = "MCT000" + i;
+                    break;
+                }
+            }
+            return strCode;
         }
     }
 }

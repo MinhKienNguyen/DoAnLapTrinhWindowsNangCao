@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_NhapHang));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtNVLap = new DevExpress.XtraEditors.TextEdit();
             this.txtTongTien = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -56,9 +56,6 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtBarcode = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtNumberScan = new DevExpress.XtraEditors.TextEdit();
             this.grdScanBarCode = new DevExpress.XtraGrid.GridControl();
             this.gridViewScanBarcode = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colxoa = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,9 +65,12 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.btnNhapHang = new DevExpress.XtraEditors.SimpleButton();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtNumberScan = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnNhapHang = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtNVLap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhap.Properties)).BeginInit();
@@ -84,11 +84,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumberScan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdScanBarCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewScanBarcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumberScan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNVLap
@@ -385,42 +385,6 @@
             this.txtBarcode.TabIndex = 52;
             this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(348, 33);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(113, 19);
-            this.labelControl2.TabIndex = 51;
-            this.labelControl2.Text = "Barcode sản phẩm";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(11, 33);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(85, 19);
-            this.labelControl1.TabIndex = 50;
-            this.labelControl1.Text = "Số lượng quét";
-            // 
-            // txtNumberScan
-            // 
-            this.txtNumberScan.EditValue = "";
-            this.txtNumberScan.Location = new System.Drawing.Point(103, 30);
-            this.txtNumberScan.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumberScan.Name = "txtNumberScan";
-            this.txtNumberScan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumberScan.Properties.Appearance.Options.UseFont = true;
-            this.txtNumberScan.Properties.Mask.EditMask = "n0";
-            this.txtNumberScan.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtNumberScan.Properties.ReadOnly = true;
-            this.txtNumberScan.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtNumberScan.Size = new System.Drawing.Size(195, 26);
-            this.txtNumberScan.TabIndex = 49;
-            this.txtNumberScan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumberScan_KeyDown);
-            // 
             // grdScanBarCode
             // 
             this.grdScanBarCode.Location = new System.Drawing.Point(0, 63);
@@ -462,9 +426,9 @@
             // btnXoa
             // 
             this.btnXoa.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -552,24 +516,6 @@
             this.gridColumn14.VisibleIndex = 4;
             this.gridColumn14.Width = 87;
             // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHang.Appearance.Options.UseFont = true;
-            this.btnNhapHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapKho.ImageOptions.Image")));
-            this.btnNhapHang.Location = new System.Drawing.Point(1231, 3);
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(111, 44);
-            this.btnNhapHang.TabIndex = 36;
-            this.btnNhapHang.Text = "Nhập hàng";
-            // 
             // gridColumn4
             // 
             this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
@@ -586,6 +532,61 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 5;
             this.gridColumn4.Width = 151;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(348, 33);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(113, 19);
+            this.labelControl2.TabIndex = 51;
+            this.labelControl2.Text = "Barcode sản phẩm";
+            // 
+            // txtNumberScan
+            // 
+            this.txtNumberScan.EditValue = "";
+            this.txtNumberScan.Location = new System.Drawing.Point(103, 30);
+            this.txtNumberScan.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumberScan.Name = "txtNumberScan";
+            this.txtNumberScan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumberScan.Properties.Appearance.Options.UseFont = true;
+            this.txtNumberScan.Properties.Mask.EditMask = "n0";
+            this.txtNumberScan.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtNumberScan.Properties.ReadOnly = true;
+            this.txtNumberScan.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtNumberScan.Size = new System.Drawing.Size(195, 26);
+            this.txtNumberScan.TabIndex = 49;
+            this.txtNumberScan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumberScan_KeyDown);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(11, 33);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(85, 19);
+            this.labelControl1.TabIndex = 50;
+            this.labelControl1.Text = "Số lượng quét";
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHang.Appearance.Options.UseFont = true;
+            this.btnNhapHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapHang.ImageOptions.Image")));
+            this.btnNhapHang.Location = new System.Drawing.Point(1231, 3);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Size = new System.Drawing.Size(111, 44);
+            this.btnNhapHang.TabIndex = 36;
+            this.btnNhapHang.Text = "Nhập hàng";
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
             // UC_NhapHang
             // 
@@ -613,11 +614,11 @@
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumberScan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdScanBarCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewScanBarcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumberScan.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

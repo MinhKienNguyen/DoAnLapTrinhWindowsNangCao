@@ -171,6 +171,7 @@
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem43 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar2)).BeginInit();
@@ -298,9 +299,10 @@
             this.btnDoiTra,
             this.btItemMH,
             this.lableTim,
-            this.barButtonItem32});
+            this.barButtonItem32,
+            this.barButtonItem43});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 94;
+            this.ribbonControl1.MaxItemId = 95;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -715,7 +717,7 @@
             // 
             this.barButtonItem50.Caption = "Thông tin";
             this.barButtonItem50.Id = 62;
-            this.barButtonItem50.ImageOptions.Image = global::GiaoDien.Properties.Resources.customer_service;
+            this.barButtonItem50.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem50.ImageOptions.Image")));
             this.barButtonItem50.Name = "barButtonItem50";
             this.barButtonItem50.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem50.Tag = "ThongTin";
@@ -870,9 +872,9 @@
             // 
             // barButtonItem9
             // 
-            this.barButtonItem9.Caption = "Hóa đơn xuất";
+            this.barButtonItem9.Caption = "Hàng tồn kho";
             this.barButtonItem9.Id = 82;
-            this.barButtonItem9.ImageOptions.Image = global::GiaoDien.Properties.Resources.if_12_File_290138;
+            this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
             this.barButtonItem9.Name = "barButtonItem9";
             this.barButtonItem9.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem9.Tag = "XuatHD";
@@ -1050,6 +1052,7 @@
             this.ribbonPageGroup12,
             this.ribbonPageGroup17,
             this.ribbonPageGroup8});
+            this.ribbonPage3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.ImageOptions.Image")));
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Nghiệp vụ";
             // 
@@ -1086,6 +1089,7 @@
             this.ribbonPageGroup5,
             this.ribbonPageGroup10,
             this.ribbonPageGroup15});
+            this.ribbonPage5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage5.ImageOptions.Image")));
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "Báo cáo";
             // 
@@ -1120,6 +1124,7 @@
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4,
             this.ribbonPageGroup19});
+            this.ribbonPage4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage4.ImageOptions.Image")));
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "Trợ giúp";
             // 
@@ -1233,10 +1238,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(464, 357);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(264, 26);
+            this.label8.Size = new System.Drawing.Size(138, 39);
             this.label8.TabIndex = 13;
-            this.label8.Text = "+ Xem thông tin đơn, hủy đơn hàng\r\n+ Xem thông tin giao hàng, sắp xếp nhân viên g" +
-    "iao,..";
+            this.label8.Text = "+ Xem thông tin đơn hàng\r\n+ Xem thông tin nhập hàng\r\n+ Bán hàng";
             // 
             // label5
             // 
@@ -1253,11 +1257,11 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(464, 243);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(219, 65);
+            this.label6.Size = new System.Drawing.Size(174, 52);
             this.label6.TabIndex = 11;
-            this.label6.Text = "+ Thẽm, Xóa, Sửa nhân viên\r\n+ Thẽm, Xóa, Sửa thực phẩm\r\n+ Thẽm, Xóa, Sửa mã khuyễ" +
-    "n mãi\r\n+ Thẽm, Xóa, Sửa hình thức thanh toán,....\r\n+ Tìm kiếm thông tin khách hà" +
-    "ng,..";
+            this.label6.Text = "+ Thẽm, Xóa, Sửa nhân viên\r\n+ Thẽm, Xóa, Sửa hàng hóa\r\n+ Thẽm, Xóa, Sửa mã khuyễn" +
+    " mãi\r\n+ Tìm kiếm thông tin khách hàng,..";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label4
             // 
@@ -1402,6 +1406,12 @@
             this.barButtonItem30.Id = 56;
             this.barButtonItem30.Name = "barButtonItem30";
             this.barButtonItem30.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // barButtonItem43
+            // 
+            this.barButtonItem43.Caption = "barButtonItem43";
+            this.barButtonItem43.Id = 94;
+            this.barButtonItem43.Name = "barButtonItem43";
             // 
             // frmMain
             // 
@@ -1590,6 +1600,7 @@
         private DevExpress.XtraBars.BarButtonItem btItemMH;
         private DevExpress.XtraBars.BarStaticItem lableTim;
         private DevExpress.XtraBars.BarButtonItem barButtonItem32;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem43;
     }
 }
 
