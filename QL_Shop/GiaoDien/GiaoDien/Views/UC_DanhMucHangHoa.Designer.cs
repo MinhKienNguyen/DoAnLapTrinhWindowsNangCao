@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_DanhMucHangHoa));
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.ColImageNV = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.NameNV = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.grpttthucp = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.txtgiaban = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_Barcode = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.lk_loaihang = new DevExpress.XtraEditors.LookUpEdit();
             this.lk_dvt = new DevExpress.XtraEditors.LookUpEdit();
@@ -61,14 +67,10 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdHangHoa = new DevExpress.XtraGrid.GridControl();
             this.tileViewHangHoa = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_Barcode = new DevExpress.XtraEditors.TextEdit();
-            this.txtgiaban = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.grpttthucp)).BeginInit();
             this.grpttthucp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtgiaban.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Barcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_loaihang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_dvt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_mausac.Properties)).BeginInit();
@@ -80,8 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaHH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdHangHoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileViewHangHoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_Barcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtgiaban.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ColImageNV
@@ -96,6 +96,10 @@
             // 
             // NameNV
             // 
+            this.NameNV.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameNV.AppearanceCell.Options.UseFont = true;
+            this.NameNV.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameNV.AppearanceHeader.Options.UseFont = true;
             this.NameNV.Caption = "tileViewColumn1";
             this.NameNV.FieldName = "TenHangHoa";
             this.NameNV.MinWidth = 23;
@@ -142,6 +146,72 @@
             this.grpttthucp.Size = new System.Drawing.Size(430, 666);
             this.grpttthucp.TabIndex = 32;
             this.grpttthucp.Text = "Thông Tin Hàng";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(372, 260);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(41, 22);
+            this.labelControl11.TabIndex = 64;
+            this.labelControl11.Text = "VNĐ";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(373, 293);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(41, 22);
+            this.labelControl10.TabIndex = 63;
+            this.labelControl10.Text = "VNĐ";
+            // 
+            // txtgiaban
+            // 
+            this.txtgiaban.EditValue = "";
+            this.txtgiaban.Location = new System.Drawing.Point(108, 290);
+            this.txtgiaban.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtgiaban.Name = "txtgiaban";
+            this.txtgiaban.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtgiaban.Properties.Appearance.Options.UseFont = true;
+            this.txtgiaban.Size = new System.Drawing.Size(259, 28);
+            this.txtgiaban.TabIndex = 62;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(8, 296);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(67, 22);
+            this.labelControl9.TabIndex = 61;
+            this.labelControl9.Text = "Giá bán ";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(4, 154);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(78, 22);
+            this.labelControl8.TabIndex = 60;
+            this.labelControl8.Text = "Barcode :";
+            // 
+            // txt_Barcode
+            // 
+            this.txt_Barcode.EditValue = "";
+            this.txt_Barcode.Location = new System.Drawing.Point(108, 150);
+            this.txt_Barcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Barcode.Name = "txt_Barcode";
+            this.txt_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Barcode.Properties.Appearance.Options.UseFont = true;
+            this.txt_Barcode.Size = new System.Drawing.Size(305, 28);
+            this.txt_Barcode.TabIndex = 59;
             // 
             // btnSearch
             // 
@@ -235,12 +305,12 @@
             this.bt_luu.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_luu.Appearance.Options.UseFont = true;
             this.bt_luu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_luu.ImageOptions.Image")));
-            this.bt_luu.Location = new System.Drawing.Point(291, 476);
+            this.bt_luu.Location = new System.Drawing.Point(301, 620);
             this.bt_luu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bt_luu.Name = "bt_luu";
-            this.bt_luu.Size = new System.Drawing.Size(124, 34);
+            this.bt_luu.Size = new System.Drawing.Size(124, 40);
             this.bt_luu.TabIndex = 34;
-            this.bt_luu.Text = "Lưu ảnh";
+            this.bt_luu.Text = "Lưu";
             this.bt_luu.Click += new System.EventHandler(this.bt_luu_Click);
             // 
             // bt_chonanh
@@ -248,7 +318,7 @@
             this.bt_chonanh.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_chonanh.Appearance.Options.UseFont = true;
             this.bt_chonanh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_chonanh.ImageOptions.Image")));
-            this.bt_chonanh.Location = new System.Drawing.Point(291, 409);
+            this.bt_chonanh.Location = new System.Drawing.Point(291, 420);
             this.bt_chonanh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bt_chonanh.Name = "bt_chonanh";
             this.bt_chonanh.Size = new System.Drawing.Size(124, 34);
@@ -284,7 +354,7 @@
             this.btnhuy.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhuy.Appearance.Options.UseFont = true;
             this.btnhuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnhuy.ImageOptions.Image")));
-            this.btnhuy.Location = new System.Drawing.Point(278, 615);
+            this.btnhuy.Location = new System.Drawing.Point(160, 620);
             this.btnhuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(125, 40);
@@ -329,7 +399,7 @@
             this.btnXuatExcel.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXuatExcel.Appearance.Options.UseFont = true;
             this.btnXuatExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatExcel.ImageOptions.Image")));
-            this.btnXuatExcel.Location = new System.Drawing.Point(126, 615);
+            this.btnXuatExcel.Location = new System.Drawing.Point(8, 620);
             this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(138, 40);
@@ -448,86 +518,20 @@
             this.tileViewHangHoa.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileViewHangHoa.OptionsTiles.RowCount = 0;
             this.tileViewHangHoa.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
-            tableRowDefinition3.Length.Value = 132D;
-            tableRowDefinition4.Length.Value = 32D;
-            this.tileViewHangHoa.TileRows.Add(tableRowDefinition3);
-            this.tileViewHangHoa.TileRows.Add(tableRowDefinition4);
-            tileViewItemElement3.Column = this.ColImageNV;
-            tileViewItemElement3.Text = "ColImageNV";
-            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement4.Column = this.NameNV;
-            tileViewItemElement4.RowIndex = 1;
-            tileViewItemElement4.Text = "NameNV";
-            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement3);
-            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement4);
+            tableRowDefinition1.Length.Value = 132D;
+            tableRowDefinition2.Length.Value = 32D;
+            this.tileViewHangHoa.TileRows.Add(tableRowDefinition1);
+            this.tileViewHangHoa.TileRows.Add(tableRowDefinition2);
+            tileViewItemElement1.Column = this.ColImageNV;
+            tileViewItemElement1.Text = "ColImageNV";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.Column = this.NameNV;
+            tileViewItemElement2.RowIndex = 1;
+            tileViewItemElement2.Text = "NameNV";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement1);
+            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement2);
             this.tileViewHangHoa.Click += new System.EventHandler(this.tileViewHangHoa_Click);
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(4, 154);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(78, 22);
-            this.labelControl8.TabIndex = 60;
-            this.labelControl8.Text = "Barcode :";
-            // 
-            // txt_Barcode
-            // 
-            this.txt_Barcode.EditValue = "";
-            this.txt_Barcode.Location = new System.Drawing.Point(108, 150);
-            this.txt_Barcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_Barcode.Name = "txt_Barcode";
-            this.txt_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Barcode.Properties.Appearance.Options.UseFont = true;
-            this.txt_Barcode.Size = new System.Drawing.Size(305, 28);
-            this.txt_Barcode.TabIndex = 59;
-            // 
-            // txtgiaban
-            // 
-            this.txtgiaban.EditValue = "";
-            this.txtgiaban.Location = new System.Drawing.Point(108, 290);
-            this.txtgiaban.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtgiaban.Name = "txtgiaban";
-            this.txtgiaban.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtgiaban.Properties.Appearance.Options.UseFont = true;
-            this.txtgiaban.Size = new System.Drawing.Size(259, 28);
-            this.txtgiaban.TabIndex = 62;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(8, 296);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(67, 22);
-            this.labelControl9.TabIndex = 61;
-            this.labelControl9.Text = "Giá bán ";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(373, 293);
-            this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(41, 22);
-            this.labelControl10.TabIndex = 63;
-            this.labelControl10.Text = "VNĐ";
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(372, 260);
-            this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(41, 22);
-            this.labelControl11.TabIndex = 64;
-            this.labelControl11.Text = "VNĐ";
             // 
             // UC_DanhMucHangHoa
             // 
@@ -541,6 +545,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpttthucp)).EndInit();
             this.grpttthucp.ResumeLayout(false);
             this.grpttthucp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtgiaban.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Barcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_loaihang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_dvt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lk_mausac.Properties)).EndInit();
@@ -552,8 +558,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaHH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdHangHoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileViewHangHoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_Barcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtgiaban.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

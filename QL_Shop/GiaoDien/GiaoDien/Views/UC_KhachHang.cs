@@ -20,13 +20,16 @@ namespace GiaoDien.Views
         public UC_KhachHang()
         {
             InitializeComponent();
-
+            LoadGridKhachHang();
+            txt_tongtien.ReadOnly = true;
+            txt_mathe.ReadOnly = true;
+            txtmakh.ReadOnly = true;
 
         }
         /// <summary>
         /// load dữ liệu ln gricontrol
         /// </summary>
-        public void LoadGridEmployess()
+        public void LoadGridKhachHang()
         {
             string S = txt_tenkhachhang.Text;
             DataTable dt = _khachHangModels.GetEmployees(txt_tenkhachhang.Text,txt_makhachhang.Text);
@@ -36,16 +39,12 @@ namespace GiaoDien.Views
         
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            LoadGridEmployess();
+            LoadGridKhachHang();
         }
 
         private void griKhachHang_Click(object sender, EventArgs e)
         {
-            DataRowView row = (DataRowView)griKhachHang.GetRow(griKhachHang.GetSelectedRows()[0]);
-            txtmakh.Text = row[0].ToString();
-            txttenkh.Text = row[1].ToString();
-            txtsdt.Text = row[3].ToString();
-            txtdiachi.Text = row[2].ToString();               
+           
         }
         public string EmployessCde()
         {
@@ -71,7 +70,8 @@ namespace GiaoDien.Views
                     item.Text = string.Empty;
                 }
             }
-            txtmakh.Text = EmployessCde();       
+            txtmakh.Text = EmployessCde();
+            txt_mathe.ReadOnly = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -82,13 +82,13 @@ namespace GiaoDien.Views
                 return;
             }
             DataTable dtCheckInsert;
-            dtCheckInsert = _khachHangModels.InsertEmployess(txtmakh.Text, txttenkh.Text, txtdiachi.Text,txtsdt.Text);
+            dtCheckInsert = _khachHangModels.InsertEmployess(txtmakh.Text, txt_mathe.Text, txttenkh.Text, txtdiachi.Text,txtsdt.Text);
 
             if (dtCheckInsert.Rows.Count > 0 && dtCheckInsert != null)
             {
                 XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
                 txtmakh.Text = EmployessCde();
-                LoadGridEmployess();
+                LoadGridKhachHang();
                 return;
             }
             XtraMessageBox.Show(Commons.InsertError, Commons.Notify, MessageBoxButtons.OK);
@@ -105,7 +105,19 @@ namespace GiaoDien.Views
                 return;
             }
             XtraMessageBox.Show(Commons.DeleteFinish, Commons.Notify, MessageBoxButtons.OK);
-            LoadGridEmployess();
+            LoadGridKhachHang();
+        }
+
+        private void griKhachHang_DoubleClick(object sender, EventArgs e)
+        {
+            txt_mathe.ReadOnly = true;
+            DataRowView row = (DataRowView)griKhachHang.GetRow(griKhachHang.GetSelectedRows()[0]);
+            txtmakh.Text = row[0].ToString();
+            txttenkh.Text = row[2].ToString();
+            txtsdt.Text = row[4].ToString();
+            txtdiachi.Text = row[3].ToString();
+            txt_mathe.Text = row[1].ToString();
+            txt_tongtien.Text = row[5].ToString();
         }
     }
 }
