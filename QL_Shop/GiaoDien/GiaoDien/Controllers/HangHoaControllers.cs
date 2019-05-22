@@ -59,13 +59,13 @@ namespace GiaoDien.Controllers
         }
 
 
-        public bool UPdateStatusAndQuantity(string _maDH, int _trangThai, string _maCT_DH, int _SLGiao)
+        public bool UPdateStatusAndQuantity(string _maDH, int _trangThai, string _maCT_DH, int _SLGiao, decimal _tienNhan)
         {
             string _maNV = GiaoDien.Properties.Settings.Default.MaNV;
             using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
             new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
             {
-                DataTable dtCheck = _unity.filldb("PH_PhieuDatHang_UpdateStatus", _maDH, _trangThai, _maNV);
+                DataTable dtCheck = _unity.filldb("PH_PhieuDatHang_UpdateStatus", _maDH, _trangThai, _maNV, _tienNhan);
                 if (dtCheck.Rows.Count <= 0 || Convert.ToInt16(dtCheck.Rows[0][0].ToString()) <= 0)
                 {
                     return false;
