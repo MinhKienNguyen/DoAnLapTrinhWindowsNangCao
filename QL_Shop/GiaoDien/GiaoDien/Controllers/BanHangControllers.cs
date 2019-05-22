@@ -10,5 +10,9 @@ namespace GiaoDien.Controllers
         {
             return _unity.filldb("HH_HangHoa_ScanBarcode", barcode.ToString());
         }
+        public DataTable Getsell(string productcode)
+        {
+            return _unity.filldb("PH_HoaDon_Getsell", productcode.ToString());
+        }
     }
 }
