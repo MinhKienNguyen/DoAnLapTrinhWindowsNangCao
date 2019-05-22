@@ -19,10 +19,9 @@ namespace GiaoDien.Models
         {
             return _hangHoaControllers.GetImage(EmployessCde.ToString());
         }
-
-        public DataTable InsertEmployess(string ma, byte[] Image)
+        public bool UpdateGiaHinhAn(string ma, string mau, byte[] Image, string giaban)
         {
-            return _hangHoaControllers.InsertEmployess(ma,Image);
+            return _hangHoaControllers.UpdateGiaHinhAn(ma, mau, Image, giaban);
         }
 
         public DataTable GetDataHangHoaDonHang(string _maNhapHang)

@@ -8,12 +8,17 @@ using System.Threading.Tasks;
 
 namespace GiaoDien.Models
 {
+   
     public class BanHangModel
     {
         BanHangControllers _banHangControllers = new BanHangControllers();
         public DataTable GetDataScanBarcode(string barcode)
         {
             return _banHangControllers.GetDataScanBarcode(barcode);
+        }
+        public DataTable Getsell(string productcode)
+        {
+            return _banHangControllers.Getsell(productcode.ToString());
         }
     }
 }
