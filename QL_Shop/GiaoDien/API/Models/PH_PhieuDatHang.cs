@@ -16,8 +16,9 @@ namespace API.Models
     {
         public string MaPhieuDH { get; set; }
         public string MaNCC { get; set; }
+        public string MaNhanVien { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
-        public Nullable<bool> TrangThaiDH { get; set; }
+        public Nullable<int> TrangThaiDH { get; set; }
         public Nullable<decimal> TongTienPDH { get; set; }
     }
 }

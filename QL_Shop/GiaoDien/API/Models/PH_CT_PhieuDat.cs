@@ -22,8 +22,10 @@ namespace API.Models
         public string MaPhieuDH { get; set; }
         public string MaMau { get; set; }
         public string MaSize { get; set; }
+        public string MaDVT { get; set; }
         public string Barcode { get; set; }
         public Nullable<int> SoLuongHangDat { get; set; }
-        public Nullable<decimal> DonGiaDat { get; set; }
+        public Nullable<double> DonGiaDat { get; set; }
+        public Nullable<int> SoLuongGiao { get; set; }
     }
 }
