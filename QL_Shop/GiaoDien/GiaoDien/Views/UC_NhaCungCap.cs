@@ -20,11 +20,12 @@ namespace GiaoDien.Views
         public UC_NhaCungCap()
         {
             InitializeComponent();
+            LoadGridNhaCC();
         }
         /// <summary>
         /// load dữ liệu ln gricontrol
         /// </summary>
-        public void LoadGridEmployess()
+        public void LoadGridNhaCC()
         {
             string S = txtTenNhaCC.Text;
             DataTable dt = ncc.GetEmployees(txtTenNhaCC.Text);
@@ -33,7 +34,7 @@ namespace GiaoDien.Views
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            LoadGridEmployess();
+            LoadGridNhaCC();
         }
 
         private void txtTenNhaCC_KeyDown(object sender, KeyEventArgs e)
@@ -47,11 +48,7 @@ namespace GiaoDien.Views
 
         private void gridnhacc_Click(object sender, EventArgs e)
         {
-            DataRowView row = (DataRowView)gridnhacc.GetRow(gridnhacc.GetSelectedRows()[0]);
-            txtMaNCC.Text = row[0].ToString();
-            txtTenNCC.Text = row[1].ToString();
-            txtSDTNCC.Text = row[3].ToString();
-            txtDiaChiNCC.Text = row[2].ToString();
+            
         }
         public string EmployessCde()
         {
@@ -94,7 +91,7 @@ namespace GiaoDien.Views
             {
                 XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
                 txtMaNCC.Text = EmployessCde();
-                LoadGridEmployess();
+                LoadGridNhaCC();
                 return;
             }
             XtraMessageBox.Show(Commons.InsertError, Commons.Notify, MessageBoxButtons.OK);
@@ -110,7 +107,16 @@ namespace GiaoDien.Views
                 return;
             }
             XtraMessageBox.Show(Commons.DeleteFinish, Commons.Notify, MessageBoxButtons.OK);
-            LoadGridEmployess();
+            LoadGridNhaCC();
+        }
+
+        private void gridnhacc_DoubleClick(object sender, EventArgs e)
+        {
+            DataRowView row = (DataRowView)gridnhacc.GetRow(gridnhacc.GetSelectedRows()[0]);
+            txtMaNCC.Text = row[0].ToString();
+            txtTenNCC.Text = row[1].ToString();
+            txtSDTNCC.Text = row[3].ToString();
+            txtDiaChiNCC.Text = row[2].ToString();
         }
     }
 }

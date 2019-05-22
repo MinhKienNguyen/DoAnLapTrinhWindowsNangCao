@@ -22,6 +22,7 @@ namespace GiaoDien.Views
             dtimeDenNgay.EditValue = DateTime.Now;
             dtimeTuNgay.EditValue = DateTime.Now;
             LoadComboNCC();
+            LoadGridDonHang();
         }
         private void LoadGridDonHang()
         {
@@ -41,6 +42,50 @@ namespace GiaoDien.Views
             lkNCC.Properties.DataSource = dt;
             lkNCC.Properties.DisplayMember = "TenNCC";
             lkNCC.Properties.ValueMember = "MaNCC";
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+
+        //    try
+        //    {
+        //        MouseHelper.MouseWait(this);
+        //        ExportExcel exp = new ExportExcel();
+        //        DataSet dsSource = new DataSet();
+        //        string filename = string.Empty;
+        //        DataTable dt = new DataTable();
+        //        if (this.grdDonHang == null || this.iGridDataSource.Rows.Count <= 0)
+        //        {
+        //           // base.ShowMessage(MessageType.Information, Convert.ToString(UtilLanguage.ApplyLanguage()["lblNotData"]));
+        //            return;
+        //        }
+        //        dt = this.iGridDataSource.Copy();
+        //        dt.TableName = "dt";
+        //        dsSource.Tables.Add(dt.Copy());
+        //        string templaleFileName = ReportTemplate.ReportEWH01025;
+        //        System.Windows.Forms.SaveFileDialog dlg = new System.Windows.Forms.SaveFileDialog();
+        //        dlg.Filter = Filter.FilterExcel;
+        //        dlg.FileName = Guid.NewGuid().ToString();
+        //        var result = dlg.ShowDialog();
+        //        if (result == DialogResult.OK)
+        //        {
+        //            filename = dlg.FileName;
+        //            var export = exp.Return(filename, templaleFileName, dsSource);
+        //            if (export)
+        //            {
+        //                System.Diagnostics.Process.Start(filename);
+        //                return;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        base.ShowMessage(MessageType.Error, ex.Message, ex);
+        //    }
+        //    finally
+        //    {
+        //        MouseHelper.MouseArrow(this);
+        //    }
         }
     }
 }
