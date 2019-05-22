@@ -54,5 +54,9 @@ namespace GiaoDien.Models
         {
             return _hangHoaControllers.GetDetailProduct(_maCTHH);
         }
+        public bool UpdateGiaHinhAnh(string ma, string mau, byte[] Image, string giaban)
+        {
+            return _hangHoaControllers.UpdateGiaHinhAnh(ma, mau, Image, giaban);
+        }
     }
 }
