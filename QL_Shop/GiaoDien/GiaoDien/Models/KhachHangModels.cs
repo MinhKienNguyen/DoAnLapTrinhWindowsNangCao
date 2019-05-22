@@ -29,9 +29,9 @@ namespace GiaoDien.Models
         {
             return _khachHangContronllass.GetEmployessCde(EmployessCde.ToString());
         }
-        public DataTable InsertEmployess( string ma, string ten, string diachi,string sdt)
+        public DataTable InsertEmployess( string ma, string mathe, string ten, string diachi,string sdt)
         {
-            return _khachHangContronllass.InsertEmployess(ma, ten, diachi, sdt);
+            return _khachHangContronllass.InsertEmployess(ma, mathe, ten, diachi, sdt);
         }
         public bool DeleteEmployess(string ma)
         {
