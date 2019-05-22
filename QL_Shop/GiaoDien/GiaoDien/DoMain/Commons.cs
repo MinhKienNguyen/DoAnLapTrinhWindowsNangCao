@@ -26,10 +26,19 @@
         public const string DoiMKThatBai = "Đổi mật khẩu thất bại";
         public const string LuuThanhCong = "Lưu thành công";
         public const string LuuBai = "Lưu thất bại";
+        public const string ThongBaoXoa = "Bạn có muốn xóa không?";
     }
     public class Set
     {
         public const string Nam = "Nam";
         public const string Nu = "Nữ";
+    }
+
+    public class ScanBarcode
+    {
+        public const string PhieuKhongTonTai = "Phiếu không tồn tại";
+        public const string SoLuongQuetPhaiLon0 = "Số lượng phải lớn hơn không";
+        public const string SoLuogLonHonSLQuet = "Số lượng mặt hàng vượt quá số lượng trong đơn";
+        public const string HangKoTonTai = "Mặt hàng không tồn tại trong đơn hàng";
     }
 }
