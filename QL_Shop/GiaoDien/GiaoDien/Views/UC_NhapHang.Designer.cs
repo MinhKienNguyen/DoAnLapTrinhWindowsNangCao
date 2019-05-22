@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_NhapHang));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -111,9 +110,9 @@
             this.txtTongTien.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongTien.Properties.Appearance.Options.UseFont = true;
             this.txtTongTien.Properties.DisplayFormat.FormatString = "{0:N0} VNÐ";
-            this.txtTongTien.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtTongTien.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTongTien.Properties.EditFormat.FormatString = "{0:N0} VNÐ";
-            this.txtTongTien.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtTongTien.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTongTien.Properties.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(573, 26);
             this.txtTongTien.TabIndex = 47;
@@ -186,9 +185,6 @@
             // 
             // grdPhieuNhap
             // 
-            gridLevelNode1.RelationName = "Level1";
-            this.grdPhieuNhap.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
             this.grdPhieuNhap.Location = new System.Drawing.Point(5, 23);
             this.grdPhieuNhap.MainView = this.gridView1;
             this.grdPhieuNhap.Name = "grdPhieuNhap";
@@ -208,9 +204,11 @@
             this.gridColumn8,
             this.gridColumn1});
             this.gridView1.GridControl = this.grdPhieuNhap;
+            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "TongTien", this.gridColumn8, "{0:N0} VNĐ")});
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsCustomization.AllowSort = false;
             this.gridView1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn2
             // 
@@ -227,7 +225,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 160;
+            this.gridColumn2.Width = 103;
             // 
             // gridColumn3
             // 
@@ -244,7 +242,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 280;
+            this.gridColumn3.Width = 181;
             // 
             // gridColumn5
             // 
@@ -261,7 +259,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
-            this.gridColumn5.Width = 110;
+            this.gridColumn5.Width = 107;
             // 
             // gridColumn6
             // 
@@ -278,7 +276,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
-            this.gridColumn6.Width = 110;
+            this.gridColumn6.Width = 60;
             // 
             // gridColumn7
             // 
@@ -290,12 +288,12 @@
             this.gridColumn7.AppearanceHeader.Options.UseFont = true;
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn7.Caption = "Số lượng";
+            this.gridColumn7.Caption = "SL";
             this.gridColumn7.FieldName = "SoLuongHangDat";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
-            this.gridColumn7.Width = 140;
+            this.gridColumn7.Width = 53;
             // 
             // gridColumn8
             // 
@@ -308,11 +306,13 @@
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn8.Caption = "Giá nhập";
+            this.gridColumn8.DisplayFormat.FormatString = "{0:N0} VNÐ";
+            this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "DonGiaDat";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 6;
-            this.gridColumn8.Width = 189;
+            this.gridColumn8.Width = 137;
             // 
             // gridColumn1
             // 
@@ -329,7 +329,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 79;
+            this.gridColumn1.Width = 51;
             // 
             // panelControl1
             // 
@@ -410,10 +410,9 @@
             this.gridColumn4});
             this.gridViewScanBarcode.GridControl = this.grdScanBarCode;
             this.gridViewScanBarcode.Name = "gridViewScanBarcode";
+            this.gridViewScanBarcode.OptionsCustomization.AllowSort = false;
             this.gridViewScanBarcode.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridViewScanBarcode.OptionsView.ShowGroupPanel = false;
-            this.gridViewScanBarcode.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn11, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colxoa
             // 
@@ -421,7 +420,7 @@
             this.colxoa.Name = "colxoa";
             this.colxoa.Visible = true;
             this.colxoa.VisibleIndex = 6;
-            this.colxoa.Width = 62;
+            this.colxoa.Width = 48;
             // 
             // btnXoa
             // 
@@ -447,6 +446,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 0;
+            this.gridColumn9.Width = 48;
             // 
             // gridColumn10
             // 
@@ -463,7 +463,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 1;
-            this.gridColumn10.Width = 179;
+            this.gridColumn10.Width = 115;
             // 
             // gridColumn11
             // 
@@ -480,7 +480,7 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 2;
-            this.gridColumn11.Width = 292;
+            this.gridColumn11.Width = 188;
             // 
             // gridColumn13
             // 
@@ -497,7 +497,7 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 3;
-            this.gridColumn13.Width = 222;
+            this.gridColumn13.Width = 143;
             // 
             // gridColumn14
             // 
@@ -514,7 +514,7 @@
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 4;
-            this.gridColumn14.Width = 87;
+            this.gridColumn14.Width = 79;
             // 
             // gridColumn4
             // 
@@ -526,12 +526,12 @@
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn4.Caption = "Số lượng quét";
+            this.gridColumn4.Caption = "SL quét";
             this.gridColumn4.FieldName = "SoLuongGiao";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 5;
-            this.gridColumn4.Width = 151;
+            this.gridColumn4.Width = 71;
             // 
             // repositoryItemButtonEdit1
             // 

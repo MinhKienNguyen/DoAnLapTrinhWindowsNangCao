@@ -34,6 +34,7 @@ namespace GiaoDien.Views
                     DataRowView row = (DataRowView)gridViewScanBarcode.GetRow(gridViewScanBarcode.GetSelectedRows()[0]);
                     this.iGridDataSourceScanBarCode.Rows.RemoveAt(gridViewScanBarcode.GetSelectedRows()[0]);
                     this.iGridDataSourceScanBarCode.AcceptChanges();
+                    grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
                 }
             }
         }
@@ -95,6 +96,7 @@ namespace GiaoDien.Views
                 int quantityScan = 1;
                 int quantity = Convert.ToInt32(drRows[0]["SoLuongHangDat"].ToString());
                 int quantityBarcode = numberQuantityScan * quantityScan;
+                double tongtiennhan = quantityBarcode * Convert.ToDouble(drRows[0]["DonGiaDat"].ToString());
                 if (this.iGridDataSourceScanBarCode != null && this.iGridDataSourceScanBarCode.Rows.Count > 0)
                 {
                     //  xem co chua
@@ -114,12 +116,18 @@ namespace GiaoDien.Views
                             }
                             // co r thi cong them vao
                             drScan[0]["SoLuongGiao"] = Convert.ToDecimal(drScan[0]["SoLuongGiao"]) + quantityBarcode;
+                            drScan[0]["TienNhanHang"] = Convert.ToDouble(drScan[0]["DonGiaDat"]) * Convert.ToInt16(drScan[0]["SoLuongGiao"]);
                             grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
                         }
                     }
                     else
                     {
-                        AddDataForTableScan(drRows[0], quantityBarcode, quantity);
+                        if (quantityBarcode > quantity)
+                        {
+                            XtraMessageBox.Show(ScanBarcode.SoLuogLonHonSLQuet, Commons.Notify, MessageBoxButtons.OK);
+                            return;
+                        }
+                        AddDataForTableScan(drRows[0], quantityBarcode, tongtiennhan);
                     }
                 }
                 //neu chua co san pham nao thi them moi vao
@@ -131,7 +139,7 @@ namespace GiaoDien.Views
                         XtraMessageBox.Show(ScanBarcode.SoLuogLonHonSLQuet, Commons.Notify, MessageBoxButtons.OK);
                         return;
                     }
-                    AddDataForTableScan(drRows[0], quantityBarcode, quantity);
+                    AddDataForTableScan(drRows[0], quantityBarcode, tongtiennhan);
                 }
             }
             else
@@ -146,7 +154,7 @@ namespace GiaoDien.Views
         /// <param name="drRow"></param>
         /// <param name="quantity"></param>
         /// <param name="barCode"></param>
-        private void AddDataForTableScan(DataRow drRow, int quantityBarcode, int quantity)
+        private void AddDataForTableScan(DataRow drRow, int quantityBarcode, double tongtiennhan)
         {
             if (iGridDataSourceScanBarCode == null)
             {
@@ -156,6 +164,7 @@ namespace GiaoDien.Views
             if (drScan != null && drScan.Length > 0)
             {
                 drScan[0]["SoLuongGiao"] = Convert.ToInt32(drScan[0]["SoLuongGiao"]) + quantityBarcode;
+                drScan[0]["TienNhanHang"] = Convert.ToInt32(drScan[0]["TienNhanHang"]) + tongtiennhan;
             }
             else
             {
@@ -165,6 +174,7 @@ namespace GiaoDien.Views
                 dr["MaHangHoa"] = drRow["MaHangHoa"];
                 dr["TenHangHoa"] = drRow["TenHangHoa"];
                 dr["MaHinhAnh"] = drRow["MaHinhAnh"];
+                dr["MaCT_PhieuDat"] = drRow["MaCT_PhieuDat"];
                 dr["MaPhieuDH"] = drRow["MaPhieuDH"];
                 dr["TenMau"] = drRow["TenMau"];
                 dr["MaMau"] = drRow["MaMau"];
@@ -179,6 +189,7 @@ namespace GiaoDien.Views
                 dr["MaNCC"] = drRow["MaNCC"];
                 dr["Barcode"] = drRow["Barcode"];
                 dr["TongTienPDH"] = drRow["TongTienPDH"];
+                dr["TienNhanHang"] = drRow["TienNhanHang"];
                 dr["ROWN"] = drRow["ROWN"];
                 iGridDataSourceScanBarCode.Rows.Add(dr);
                 grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
@@ -215,33 +226,42 @@ namespace GiaoDien.Views
         {
             try
             {
+                int _status = 2;
                 if (this.iGridDataSource == null || this.iGridDataSource.Rows.Count <= 0 || this.iGridDataSourceScanBarCode == null || this.iGridDataSourceScanBarCode.Rows.Count <= 0)
                 {
                     XtraMessageBox.Show(ScanBarcode.PhieuKhongTonTai, Commons.Notify, MessageBoxButtons.OK);
                     return;
                 }
-                int sumQuantity = Convert.ToInt32(this.iGridDataSource.Compute("sum(SoLuongHangDat)", "").ToString());
-                int sumQuantityScan = Convert.ToInt32(this.iGridDataSourceScanBarCode.Compute("sum(SoLuongGiao)", "").ToString());
-                if (sumQuantity != sumQuantityScan)
+                if (XtraMessageBox.Show(ScanBarcode.BanMuonLuu, Commons.Notify, MessageBoxButtons.YesNo) != DialogResult.No)
                 {
-                    XtraMessageBox.Show(ScanBarcode.SoLuongNhapThieu, Commons.Notify, MessageBoxButtons.OK);
-                    if (XtraMessageBox.Show(ScanBarcode.BanMuonLuu, Commons.Notify, MessageBoxButtons.YesNo) != DialogResult.No)
+                    int sumQuantity = Convert.ToInt32(this.iGridDataSource.Compute("sum(SoLuongHangDat)", "").ToString());
+                    int sumQuantityScan = Convert.ToInt32(this.iGridDataSourceScanBarCode.Compute("sum(SoLuongGiao)", "").ToString());
+                    if (sumQuantity != sumQuantityScan)
                     {
-                        if (InsertOrUpdateProduct())
+                        _status = 1;
+                        XtraMessageBox.Show(ScanBarcode.SoLuongNhapThieu, Commons.Notify, MessageBoxButtons.OK);
+                        if (InsertOrUpdateProduct(_status))
                         {
                             XtraMessageBox.Show(ScanBarcode.NhapThanhCong, Commons.Notify, MessageBoxButtons.OK);
+                            LoadGridNhapHang();
+                            iGridDataSourceScanBarCode.Clear();
+                            grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
                             return;
                         }
                         XtraMessageBox.Show(ScanBarcode.NhapThatBai, Commons.Notify, MessageBoxButtons.OK);
                         return;
                     }
+                    if (InsertOrUpdateProduct(_status))
+                    {
+                        XtraMessageBox.Show(ScanBarcode.NhapThanhCong, Commons.Notify, MessageBoxButtons.OK);
+                        LoadGridNhapHang();
+                        iGridDataSourceScanBarCode.Clear();
+                        grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
+                        return;
+                    }
+                    XtraMessageBox.Show(ScanBarcode.NhapThatBai, Commons.Notify, MessageBoxButtons.OK);
                 }
-                if (InsertOrUpdateProduct())
-                {
-                    XtraMessageBox.Show(ScanBarcode.NhapThanhCong, Commons.Notify, MessageBoxButtons.OK);
-                    return;
-                }
-                XtraMessageBox.Show(ScanBarcode.NhapThatBai, Commons.Notify, MessageBoxButtons.OK);
+                
             }
             catch(Exception ex)
             {
@@ -250,7 +270,7 @@ namespace GiaoDien.Views
             
         }
 
-        private bool InsertOrUpdateProduct()
+        private bool InsertOrUpdateProduct(int _status)
         {
             
             using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
@@ -272,11 +292,13 @@ namespace GiaoDien.Views
                     {
                         return false;
                     }
+                    decimal _tienNhan = Convert.ToDecimal(this.iGridDataSourceScanBarCode.Compute("sum(TienNhanHang)", "").ToString());
                     if (_hangModel.UPdateStatusAndQuantity(
                          dr["MaPhieuDH"].ToString(),
-                         Stautus.DangGiao,
+                         _status,
                          dr["MaCT_PhieuDat"].ToString(),
-                         Convert.ToInt32(dr["SoLuongGiao"].ToString())) == false)
+                         Convert.ToInt32(dr["SoLuongGiao"].ToString()),
+                         _tienNhan) == false)
                     {
                         return false;
                     }
