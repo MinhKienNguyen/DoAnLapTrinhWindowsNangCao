@@ -122,6 +122,7 @@
             this.btItemMH = new DevExpress.XtraBars.BarButtonItem();
             this.lableTim = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem43 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -171,7 +172,6 @@
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem43 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar2)).BeginInit();
@@ -825,6 +825,7 @@
             this.btnBanHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnBanHang.Tag = "BanHang";
             this.btnBanHang.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnBanHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBanHang_ItemClick);
             // 
             // labelTK
             // 
@@ -967,6 +968,12 @@
             this.barButtonItem32.Tag = "DonHang";
             this.barButtonItem32.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItem32.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem32_ItemClick);
+            // 
+            // barButtonItem43
+            // 
+            this.barButtonItem43.Caption = "barButtonItem43";
+            this.barButtonItem43.Id = 94;
+            this.barButtonItem43.Name = "barButtonItem43";
             // 
             // ribbonPage1
             // 
@@ -1406,12 +1413,6 @@
             this.barButtonItem30.Id = 56;
             this.barButtonItem30.Name = "barButtonItem30";
             this.barButtonItem30.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // barButtonItem43
-            // 
-            this.barButtonItem43.Caption = "barButtonItem43";
-            this.barButtonItem43.Id = 94;
-            this.barButtonItem43.Name = "barButtonItem43";
             // 
             // frmMain
             // 

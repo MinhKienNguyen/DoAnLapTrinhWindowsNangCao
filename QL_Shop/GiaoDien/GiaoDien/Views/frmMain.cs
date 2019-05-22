@@ -257,5 +257,11 @@ namespace GiaoDien
         {
 
         }
+
+        private void btnBanHang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_BanHang bh = new UC_BanHang();
+            AddTabControl(bh, "Bán hàng");
+        }
     }
 }
