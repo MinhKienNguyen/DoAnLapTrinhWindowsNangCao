@@ -8,7 +8,7 @@ namespace API.Controllers
     [RoutePrefix("api/nhaphang")]
     public class NhapHangController : ApiController
     {
-        private ShopThoiTrangEntities _shopDBEntities = new ShopThoiTrangEntities();
+        private ShopTTEntities _shopDBEntities = new ShopTTEntities();
         [HttpPost]
         [Route("InsertPhDat")]
         public HttpResponseMessage InsertPhDat(PH_PhieuDatHang datHang)
