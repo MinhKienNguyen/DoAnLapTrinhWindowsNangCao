@@ -263,5 +263,11 @@ namespace GiaoDien
             UC_BanHang bh = new UC_BanHang();
             AddTabControl(bh, "Bán hàng");
         }
+
+        private void btnHoaDon_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_HoaDon uc_hoadon = new UC_HoaDon();
+            AddTabControl(uc_hoadon, "Hóa đơn");
+        }
     }
 }
