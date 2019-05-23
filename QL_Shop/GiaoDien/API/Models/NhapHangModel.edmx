@@ -18,10 +18,11 @@
           <Property Name="MaMau" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="MaSize" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="MaDVT" Type="nchar" MaxLength="20" />
-          <Property Name="Barcode" Type="nchar" MaxLength="100" />
+          <Property Name="Barcode" Type="nchar" MaxLength="15" />
           <Property Name="SoLuongHangDat" Type="int" />
-          <Property Name="DonGiaDat" Type="float" />
           <Property Name="SoLuongGiao" Type="int" />
+          <Property Name="SoLuongConLai" Type="int" />
+          <Property Name="DonGiaDat" Type="float" />
         </EntityType>
         <EntityType Name="PH_PhieuDatHang">
           <Key>
@@ -33,6 +34,8 @@
           <Property Name="NgayLap" Type="date" />
           <Property Name="TrangThaiDH" Type="int" />
           <Property Name="TongTienPDH" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TienNhanHang" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TienConLai" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityContainer Name="HeThong_ShopThoiTrangModelStoreContainer">
           <EntitySet Name="PH_CT_PhieuDat" EntityType="Self.PH_CT_PhieuDat" Schema="dbo" store:Type="Tables" />
@@ -56,10 +59,11 @@
           <Property Name="MaMau" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="MaSize" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="MaDVT" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="Barcode" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="SoLuongHangDat" Type="Int32" />
-          <Property Name="DonGiaDat" Type="Double" />
           <Property Name="SoLuongGiao" Type="Int32" />
+          <Property Name="SoLuongConLai" Type="Int32" />
+          <Property Name="DonGiaDat" Type="Double" />
         </EntityType>
         <EntityType Name="PH_PhieuDatHang">
           <Key>
@@ -71,8 +75,10 @@
           <Property Name="NgayLap" Type="DateTime" Precision="0" />
           <Property Name="TrangThaiDH" Type="Int32" />
           <Property Name="TongTienPDH" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TienNhanHang" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TienConLai" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
-        <EntityContainer Name="ShopThoiTrangEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ShopTTEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PH_CT_PhieuDat" EntityType="Self.PH_CT_PhieuDat" />
           <EntitySet Name="PH_PhieuDatHang" EntityType="Self.PH_PhieuDatHang" />
         </EntityContainer>
@@ -81,7 +87,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HeThong_ShopThoiTrangModelStoreContainer" CdmEntityContainer="ShopThoiTrangEntities">
+        <EntityContainerMapping StorageEntityContainer="HeThong_ShopThoiTrangModelStoreContainer" CdmEntityContainer="ShopTTEntities">
           <EntitySetMapping Name="PH_CT_PhieuDat">
             <EntityTypeMapping TypeName="HeThong_ShopThoiTrangModel.PH_CT_PhieuDat">
               <MappingFragment StoreEntitySet="PH_CT_PhieuDat">
@@ -96,8 +102,9 @@
                 <ScalarProperty Name="MaDVT" ColumnName="MaDVT" />
                 <ScalarProperty Name="Barcode" ColumnName="Barcode" />
                 <ScalarProperty Name="SoLuongHangDat" ColumnName="SoLuongHangDat" />
-                <ScalarProperty Name="DonGiaDat" ColumnName="DonGiaDat" />
                 <ScalarProperty Name="SoLuongGiao" ColumnName="SoLuongGiao" />
+                <ScalarProperty Name="SoLuongConLai" ColumnName="SoLuongConLai" />
+                <ScalarProperty Name="DonGiaDat" ColumnName="DonGiaDat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -110,6 +117,8 @@
                 <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
                 <ScalarProperty Name="TrangThaiDH" ColumnName="TrangThaiDH" />
                 <ScalarProperty Name="TongTienPDH" ColumnName="TongTienPDH" />
+                <ScalarProperty Name="TienNhanHang" ColumnName="TienNhanHang" />
+                <ScalarProperty Name="TienConLai" ColumnName="TienConLai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -20,5 +20,7 @@ namespace API.Models
         public Nullable<System.DateTime> NgayLap { get; set; }
         public Nullable<int> TrangThaiDH { get; set; }
         public Nullable<decimal> TongTienPDH { get; set; }
+        public Nullable<decimal> TienNhanHang { get; set; }
+        public Nullable<decimal> TienConLai { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace API.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ShopThoiTrangEntities : DbContext
+    public partial class ShopTTEntities : DbContext
     {
-        public ShopThoiTrangEntities()
-            : base("name=ShopThoiTrangEntities")
+        public ShopTTEntities()
+            : base("name=ShopTTEntities")
         {
         }
     

@@ -25,7 +25,8 @@ namespace API.Models
         public string MaDVT { get; set; }
         public string Barcode { get; set; }
         public Nullable<int> SoLuongHangDat { get; set; }
-        public Nullable<double> DonGiaDat { get; set; }
         public Nullable<int> SoLuongGiao { get; set; }
+        public Nullable<int> SoLuongConLai { get; set; }
+        public Nullable<double> DonGiaDat { get; set; }
     }
 }
