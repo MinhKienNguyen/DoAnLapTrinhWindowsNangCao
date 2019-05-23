@@ -9,44 +9,52 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using GiaoDien.Models;
+using GiaoDien.DoMain;
 
 namespace GiaoDien.Views
 {
     public partial class UC_BanHang : DevExpress.XtraEditors.XtraUserControl
     {
-        BanHangModel _BanHangModel = new BanHangModel();
+        BanHangModel _banHangModel = new BanHangModel();
+        private DataTable iDataProducts = null; 
+        private string MaNV = GiaoDien.Properties.Settings.Default.MaNV;
+        private DataTable iGridDataSourceScanBarCode = null;
+
         public UC_BanHang()
         {
             InitializeComponent();
             txt_mahd.Text = Getincreaseinvoicecode();
         }
+
         private void UC_BanHang_Load(object sender, EventArgs e)
         {
-            txt_matkh.Enabled = false;
+            txtBarCodeKhachHang.Enabled = false;
             txt_makh.Enabled = false;
-            txt_diachi.Enabled = false;
-            txt_sdt.Enabled = false;
-            txt_tenkh.Enabled = false;
-
+            txtTienTich.Enabled = false;
+            txtTenKH.Enabled = false;
+            txt_SDT.Enabled = false;
+            DataTable dt = _banHangModel.GetDataProduct();
+            iDataProducts = dt.Copy();
+            txtNumberScan.Text = "1";
         }
  
         private void chek_thanhvien_CheckedChanged(object sender, EventArgs e)
         {
             if(chek_thanhvien.Checked==true)
             {
-                txt_matkh.Enabled = true;
+                txtBarCodeKhachHang.Enabled = true;
                 txt_makh.Enabled = true;
-                txt_diachi.Enabled = true;
-                txt_sdt.Enabled = true;
-                txt_tenkh.Enabled = true;
+                txtTienTich.Enabled = true;
+                txtTenKH.Enabled = true;
+                txt_SDT.Enabled = true;
             }
             else
             {
-                txt_matkh.Enabled = false;
+                txtBarCodeKhachHang.Enabled = false;
                 txt_makh.Enabled = false;
-                txt_diachi.Enabled = false;
-                txt_sdt.Enabled = false;
-                txt_tenkh.Enabled = false;
+                txtTienTich.Enabled = false;
+                txtTenKH.Enabled = false;
+                txt_SDT.Enabled = false;
             }
          
         }
@@ -61,7 +69,7 @@ namespace GiaoDien.Views
             string strCode = string.Empty;
             for (int i = 0; i < i + 1; i++)
             {
-                int dtCout = _BanHangModel.Getsell("HD0000" + i).Rows.Count;
+                int dtCout = _banHangModel.Getsell("HD0000" + i).Rows.Count;
                 if (dtCout == 0)
                 {
                     strCode = "HD0000" + i;
@@ -72,5 +80,261 @@ namespace GiaoDien.Views
         }
 
         #endregion
+
+        /// <summary>
+        /// Quét barcode
+        /// </summary>
+        /// <param name="_barcode"></param>
+        private void ScanBarCode(string _barcode)
+        {
+            DataRow[] drRows = this.iDataProducts.Select("Barcode ='" + _barcode + "'");
+            if (drRows != null && drRows.Length > 0)
+            {
+                int numberQuantityScan = Convert.ToInt32(txtNumberScan.Text);
+                int quantityScan = 1;
+                int quantity = Convert.ToInt32(drRows[0]["SoLuongTon"].ToString());
+                int quantityBarcode = numberQuantityScan * quantityScan;
+                Decimal tongtiennhan = quantityBarcode * Convert.ToDecimal(drRows[0]["GiaBan"].ToString());
+                if (this.iGridDataSourceScanBarCode != null && this.iGridDataSourceScanBarCode.Rows.Count > 0)
+                {
+                    //  xem co chua
+                    DataRow[] drScan = this.iGridDataSourceScanBarCode.Select("Barcode='" + _barcode + "' ");
+                    if (drScan != null && drScan.Length > 0)
+                    {
+                        DataRow[] drScanProduct = this.iGridDataSourceScanBarCode.Select("Barcode='" + _barcode + "'");
+                        if (drScanProduct != null && drScanProduct.Length > 0)
+                        {
+                            int totalQuantityScan = Convert.ToInt32(drScanProduct.CopyToDataTable().Compute("sum(SoLuong)", "").ToString());
+                            totalQuantityScan += quantityBarcode;
+                            // ktra du so luong
+                            if (totalQuantityScan > quantity)
+                            {
+                                XtraMessageBox.Show(ScanBarcode.SoLuongVuotKho, Commons.Notify, MessageBoxButtons.OK);
+                                return;
+                            }
+                            // co r thi cong them vao
+                            drScan[0]["SoLuong"] = Convert.ToDecimal(drScan[0]["SoLuong"]) + quantityBarcode;
+                            drScan[0]["TongTien"] = Convert.ToDouble(drScan[0]["TongTien"]) * Convert.ToInt16(drScan[0]["SoLuong"]);
+                            grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
+                            decimal _tongTien = Convert.ToDecimal(iGridDataSourceScanBarCode.Compute("sum(TongTien)", "").ToString());
+                            txtTongTien.Text = _tongTien.ToString();
+                        }
+                    }
+                    else
+                    {
+                        if (quantityBarcode > quantity)
+                        {
+                            XtraMessageBox.Show(ScanBarcode.SoLuongVuotKho, Commons.Notify, MessageBoxButtons.OK);
+                            return;
+                        }
+                        AddDataForTableScan(drRows[0], quantityBarcode, tongtiennhan);
+                    }
+                }
+                //neu chua co san pham nao thi them moi vao
+                else
+                {
+                    // ktra so luong quet
+                    if (quantityBarcode > quantity)
+                    {
+                        XtraMessageBox.Show(ScanBarcode.SoLuongVuotKho, Commons.Notify, MessageBoxButtons.OK);
+                        return;
+                    }
+                    AddDataForTableScan(drRows[0], quantityBarcode, tongtiennhan);
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show(ScanBarcode.HangKoTonTai, Commons.Notify, MessageBoxButtons.OK);
+            }
+        }
+
+        /// <summary>
+        /// AddDataForTableScan -- add mat hang khi quet
+        /// </summary>
+        /// <param name="drRow"></param>
+        /// <param name="quantity"></param>
+        /// <param name="barCode"></param>
+        private void AddDataForTableScan(DataRow drRow, int quantityBarcode, decimal tongtiennhan)
+        {
+            if (iGridDataSourceScanBarCode == null)
+            {
+                iGridDataSourceScanBarCode = this.iDataProducts.Clone();
+            }
+            DataRow[] drScan = this.iGridDataSourceScanBarCode.Select("Barcode='" + drRow["Barcode"] + "'");
+            if (drScan != null && drScan.Length > 0)
+            {
+                drScan[0]["SoLuong"] = Convert.ToInt32(drScan[0]["SoLuong"]) + quantityBarcode;
+                drScan[0]["TongTien"] = Convert.ToDecimal(drScan[0]["TongTien"]) + tongtiennhan;
+            }
+            else
+            {
+                DataRow dr = iGridDataSourceScanBarCode.NewRow();
+                dr["Barcode"] = drRow["Barcode"];
+                dr["MaHangHoa"] = drRow["MaHangHoa"];
+                dr["TenHangHoa"] = drRow["TenHangHoa"];
+                dr["MaLoaiHangHoa"] = drRow["MaLoaiHangHoa"];
+                dr["TenLoaiHangHoa"] = drRow["TenLoaiHangHoa"];
+                dr["GiaBan"] = drRow["GiaBan"];
+                dr["MaMau"] = drRow["MaMau"];
+                dr["TenMau"] = drRow["TenMau"];
+                dr["MaDVT"] = drRow["MaDVT"];
+                dr["TenDonViTinh"] = drRow["TenDonViTinh"];
+                dr["MaSize"] = drRow["MaSize"];
+                dr["TenSize"] = drRow["TenSize"];
+                dr["SoLuongTon"] = drRow["SoLuongTon"];
+                dr["TongTien"] = tongtiennhan;
+                dr["SoLuong"] = quantityBarcode;
+                iGridDataSourceScanBarCode.Rows.Add(dr);
+                grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
+            }
+            decimal _tongTien = Convert.ToDecimal(iGridDataSourceScanBarCode.Compute("sum(TongTien)", "").ToString());
+            txtTongTien.Text = _tongTien.ToString();
+            //txtTongTien.Text = iGridDataSourceScanBarCode.Compute("sum(TongTien)", "").ToString();
+        }
+
+        /// <summary>
+        /// bắt sự kiện nhấn enter vào barcode
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (Convert.ToInt16(txtNumberScan.Text) > 0)
+                    {
+                        ScanBarCode(txtBarcode.Text);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(ScanBarcode.SoLuongQuetPhaiLon0, Commons.Notify, MessageBoxButtons.OK);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+
+        /// <summary>
+        /// TangMaCTHD -- tăng mã chi tiết hàng hóa
+        /// </summary>
+        /// <returns></returns>
+        public string TangMaCTHD(int i)
+        {
+            string maHD = txt_mahd.Text;
+            string strCode = string.Empty;
+            int dtCout = _banHangModel.Getsell(maHD + "CTHD0" + i).Rows.Count;
+            if (dtCout == 0)
+            {
+                strCode = maHD + "CTHD0" + i;
+            }
+            return strCode;
+        }
+
+        /// <summary>
+        /// In hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnInHoaDon_Click(object sender, EventArgs e)
+        {
+            if(XtraMessageBox.Show(ScanBarcode.BanCoMuonXuatHD, Commons.Notify, MessageBoxButtons.YesNo) != DialogResult.No)
+            {
+                if (ThemHoaDon())
+                {
+                    this.iGridDataSourceScanBarCode.Clear();
+                    this.iDataProducts.Clear();
+                }
+                else
+                {
+                    XtraMessageBox.Show(ScanBarcode.XuatHDThatBai, Commons.Notify, MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        public bool ThemHoaDon()
+        {
+            double _chietKhau = 0;
+            decimal _tongTien = Convert.ToDecimal(txtTongTien.Text);
+            using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
+            new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+            {
+                {
+                    if (string.IsNullOrEmpty(txtBarCodeKhachHang.Text) != true)
+                    {
+                        if (_banHangModel.UpdateTichTienKH(
+                            txtBarCodeKhachHang.Text,
+                            Convert.ToDecimal(txtTongTien.Text)) != true)
+                        {
+                            return false;
+                        }
+                        if(Convert.ToDecimal(txtTienTich.Text) >= Convert.ToDecimal(StatusBill.DKKM))
+                        {
+                            _chietKhau = 0.1;
+                            _tongTien = _tongTien * Convert.ToDecimal(1 - _chietKhau);
+                        }
+                    }
+                    if (_banHangModel.ThemHoaDon(
+                        txt_mahd.Text,
+                        MaNV.ToString(),
+                        txt_makh.Text,
+                        StatusBill.Xuat,
+                        _chietKhau,
+                        _tongTien) != true)
+                    {
+                        return false;
+                    }
+                    int i = 0;
+                    foreach (DataRow dr in iGridDataSourceScanBarCode.Rows)
+                    {
+                        string _maCTHD = TangMaCTHD(i);
+                        if(string.IsNullOrEmpty(_maCTHD))
+                        {
+                            i++;
+                            _maCTHD = TangMaCTHD(i);
+                        }
+                        if (_banHangModel.ThemCTHoaDon(_maCTHD,
+                            txt_mahd.Text,
+                            dr["MaHangHoa"].ToString(),
+                            dr["Barcode"].ToString(),
+                            Convert.ToInt32(dr["SoLuong"].ToString()),
+                            Convert.ToDecimal(dr["TongTien"].ToString())) != true)
+                        {
+                            return false;
+                        }
+                        if(_banHangModel.UpdateSoLuongBan(
+                            dr["Barcode"].ToString(),
+                            Convert.ToInt32(dr["SoLuong"].ToString())) != true)
+                        {
+                            return false;
+                        }
+                        i++;
+                    }
+                }
+                tran.Complete();
+                return true;
+            }
+        }
+
+        private void txtBarCodeKhachHang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DataTable dt = new DataTable();
+                dt = _banHangModel.GetDataCustomers(txtBarCodeKhachHang.Text);
+                txtTenKH.Text = dt.Rows[0]["TenKhachHang"].ToString();
+                txt_makh.Text = dt.Rows[0]["MaKhachHang"].ToString();
+                txt_SDT.Text = dt.Rows[0]["SDT_KH"].ToString();
+                txtTienTich.Text = dt.Rows[0]["TichTien"].ToString();
+            }
+        }
     }
 }

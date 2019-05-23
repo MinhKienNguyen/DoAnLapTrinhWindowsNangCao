@@ -40,6 +40,14 @@
         public const int DangGiao = 1;
         public const int HoanThanh = 2;
     }
+    public class StatusBill
+    {
+        public const int Xuat = 0;
+        public const int TraLai = 1;
+        public const int DKKM = 5000000;
+        public const double ChietKhau = 0.1;
+    }
+
 public class ScanBarcode
     {
         public const string PhieuKhongTonTai = "Phiếu không tồn tại";
@@ -50,5 +58,8 @@ public class ScanBarcode
         public const string BanMuonLuu = "Bạn có muốn nhập hàng không?";
         public const string NhapThanhCong = "Nhập hàng thành công";
         public const string NhapThatBai = "Nhập hàng thất bại";
+        public const string SoLuongVuotKho = "Đã quá số lượng trong kho";
+        public const string BanCoMuonXuatHD = "Bạn có muốn xuất hóa đơn";
+        public const string XuatHDThatBai = "Xuất hóa đơn thất bại";
     }
 }
