@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_DanhMucHangHoa));
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.ColImageNV = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.NameNV = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.grpttthucp = new DevExpress.XtraEditors.GroupControl();
@@ -405,6 +405,7 @@
             this.btnXuatExcel.Size = new System.Drawing.Size(138, 40);
             this.btnXuatExcel.TabIndex = 2;
             this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // labelControl5
             // 
@@ -518,19 +519,19 @@
             this.tileViewHangHoa.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileViewHangHoa.OptionsTiles.RowCount = 0;
             this.tileViewHangHoa.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
-            tableRowDefinition1.Length.Value = 132D;
-            tableRowDefinition2.Length.Value = 32D;
-            this.tileViewHangHoa.TileRows.Add(tableRowDefinition1);
-            this.tileViewHangHoa.TileRows.Add(tableRowDefinition2);
-            tileViewItemElement1.Column = this.ColImageNV;
-            tileViewItemElement1.Text = "ColImageNV";
-            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement2.Column = this.NameNV;
-            tileViewItemElement2.RowIndex = 1;
-            tileViewItemElement2.Text = "NameNV";
-            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement1);
-            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement2);
+            tableRowDefinition3.Length.Value = 132D;
+            tableRowDefinition4.Length.Value = 32D;
+            this.tileViewHangHoa.TileRows.Add(tableRowDefinition3);
+            this.tileViewHangHoa.TileRows.Add(tableRowDefinition4);
+            tileViewItemElement3.Column = this.ColImageNV;
+            tileViewItemElement3.Text = "ColImageNV";
+            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement4.Column = this.NameNV;
+            tileViewItemElement4.RowIndex = 1;
+            tileViewItemElement4.Text = "NameNV";
+            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement3);
+            this.tileViewHangHoa.TileTemplate.Add(tileViewItemElement4);
             this.tileViewHangHoa.Click += new System.EventHandler(this.tileViewHangHoa_Click);
             // 
             // UC_DanhMucHangHoa
