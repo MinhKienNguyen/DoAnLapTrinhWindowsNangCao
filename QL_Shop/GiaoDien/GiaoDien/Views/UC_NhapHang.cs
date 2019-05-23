@@ -66,7 +66,7 @@ namespace GiaoDien.Views
                 }
                 txtNVLap.Text = GiaoDien.Properties.Settings.Default.TenNV;
                 txtNCC.Text = iGridDataSource.Rows[0]["TenNCC"].ToString(); 
-                txtTongTien.Text = iGridDataSource.Rows[0]["TongTienPDH"].ToString();
+                txtTongTien.Text = iGridDataSource.Rows[0]["TienConLai"].ToString();
             }
         }
 
@@ -94,7 +94,7 @@ namespace GiaoDien.Views
                 string productCde = drRows[0]["MaHangHoa"].ToString();
                 int numberQuantityScan = Convert.ToInt32(txtNumberScan.Text);
                 int quantityScan = 1;
-                int quantity = Convert.ToInt32(drRows[0]["SoLuongHangDat"].ToString());
+                int quantity = Convert.ToInt32(drRows[0]["SoLuongConLai"].ToString());
                 int quantityBarcode = numberQuantityScan * quantityScan;
                 double tongtiennhan = quantityBarcode * Convert.ToDouble(drRows[0]["DonGiaDat"].ToString());
                 if (this.iGridDataSourceScanBarCode != null && this.iGridDataSourceScanBarCode.Rows.Count > 0)
@@ -118,6 +118,7 @@ namespace GiaoDien.Views
                             drScan[0]["SoLuongGiao"] = Convert.ToDecimal(drScan[0]["SoLuongGiao"]) + quantityBarcode;
                             drScan[0]["TienNhanHang"] = Convert.ToDouble(drScan[0]["DonGiaDat"]) * Convert.ToInt16(drScan[0]["SoLuongGiao"]);
                             grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
+                            txtTongTien.Text = drScan[0]["TienNhanHang"].ToString();
                         }
                     }
                     else
@@ -183,17 +184,20 @@ namespace GiaoDien.Views
                 dr["MaDVT"] = drRow["MaDVT"];
                 dr["TenDonViTinh"] = drRow["TenDonViTinh"];
                 dr["SoLuongHangDat"] = drRow["SoLuongHangDat"];
+                dr["SoLuongConLai"] = drRow["SoLuongConLai"];
                 dr["SoLuongGiao"] = quantityBarcode;
                 dr["DonGiaDat"] = drRow["DonGiaDat"];
                 dr["TenNCC"] = drRow["TenNCC"];
                 dr["MaNCC"] = drRow["MaNCC"];
                 dr["Barcode"] = drRow["Barcode"];
                 dr["TongTienPDH"] = drRow["TongTienPDH"];
-                dr["TienNhanHang"] = drRow["TienNhanHang"];
+                dr["TienNhanHang"] = tongtiennhan;
+                dr["TienConLai"] = drRow["TienConLai"];
                 dr["ROWN"] = drRow["ROWN"];
                 iGridDataSourceScanBarCode.Rows.Add(dr);
                 grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
             }
+            txtTongTien.Text = iGridDataSourceScanBarCode.Compute("sum(TienNhanHang)", "").ToString();
         }
 
         private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
