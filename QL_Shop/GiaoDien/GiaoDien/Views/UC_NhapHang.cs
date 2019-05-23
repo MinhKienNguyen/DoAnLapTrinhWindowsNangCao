@@ -52,7 +52,7 @@ namespace GiaoDien.Views
 
         }
 
-        private void txtMaNhap_KeyDown(object sender, KeyEventArgs e)
+        private void txtMaNhap_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -67,10 +67,11 @@ namespace GiaoDien.Views
                 txtNVLap.Text = GiaoDien.Properties.Settings.Default.TenNV;
                 txtNCC.Text = iGridDataSource.Rows[0]["TenNCC"].ToString(); 
                 txtTongTien.Text = iGridDataSource.Rows[0]["TienConLai"].ToString();
+                txtNumberScan.Text = "1";
             }
         }
 
-        private void txtNumberScan_KeyDown(object sender, KeyEventArgs e)
+        private void txtNumberScan_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             //if(e.KeyCode == Keys.OemMinus)
             //{
@@ -200,7 +201,7 @@ namespace GiaoDien.Views
             txtTongTien.Text = iGridDataSourceScanBarCode.Compute("sum(TienNhanHang)", "").ToString();
         }
 
-        private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
+        private void txtBarcode_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             try
             {
