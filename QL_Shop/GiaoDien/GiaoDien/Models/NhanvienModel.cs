@@ -54,6 +54,10 @@ namespace GiaoDien.Models
             return _nhanvienControllers.InsertEmployess(EmployessCde, EmployessName, Set, Adress, User, Pass, Phone, Image, DutyID);
         }
 
+        public DataTable UpdateNhomND(string User, string DutyID)
+        {
+            return _nhanvienControllers.UpdateNhomND(User, DutyID);
+        }
 
         public bool DeleteEmployess(string EmployessCde, string user)
         {
