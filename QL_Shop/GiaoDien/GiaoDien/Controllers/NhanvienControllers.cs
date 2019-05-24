@@ -55,6 +55,11 @@ namespace GiaoDien.Controllers
             return _unity.filldb("HT_NhanVien_InsertEmployess", EmployessCde, EmployessName, Set, Adress, User, Pass, Phone, Image, DutyID);
         }
 
+        public DataTable UpdateNhomND(string User, string DutyID)
+        {
+            return _unity.filldb("QL_NguoiDungNhomNguoiDung_UpdateNhomND", DutyID, User);
+        }
+
         /// <summary>
         /// DeleteEmployess -- xóa nhân viên
         /// </summary>
