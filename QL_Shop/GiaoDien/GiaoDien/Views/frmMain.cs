@@ -269,5 +269,18 @@ namespace GiaoDien
             UC_HoaDon uc_hoadon = new UC_HoaDon();
             AddTabControl(uc_hoadon, "Hóa đơn");
         }
+
+        private void btnDoiTra_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_DoiTra uc_doiTra = new UC_DoiTra();
+            AddTabControl(uc_doiTra, "Đổi trả hàng");
+        }
+
+        private void BarItemDangXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
+            frmDagNhap dn = new frmDagNhap();
+            dn.Show();
+        }
     }
 }

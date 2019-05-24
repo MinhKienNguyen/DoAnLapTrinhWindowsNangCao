@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using GiaoDien.Models;
+﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
+using GiaoDien.Models;
 using GiaoDien.Unity;
+using System;
+using System.Data;
+using System.Drawing;
 using System.IO;
-using DocumentFormat.OpenXml.Spreadsheet;
-using OfficeOpenXml;
+using System.Windows.Forms;
 using app = Microsoft.Office.Interop.Excel.Application;
-using OfficeOpenXml.Style;
-using Microsoft.Office.Interop.Excel;
-using DocumentFormat.OpenXml.ExtendedProperties;
 
 namespace GiaoDien.Views
 {
@@ -25,10 +15,9 @@ namespace GiaoDien.Views
     {
 
         HangHoaModel _hangHoaModel = new HangHoaModel();
-        System.Data.DataTable iDataSource = null;
+        DataTable iDataSource = null;
         UnityClass _unityClass = new UnityClass();
-        private string filePath;
-
+        
         public UC_DanhMucHangHoa()
         {
             InitializeComponent();
@@ -62,10 +51,13 @@ namespace GiaoDien.Views
             lk_loaihang.Properties.NullText = row[5].ToString();
             txtSoLuong.Text = row[6].ToString();
             txt_Barcode.Text = row[12].ToString();
-           // DataTable dt = new DataTable();
-           // byte[] arrpic = (new UnicodeEncoding()).GetBytes(dt.Rows[0]["HinhAnh"].ToString());
-            // imgChonAnh.Image = _unityClass.CovertBytetoImage(arrpic);
-           // imgChonAnh.SizeMode = PictureBoxSizeMode.StretchImage;
+            //chuyển hình ảnh load lên picturebox
+            if (row[2] == null || string.IsNullOrEmpty(row[2].ToString()))
+                return;
+            byte[] data = new byte[0];
+            data = (byte[])(row[2]);
+            MemoryStream ms = new MemoryStream(data);
+            imgChonAnh.Image = Image.FromStream(ms);
         }
 
         private void bt_chonanh_Click(object sender, EventArgs e)
@@ -123,48 +115,67 @@ namespace GiaoDien.Views
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
-        {            
-          //  DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
-            ExportTableToExcel(iDataSource);
-            
+        {
+            //  DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
+            //ExportTableToExcel(iDataSource);
+
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            app.Visible = true;
+            //đổ dữ liệu vào Sheets
+            worksheet.Cells[1, 1] = "DANH SÁCH HÀNG";
+            worksheet.Cells[3, 1] = "STT";
+            worksheet.Cells[3, 2] = "Mã loại hàng";
+            worksheet.Cells[3, 3] = "Tên loại hàng";
+            worksheet.Cells[3, 4] = "BarCode";
+            worksheet.Cells[3, 5] = "Mã hàng";
+            worksheet.Cells[3, 6] = "Tên hàng";
+            worksheet.Cells[3, 7] = "Màu";
+            worksheet.Cells[3, 8] = "Size";
+            worksheet.Cells[3, 9] = "Số lượng";
+            worksheet.Cells[3, 10] = "DVT";
+            worksheet.Cells[3, 11] = "Giá";
         }
         #region "các hàm con"
         private void LoadGridProduct()
         {
-            System.Data.DataTable dt = _hangHoaModel.GetDataProduct(txtMaHH.Text, txtTenHH.Text);
+            DataTable dt = _hangHoaModel.GetDataProduct(txtMaHH.Text, txtTenHH.Text);
             iDataSource = dt.Copy();
             grdHangHoa.DataSource = iDataSource.Copy();
         }
         public void Loadlkloaihang()
         {
-            System.Data.DataTable dtDuty = _hangHoaModel.Getlkloaihang();
+            DataTable dtDuty = _hangHoaModel.Getlkloaihang();
             lk_loaihang.Properties.DataSource = dtDuty.Copy();
             lk_loaihang.Properties.DisplayMember = "TenLoaiHangHoa";
             lk_loaihang.Properties.ValueMember = "MaLoaiHangHoa";
         }
-        public void ExportTableToExcel(System.Data.DataTable dt)
-        {
-            using (SaveFileDialog saveDialog = new SaveFileDialog())
-            {
-                saveDialog.Filter = "Excel (Phiên ban 2007 tro lên (.xlsx)|*.xlsx";
-                if (saveDialog.ShowDialog() != DialogResult.Cancel)
-                {
-                    ExcelPackage p = new ExcelPackage();
-                    string exportFilePath = saveDialog.FileName;
-                    var newFile = new FileInfo(exportFilePath);
-                    using (var package = new ExcelPackage(newFile))
-                    {
-                        ExcelWorksheet ws = package.Workbook.Worksheets.Add("NewSheet1");
+        //public void ExportTableToExcel(System.Data.DataTable dt)
+        //{
+        //    using (SaveFileDialog saveDialog = new SaveFileDialog())
+        //    {
+        //        saveDialog.Filter = "Excel (Phiên ban 2007 tro lên (.xlsx)|*.xlsx";
+        //        if (saveDialog.ShowDialog() != DialogResult.Cancel)
+        //        {
+        //            ExcelPackage p = new ExcelPackage();
+        //            string exportFilePath = saveDialog.FileName;
+        //            var newFile = new FileInfo(exportFilePath);
+        //            using (var package = new ExcelPackage(newFile))
+        //            {
+        //                ExcelWorksheet ws = package.Workbook.Worksheets.Add("NewSheet1");
 
-                        ws.Cells["C6"].LoadFromDataTable(dt, true);
-                        //Luu file Excel
-                        package.Save();
-                    }
-                    MessageBox.Show("Xuất excel thành công!");
-                }
-            }
+        //                ws.Cells["C6"].LoadFromDataTable(dt, true);
+        //                //Luu file Excel
+        //                package.Save();
+        //            }
+        //            MessageBox.Show("Xuất excel thành công!");
+        //        }
+        //    }
 
-        }
+        //}
         #endregion
     }
 }

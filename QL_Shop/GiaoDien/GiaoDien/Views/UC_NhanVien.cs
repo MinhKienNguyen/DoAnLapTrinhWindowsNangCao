@@ -5,6 +5,7 @@ using GiaoDien.Models;
 using GiaoDien.Unity;
 using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
@@ -105,17 +106,7 @@ namespace GiaoDien.Views
                 XtraMessageBox.Show(Commons.WritePass, Commons.Notify, MessageBoxButtons.OK);
                 return;
             }
-            DataTable dtCheckInsert; 
-            byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
-            if (rdoNam.Checked == true)
-            {
-                dtCheckInsert = _nhanvienModel.InsertEmployess(txtMaNV.Text, txtTenNV.Text, rdoNam.Text, txtDiaChi.Text, txtUser.Text, txtPass.Text, txtSDT.Text, image, lkuChucVu.EditValue.ToString());
-            }
-            else
-            {
-                dtCheckInsert = _nhanvienModel.InsertEmployess(txtMaNV.Text, txtTenNV.Text, rdoNu.Text, txtDiaChi.Text, txtUser.Text, txtPass.Text, txtSDT.Text, image, lkuChucVu.EditValue.ToString());
-            }
-            if (dtCheckInsert.Rows.Count > 0 && dtCheckInsert != null)
+            if (InsertEmployess())
             {
                 XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
                 txtMaNV.Text = EmployessCde();
@@ -123,6 +114,37 @@ namespace GiaoDien.Views
                 return;
             }
             XtraMessageBox.Show(Commons.InsertError, Commons.Notify, MessageBoxButtons.OK);
+        }
+
+
+        private bool InsertEmployess()
+        {
+            using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
+            new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+            {
+                DataTable dtCheckInsert;
+                byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
+                if (rdoNam.Checked == true)
+                {
+                    dtCheckInsert = _nhanvienModel.InsertEmployess(txtMaNV.Text, txtTenNV.Text, rdoNam.Text, txtDiaChi.Text, txtUser.Text, txtPass.Text, txtSDT.Text, image, lkuChucVu.EditValue.ToString());
+                }
+                else
+                {
+                    dtCheckInsert = _nhanvienModel.InsertEmployess(txtMaNV.Text, txtTenNV.Text, rdoNu.Text, txtDiaChi.Text, txtUser.Text, txtPass.Text, txtSDT.Text, image, lkuChucVu.EditValue.ToString());
+                }
+                if (dtCheckInsert.Rows.Count <= 0 || dtCheckInsert == null)
+                {
+                    return false;
+                }
+                DataTable dtCheckUpdate;
+                dtCheckUpdate = _nhanvienModel.UpdateNhomND(txtUser.Text, lkuChucVu.EditValue.ToString());
+                if (dtCheckUpdate.Rows.Count <= 0 || dtCheckUpdate == null)
+                {
+                    return false;
+                }
+                tran.Complete();
+            }
+            return true;
         }
 
         /// <summary>
@@ -182,14 +204,11 @@ namespace GiaoDien.Views
                 rdoNam.Checked = false;
                 rdoNu.Checked = true;
             }
-           
             lkuChucVu.Properties.NullText= row[9].ToString();
-            DataTable dt = _nhanvienModel.GetImage(txtMaNV.Text);
-            //BinaryFormatter bf = new BinaryFormatter();
-            //MemoryStream ms = new MemoryStream();
-            //bf.Serialize(ms, dt.Rows[0]["HinhAnhNV"]);
-            //byte[] arrpic = (new UnicodeEncoding()).GetBytes(dt.Rows[0]["HinhAnhNV"].ToString());
-            //imgChonAnh.Image = _unityClass.CovertBytetoImage(arrpic);
+            byte[] data = new byte[0];
+            data = (byte[])(row[7]);
+            MemoryStream ms = new MemoryStream(data);
+            imgChonAnh.Image = Image.FromStream(ms);
         }
 
         private void txtEmployessName_KeyDown(object sender, KeyEventArgs e)
