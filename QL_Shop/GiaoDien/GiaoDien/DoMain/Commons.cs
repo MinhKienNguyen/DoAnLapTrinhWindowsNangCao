@@ -13,6 +13,7 @@
         public const string Notify = "Thông báo";
         public const string ChooseImage = "Vui lòng chọn hình ảnh";
         public const string WriteUset = "Vui lòng nhập tên đăng nhập";
+        public const string ChonQuyen = "Vui lòng chức vụ";
         public const string WritePass = "Vui lòng nhập mật khẩu";
         public const string Exist = "Tên đăng nhập đã tồn tại";
         public const string ChooseNhomND = "Vui lòng chọn nhóm người dùng";
