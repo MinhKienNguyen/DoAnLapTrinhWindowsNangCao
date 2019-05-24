@@ -106,6 +106,11 @@ namespace GiaoDien.Views
                 XtraMessageBox.Show(Commons.WritePass, Commons.Notify, MessageBoxButtons.OK);
                 return;
             }
+            else if (string.IsNullOrEmpty(lkuChucVu.EditValue.ToString()))
+            {
+                XtraMessageBox.Show(Commons.ChonQuyen, Commons.Notify, MessageBoxButtons.OK);
+                return;
+            }
             if (InsertEmployess())
             {
                 XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
@@ -123,6 +128,7 @@ namespace GiaoDien.Views
             new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
             {
                 DataTable dtCheckInsert;
+                
                 byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
                 if (rdoNam.Checked == true)
                 {
@@ -205,6 +211,8 @@ namespace GiaoDien.Views
                 rdoNu.Checked = true;
             }
             lkuChucVu.Properties.NullText= row[9].ToString();
+            if (row[7] == null || string.IsNullOrEmpty(row[7].ToString()))
+                return;
             byte[] data = new byte[0];
             data = (byte[])(row[7]);
             MemoryStream ms = new MemoryStream(data);

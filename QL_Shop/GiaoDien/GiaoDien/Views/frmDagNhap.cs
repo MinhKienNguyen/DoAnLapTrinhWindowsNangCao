@@ -64,7 +64,6 @@ namespace GiaoDien.Views
             if (e.KeyCode == Keys.Enter)
             {
                 btnLogin.PerformClick();
-
             }
         }
 
@@ -73,7 +72,6 @@ namespace GiaoDien.Views
             if (e.KeyCode == Keys.Enter)
             {
                 btnLogin.PerformClick();
-
             }
         }
 
