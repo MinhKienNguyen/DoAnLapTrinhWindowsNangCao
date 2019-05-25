@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using GiaoDien.Models;
+﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
+using GiaoDien.Models;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace GiaoDien.Views
 {
@@ -18,6 +12,7 @@ namespace GiaoDien.Views
         private DataTable iGridDataSource = null;
         private DataTable iGridDataSourceScanBarCode = null;
         private DoiTraModel _doiModel = new DoiTraModel();
+        private string _maNV = GiaoDien.Properties.Settings.Default.MaNV;
         public UC_DoiTra()
         {
             InitializeComponent();
@@ -184,12 +179,84 @@ namespace GiaoDien.Views
         {
             if(XtraMessageBox.Show(ScanBarcode.BanCoMuonXuatHD, Commons.Notify, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.No)
             {
-                using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
-                new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+                if(InsertHoaDonTra())
                 {
-                    
-                    tran.Complete();
+                    XtraMessageBox.Show(Commons.LuuThanhCong, Commons.Notify, MessageBoxButtons.OK);
+                    return;
                 }
+                XtraMessageBox.Show(Commons.LuuBai, Commons.Notify, MessageBoxButtons.OK);
+            }
+        }
+
+        private string TangMaHDDoiTra()
+        {
+            string strCode = string.Empty;
+            for (int i = 0; i < i + 1; i++)
+            {
+                int dtCout = _doiModel.TangMaHDDoiTra("HDDT0000" + i).Rows.Count;
+                if (dtCout == 0)
+                {
+                    strCode = "HDDT0000" + i;
+                    break;
+                }
+            }
+            return strCode;
+        }
+
+
+        private string TangMaCTHDDoiTra(int i)
+        {
+            string strCode = string.Empty;
+            int dtCout = _doiModel.TangMaCTHDDoiTra(TangMaHDDoiTra() + "CT00" + i).Rows.Count;
+            if (dtCout == 0)
+            {
+                strCode = TangMaHDDoiTra() + "CT00" + i;
+            }
+            return strCode;
+        }
+        private bool InsertHoaDonTra()
+        {
+            using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
+                new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+            {
+                string _maHDTra = TangMaHDDoiTra();
+                if (_doiModel.Insert_HDTra(_maHDTra, txtMaHD.Text, _maNV, (float)Convert.ToDouble(txtTienTra.Text)) != true)
+                {
+                    return false;
+                }
+                int i = 0;
+                foreach(DataRow dr in this.iGridDataSourceScanBarCode.Rows)
+                {
+                    string _maCTHDTra = TangMaCTHDDoiTra(i);
+                    if (_doiModel.Insert_CT_HDTra(_maCTHDTra,
+                                                  _maHDTra,
+                                                  dr["MaHangHoa"].ToString(),
+                                                  dr["BarCode"].ToString(),
+                                                  Convert.ToInt32(dr["SoLuong"].ToString()),
+                                                  (float)Convert.ToDouble(dr["ThanhTien"].ToString())) != true)
+                    {
+                        return false;
+                    }
+                    if(_doiModel.Update_CTHD(dr["BarCode"].ToString(),
+                                            Convert.ToInt32(dr["SoLuong"].ToString()),
+                                            (float)Convert.ToDouble(dr["ThanhTien"].ToString())) != true)
+                    {
+                        return false;
+                    }
+                    if(_doiModel.UpdateSL_CTHH(dr["BarCode"].ToString(),
+                                                 Convert.ToInt32(dr["SoLuong"].ToString())) != true)
+                    {
+                        return false;
+                    }
+                }
+                if(_doiModel.Update_HD(txtMaHD.Text,
+                                        (float)Convert.ToDouble(txtTienTra.Text)) != true)
+                {
+                    return true;
+                }
+
+                tran.Complete();
+                return true;
             }
         }
     }
