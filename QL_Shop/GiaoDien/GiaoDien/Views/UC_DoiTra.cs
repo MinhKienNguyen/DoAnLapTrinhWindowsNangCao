@@ -34,6 +34,11 @@ namespace GiaoDien.Views
             if (e.KeyCode == Keys.Enter)
             {
                 LoadDataBill();
+                if(this.iGridDataSource == null || iGridDataSource.Rows.Count <=0)
+                {
+                    XtraMessageBox.Show(ScanBarcode.HoaDonKhongTonTai, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
                 txtNVLap.Text = iGridDataSource.Rows[0]["TenNhanVien"].ToString();
                 txtTienHD.Text = iGridDataSource.Rows[0]["TongTien"].ToString();
                 dtNgayLap.Text = iGridDataSource.Rows[0]["NgayLapHD"].ToString();
@@ -181,6 +186,8 @@ namespace GiaoDien.Views
             {
                 if(InsertHoaDonTra())
                 {
+                    this.iGridDataSource.Clear();
+                    this.iGridDataSourceScanBarCode.Clear();
                     XtraMessageBox.Show(Commons.LuuThanhCong, Commons.Notify, MessageBoxButtons.OK);
                     return;
                 }
