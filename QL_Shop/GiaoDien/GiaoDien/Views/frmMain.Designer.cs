@@ -319,7 +319,7 @@
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemImageEdit1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1356, 162);
+            this.ribbonControl1.Size = new System.Drawing.Size(1356, 193);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // skinRibbonGalleryBarItem1
@@ -886,6 +886,7 @@
             this.barButtonItem9.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem9.Tag = "XuatHD";
             this.barButtonItem9.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
             // 
             // labelCV
             // 
@@ -1003,6 +1004,7 @@
             this.barButtonItem48.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem48.Tag = "LapPD";
             this.barButtonItem48.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem48.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem48_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -1185,19 +1187,19 @@
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.labelTK);
             this.ribbonStatusBar1.ItemLinks.Add(this.lableTim);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 736);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 730);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1356, 31);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1356, 37);
             // 
             // xtraTabControl
             // 
             this.xtraTabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.xtraTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl.Location = new System.Drawing.Point(0, 162);
+            this.xtraTabControl.Location = new System.Drawing.Point(0, 193);
             this.xtraTabControl.Name = "xtraTabControl";
             this.xtraTabControl.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl.Size = new System.Drawing.Size(1356, 574);
+            this.xtraTabControl.Size = new System.Drawing.Size(1356, 537);
             this.xtraTabControl.TabIndex = 3;
             this.xtraTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -1208,7 +1210,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.layoutControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1350, 546);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1349, 502);
             this.xtraTabPage1.Text = "Giới thiệu";
             // 
             // layoutControl1
@@ -1219,7 +1221,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(753, 450, 650, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1350, 546);
+            this.layoutControl1.Size = new System.Drawing.Size(1349, 502);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -1238,7 +1240,7 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Location = new System.Drawing.Point(12, 12);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1326, 522);
+            this.panelControl1.Size = new System.Drawing.Size(1325, 478);
             this.panelControl1.TabIndex = 4;
             // 
             // label9
@@ -1247,7 +1249,7 @@
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(530, 431);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 19);
+            this.label9.Size = new System.Drawing.Size(84, 23);
             this.label9.TabIndex = 16;
             this.label9.Text = "Báo cáo:";
             // 
@@ -1266,7 +1268,7 @@
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(528, 344);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 19);
+            this.label7.Size = new System.Drawing.Size(101, 23);
             this.label7.TabIndex = 14;
             this.label7.Text = "Nghiệp vụ:";
             // 
@@ -1276,7 +1278,7 @@
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(550, 363);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 57);
+            this.label8.Size = new System.Drawing.Size(211, 66);
             this.label8.TabIndex = 13;
             this.label8.Text = "+ Đặt hàng, nhập hàng\r\n+ Bán, đổi trả hàng\r\n+ Xem thông tin đơn hàng";
             // 
@@ -1286,7 +1288,7 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(530, 240);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 19);
+            this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 12;
             this.label5.Text = "Danh mục:";
             // 
@@ -1296,7 +1298,7 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(550, 259);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 76);
+            this.label6.Size = new System.Drawing.Size(279, 88);
             this.label6.TabIndex = 11;
             this.label6.Text = "+ Thêm, Xóa, Sửa nhân viên\r\n+ Thêm, Xóa, Sửa hàng hóa\r\n+ Thêm, Xóa, Sửa mã khuyễn" +
     " mãi\r\n+ Tìm kiếm thông tin khách hàng,..";
@@ -1308,7 +1310,7 @@
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(528, 131);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 19);
+            this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 10;
             this.label4.Text = "Hệ thống:";
             // 
@@ -1318,7 +1320,7 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(550, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 76);
+            this.label3.Size = new System.Drawing.Size(207, 88);
             this.label3.TabIndex = 9;
             this.label3.Text = "+ Đăng nhập\r\n+ Đổi mật khẩu\r\n+ Đổi giao diện\r\n+ Quản lý người dùng,....";
             // 
@@ -1328,7 +1330,7 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(530, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 24);
+            this.label2.Size = new System.Drawing.Size(266, 31);
             this.label2.TabIndex = 8;
             this.label2.Text = "Các tính năng hỗ trợ:";
             // 
@@ -1348,7 +1350,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(2, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1322, 54);
+            this.label1.Size = new System.Drawing.Size(1321, 54);
             this.label1.TabIndex = 6;
             this.label1.Text = "PHẦN MỀM QUẢN LÝ SHOP THỜI TRANG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1360,7 +1362,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1350, 546);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1349, 502);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -1368,16 +1370,16 @@
             this.layoutControlItem1.Control = this.panelControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1330, 526);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1329, 482);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 162);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 193);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1356, 605);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1356, 574);
             this.fluentDesignFormContainer1.TabIndex = 6;
             // 
             // ribbonPageGroup2
@@ -1465,7 +1467,7 @@
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1356, 767);
             this.Controls.Add(this.xtraTabControl);
