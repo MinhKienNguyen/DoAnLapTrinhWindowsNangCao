@@ -114,7 +114,7 @@ namespace GiaoDien.Views
                             }
                             // co r thi cong them vao
                             drScan[0]["SoLuong"] = Convert.ToDecimal(drScan[0]["SoLuong"]) + quantityBarcode;
-                            drScan[0]["TongTien"] = Convert.ToDouble(drScan[0]["TongTien"]) * Convert.ToInt16(drScan[0]["SoLuong"]);
+                            drScan[0]["TongTien"] = Convert.ToDouble(drScan[0]["GiaBan"]) * Convert.ToInt16(drScan[0]["SoLuong"]);
                             grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
                             decimal _tongTien = Convert.ToDecimal(iGridDataSourceScanBarCode.Compute("sum(TongTien)", "").ToString());
                             txtTongTien.Text = _tongTien.ToString();
