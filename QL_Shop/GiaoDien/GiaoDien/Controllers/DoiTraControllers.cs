@@ -113,5 +113,15 @@ namespace GiaoDien.Controllers
         {
             return _unity.filldb("PH_HoaDonDoiTra_TangMa", _maHDTra);
         }
+
+        /// <summary>
+        /// tăng mã chi tiết hóa đơn đổi trả
+        /// </summary>
+        /// <param name="_maCTHDTra"></param>
+        /// <returns></returns>
+        public DataTable TangMaCTHDDoiTra(string _maCTHDTra)
+        {
+            return _unity.filldb("PH_CT_HDDoiTra_MaTang", _maCTHDTra);
+        }
     }
 }
