@@ -23,10 +23,15 @@ namespace GiaoDien.Views
         public UC_BanHang()
         {
             InitializeComponent();
-            txt_mahd.Text = Getincreaseinvoicecode();
+            loadbanghang();
+
         }
 
         private void UC_BanHang_Load(object sender, EventArgs e)
+        {
+            
+        }
+        private void loadbanghang()
         {
             txtBarCodeKhachHang.Enabled = false;
             txt_makh.Enabled = false;
@@ -36,8 +41,8 @@ namespace GiaoDien.Views
             DataTable dt = _banHangModel.GetDataProduct();
             iDataProducts = dt.Copy();
             txtNumberScan.Text = "1";
+            txt_mahd.Text = Getincreaseinvoicecode();
         }
- 
         private void chek_thanhvien_CheckedChanged(object sender, EventArgs e)
         {
             if(chek_thanhvien.Checked==true)
@@ -258,6 +263,7 @@ namespace GiaoDien.Views
                     XtraMessageBox.Show(ScanBarcode.XuatHDThatBai, Commons.Notify, MessageBoxButtons.OK);
                 }
             }
+            loadbanghang();
         }
 
         public bool ThemHoaDon()
@@ -334,6 +340,33 @@ namespace GiaoDien.Views
                 txt_makh.Text = dt.Rows[0]["MaKhachHang"].ToString();
                 txt_SDT.Text = dt.Rows[0]["SDT_KH"].ToString();
                 txtTienTich.Text = dt.Rows[0]["TichTien"].ToString();
+            }
+        }
+
+        private void txtNumberScan_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            try
+            {
+             if (e.KeyCode == Keys.Enter)
+                {
+                    if (Convert.ToInt16(txtNumberScan.Text) > 0)
+                    {
+                        ScanBarCode(txtBarcode.Text);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(ScanBarcode.SoLuongQuetPhaiLon0, Commons.Notify, MessageBoxButtons.OK);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
     }
