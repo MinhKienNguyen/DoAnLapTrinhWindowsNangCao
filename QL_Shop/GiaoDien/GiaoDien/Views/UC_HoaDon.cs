@@ -55,5 +55,23 @@ namespace GiaoDien.Views
             DataTable dt = new DataTable();
 
         }
+
+        private void dtime_TuNgay_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                btntimkiem.PerformClick();
+            }
+        }
+
+        private void dtime_denngay_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                btntimkiem.PerformClick();
+            }
+        }
     }
 }

@@ -34,6 +34,11 @@ namespace GiaoDien.Views
             if (e.KeyCode == Keys.Enter)
             {
                 LoadDataBill();
+                if(this.iGridDataSource == null || iGridDataSource.Rows.Count <=0)
+                {
+                    XtraMessageBox.Show(ScanBarcode.HoaDonKhongTonTai, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
                 txtNVLap.Text = iGridDataSource.Rows[0]["TenNhanVien"].ToString();
                 txtTienHD.Text = iGridDataSource.Rows[0]["TongTien"].ToString();
                 dtNgayLap.Text = iGridDataSource.Rows[0]["NgayLapHD"].ToString();
@@ -181,6 +186,8 @@ namespace GiaoDien.Views
             {
                 if(InsertHoaDonTra())
                 {
+                    this.iGridDataSource.Clear();
+                    this.iGridDataSourceScanBarCode.Clear();
                     XtraMessageBox.Show(Commons.LuuThanhCong, Commons.Notify, MessageBoxButtons.OK);
                     return;
                 }
@@ -257,6 +264,32 @@ namespace GiaoDien.Views
 
                 tran.Complete();
                 return true;
+            }
+        }
+
+        private void txtNumberScan_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (Convert.ToInt16(txtNumberScan.Text) > 0)
+                    {
+                        ScanBarCode(txtBarcode.Text);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(ScanBarcode.SoLuongQuetPhaiLon0, Commons.Notify, MessageBoxButtons.OK);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
     }

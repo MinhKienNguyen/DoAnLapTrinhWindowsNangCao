@@ -294,5 +294,17 @@ namespace GiaoDien
             UC_PhieuDatHang pd = new UC_PhieuDatHang();
             AddTabControl(pd, "phiếu đặt hàng");
         }
+
+        private void barButtonItem49_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_DoanhThu dt = new UC_DoanhThu();
+            AddTabControl(dt, "doanh thu");
+        }
+
+        private void barButtonItem31_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_HoaDonDoiTra hddt = new UC_HoaDonDoiTra();
+            AddTabControl(hddt,"hóa đơn đổi trả");
+        }
     }
 }

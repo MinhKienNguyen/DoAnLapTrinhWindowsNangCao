@@ -176,6 +176,8 @@
             this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar2)).BeginInit();
@@ -193,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemTextEdit1
@@ -306,9 +309,10 @@
             this.barButtonItem32,
             this.barButtonItem43,
             this.btnHoaDon,
-            this.barButtonItem48});
+            this.barButtonItem48,
+            this.barButtonItem31});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 97;
+            this.ribbonControl1.MaxItemId = 98;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -718,6 +722,7 @@
             this.barButtonItem49.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem49.Tag = "DoanhThu";
             this.barButtonItem49.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem49.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem49_ItemClick);
             // 
             // barButtonItem50
             // 
@@ -939,7 +944,10 @@
             // 
             // btnDoiTra
             // 
+            this.btnDoiTra.ActAsDropDown = true;
+            this.btnDoiTra.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.btnDoiTra.Caption = "Đổi trả hàng";
+            this.btnDoiTra.DropDownControl = this.popupMenu1;
             this.btnDoiTra.Id = 89;
             this.btnDoiTra.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoiTra.ImageOptions.Image")));
             this.btnDoiTra.Name = "btnDoiTra";
@@ -1109,6 +1117,7 @@
             this.ribbonPageGroup12.ItemLinks.Add(this.btnBanHang);
             this.ribbonPageGroup12.ItemLinks.Add(this.btnHoaDon);
             this.ribbonPageGroup12.ItemLinks.Add(this.btnDoiTra);
+            this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem31);
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
             this.ribbonPageGroup12.Tag = "BanHang";
             this.ribbonPageGroup12.Text = "Bán hàng";
@@ -1463,6 +1472,22 @@
             this.ribbonPage7.Name = "ribbonPage7";
             this.ribbonPage7.Text = "ribbonPage7";
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbonControl1;
+            // 
+            // barButtonItem31
+            // 
+            this.barButtonItem31.Caption = "Hóa đơn đổi trả";
+            this.barButtonItem31.Id = 97;
+            this.barButtonItem31.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem31.ImageOptions.Image")));
+            this.barButtonItem31.Name = "barButtonItem31";
+            this.barButtonItem31.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem31.Tag = "HDDT";
+            this.barButtonItem31.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem31.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem31_ItemClick);
+            // 
             // frmMain
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -1503,6 +1528,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1655,6 +1681,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem48;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem31;
     }
 }
 
