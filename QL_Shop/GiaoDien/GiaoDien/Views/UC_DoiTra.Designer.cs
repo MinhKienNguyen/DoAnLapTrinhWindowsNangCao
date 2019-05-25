@@ -118,7 +118,7 @@
             // 
             this.txtBarcode.EditValue = "";
             this.txtBarcode.Location = new System.Drawing.Point(546, 37);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(5);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarcode.Properties.Appearance.Options.UseFont = true;
@@ -307,7 +307,7 @@
             // 
             this.txtNumberScan.EditValue = "";
             this.txtNumberScan.Location = new System.Drawing.Point(120, 37);
-            this.txtNumberScan.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtNumberScan.Margin = new System.Windows.Forms.Padding(5);
             this.txtNumberScan.Name = "txtNumberScan";
             this.txtNumberScan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumberScan.Properties.Appearance.Options.UseFont = true;
@@ -317,6 +317,7 @@
             this.txtNumberScan.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtNumberScan.Size = new System.Drawing.Size(227, 28);
             this.txtNumberScan.TabIndex = 49;
+            this.txtNumberScan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumberScan_KeyDown);
             // 
             // labelControl1
             // 
@@ -578,7 +579,7 @@
             // 
             this.txtNVLap.EditValue = "";
             this.txtNVLap.Location = new System.Drawing.Point(632, 12);
-            this.txtNVLap.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtNVLap.Margin = new System.Windows.Forms.Padding(5);
             this.txtNVLap.Name = "txtNVLap";
             this.txtNVLap.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNVLap.Properties.Appearance.Options.UseFont = true;
@@ -590,7 +591,7 @@
             // 
             this.txtTienHD.EditValue = "";
             this.txtTienHD.Location = new System.Drawing.Point(112, 57);
-            this.txtTienHD.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTienHD.Margin = new System.Windows.Forms.Padding(5);
             this.txtTienHD.Name = "txtTienHD";
             this.txtTienHD.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTienHD.Properties.Appearance.Options.UseFont = true;
@@ -636,7 +637,7 @@
             // 
             this.txtMaHD.EditValue = "";
             this.txtMaHD.Location = new System.Drawing.Point(112, 12);
-            this.txtMaHD.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtMaHD.Margin = new System.Windows.Forms.Padding(5);
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaHD.Properties.Appearance.Options.UseFont = true;

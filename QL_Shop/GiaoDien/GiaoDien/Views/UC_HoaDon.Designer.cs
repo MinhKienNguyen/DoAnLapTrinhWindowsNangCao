@@ -39,6 +39,7 @@
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -51,7 +52,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_mahd = new System.Windows.Forms.TextBox();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewhoadon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -223,6 +223,22 @@
             this.gridColumn3.VisibleIndex = 5;
             this.gridColumn3.Width = 94;
             // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn2.AppearanceCell.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.Caption = "Đơn giá";
+            this.gridColumn2.FieldName = "GiaBan";
+            this.gridColumn2.MinWidth = 25;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 6;
+            this.gridColumn2.Width = 89;
+            // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Thành tiền";
@@ -300,6 +316,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtime_denngay.Size = new System.Drawing.Size(595, 28);
             this.dtime_denngay.TabIndex = 74;
+            this.dtime_denngay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtime_denngay_KeyDown);
             // 
             // dtime_TuNgay
             // 
@@ -315,6 +332,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtime_TuNgay.Size = new System.Drawing.Size(595, 28);
             this.dtime_TuNgay.TabIndex = 73;
+            this.dtime_TuNgay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtime_TuNgay_KeyDown);
             // 
             // labelControl4
             // 
@@ -354,22 +372,6 @@
             this.txt_mahd.Name = "txt_mahd";
             this.txt_mahd.Size = new System.Drawing.Size(595, 30);
             this.txt_mahd.TabIndex = 69;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn2.AppearanceCell.Options.UseFont = true;
-            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn2.Caption = "Đơn giá";
-            this.gridColumn2.FieldName = "GiaBan";
-            this.gridColumn2.MinWidth = 25;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 6;
-            this.gridColumn2.Width = 89;
             // 
             // UC_HoaDon
             // 

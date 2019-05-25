@@ -266,5 +266,31 @@ namespace GiaoDien.Views
                 return true;
             }
         }
+
+        private void txtNumberScan_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (Convert.ToInt16(txtNumberScan.Text) > 0)
+                    {
+                        ScanBarCode(txtBarcode.Text);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(ScanBarcode.SoLuongQuetPhaiLon0, Commons.Notify, MessageBoxButtons.OK);
+                        txtBarcode.Text = string.Empty;
+                        txtNumberScan.Text = "1";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
     }
 }
