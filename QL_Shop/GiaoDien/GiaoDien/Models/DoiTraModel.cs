@@ -42,5 +42,15 @@ namespace GiaoDien.Models
         {
             return _doiControllers.Insert_CT_HDTra(_maCTietHDTra, _maHDTra, _maHH, _barcode, _soLuong, _thanhTien);
         }
+
+        public DataTable TangMaHDDoiTra(string _maHDTra)
+        {
+            return _doiControllers.TangMaHDDoiTra(_maHDTra);
+        }
+
+        public DataTable TangMaCTHDDoiTra(string _maCTHDTra)
+        {
+            return _doiControllers.TangMaCTHDDoiTra(_maCTHDTra);
+        }
     }
 }
