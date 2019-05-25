@@ -62,5 +62,6 @@ public class ScanBarcode
         public const string SoLuongVuotKho = "Đã quá số lượng trong kho";
         public const string BanCoMuonXuatHD = "Bạn có muốn xuất hóa đơn";
         public const string XuatHDThatBai = "Xuất hóa đơn thất bại";
+        public const string HangTonTai = "Mặt hàng đã tồn tại trong phiếu đặt";
     }
 }
