@@ -282,5 +282,17 @@ namespace GiaoDien
             frmDagNhap dn = new frmDagNhap();
             dn.Show();
         }
+
+        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_ThongKeKho tk = new UC_ThongKeKho();
+            AddTabControl(tk, "Thống kê kho");
+        }
+
+        private void barButtonItem48_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_PhieuDatHang pd = new UC_PhieuDatHang();
+            AddTabControl(pd, "phiếu đặt hàng");
+        }
     }
 }
