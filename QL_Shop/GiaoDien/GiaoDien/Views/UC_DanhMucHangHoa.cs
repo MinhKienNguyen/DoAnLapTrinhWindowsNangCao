@@ -7,7 +7,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using app = Microsoft.Office.Interop.Excel.Application;
 
 namespace GiaoDien.Views
 {
@@ -116,28 +115,7 @@ namespace GiaoDien.Views
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            //  DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
-            //ExportTableToExcel(iDataSource);
-
-            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            worksheet = workbook.Sheets["Sheet1"];
-            worksheet = workbook.ActiveSheet;
-            app.Visible = true;
-            //đổ dữ liệu vào Sheets
-            worksheet.Cells[1, 1] = "DANH SÁCH HÀNG";
-            worksheet.Cells[3, 1] = "STT";
-            worksheet.Cells[3, 2] = "Mã loại hàng";
-            worksheet.Cells[3, 3] = "Tên loại hàng";
-            worksheet.Cells[3, 4] = "BarCode";
-            worksheet.Cells[3, 5] = "Mã hàng";
-            worksheet.Cells[3, 6] = "Tên hàng";
-            worksheet.Cells[3, 7] = "Màu";
-            worksheet.Cells[3, 8] = "Size";
-            worksheet.Cells[3, 9] = "Số lượng";
-            worksheet.Cells[3, 10] = "DVT";
-            worksheet.Cells[3, 11] = "Giá";
+            
         }
         #region "các hàm con"
         private void LoadGridProduct()
