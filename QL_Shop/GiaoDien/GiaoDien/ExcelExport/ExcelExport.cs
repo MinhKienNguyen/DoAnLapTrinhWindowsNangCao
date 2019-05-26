@@ -63,6 +63,7 @@ namespace GiaoDien.Models
             xlsSheet.Range[startRow, startCol, startRow, startCol + arrColName.Length].WrapText = true;
         }
 
+
         /// <summary>
         /// Draws the table border.
         /// </summary>

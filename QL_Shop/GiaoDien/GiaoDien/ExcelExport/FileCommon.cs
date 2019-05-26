@@ -19,6 +19,7 @@ namespace GiaoDien.Models
             return File.Exists(pFilePath);
         }
 
+
         /// <summary>
         /// Reads the file.
         /// </summary>
