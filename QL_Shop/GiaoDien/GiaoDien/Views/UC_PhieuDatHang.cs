@@ -16,6 +16,10 @@ namespace GiaoDien.Views
         {
             InitializeComponent();
             LoadGridKhoHang();
+            txtNhanVien.Text = GiaoDien.Properties.Settings.Default.MaNV;
+            txtMaPD.Text = MaPhieuDatNCC();
+            LoadLkLoaiHangHoa();
+            dtNgay.EditValue = DateTime.Now;
             TableBindings();
             btnChuyen.Click += BtnChuyen_Click;
             btnXoa.Click += BtnXoa_Click;
@@ -81,6 +85,23 @@ namespace GiaoDien.Views
             {
                 XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
+        }
+
+        /// <summary>
+        /// load lookup nhà cung cấp
+        /// </summary>
+        private void LoadLkLoaiHangHoa()
+        {
+            lkNCC.Properties.DataSource = _phieuDatModel.GetLkNCC();
+            lkNCC.Properties.DisplayMember = "TenNCC";
+            lkNCC.Properties.ValueMember = "MaNCC";
+        }
+
+        private void Refesh()
+        {
+            txtNhanVien.Text = GiaoDien.Properties.Settings.Default.MaNV;
+            txtMaPD.Text = MaPhieuDatNCC();
+            this.iGridDataSourceDat.Clear();
         }
 
         /// <summary>
@@ -172,18 +193,84 @@ namespace GiaoDien.Views
         {
             try
             {
-                using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
-                new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+                //if (lkNCC.EditValue.ToString()=="")
+                //{
+                //    XtraMessageBox.Show(ScanBarcode.ChonNCC, Commons.Notify, MessageBoxButtons.OK);
+                //    return;
+                //}
+                if(ThemPhieuDatNCC()!= true)
                 {
-
-                    tran.Complete();
-                    //return true;
+                    XtraMessageBox.Show(ScanBarcode.LapPDatThatBai, Commons.Notify, MessageBoxButtons.OK);
+                    return;
                 }
+                XtraMessageBox.Show(ScanBarcode.PhieuDatThanhCong, Commons.Notify, MessageBoxButtons.OK);
+
+                Refesh();
+
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
+        }
+
+        private bool ThemPhieuDatNCC()
+        {
+            using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
+               new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+            {
+                if (_phieuDatModel.ThemPhieuDatNCC(txtMaPD.Text, txtNhanVien.Text, lkNCC.EditValue.ToString()) != true)
+                {
+                    return false;
+                }
+                for (int i = 0; i< this.iGridDataSourceDat.Rows.Count; i++)
+                {
+                    string _maLoai = gridView2.GetRowCellValue(i, "MaLoaiHangHoa").ToString();
+                    string _maHH = gridView2.GetRowCellValue(i, "MaHangHoa").ToString();
+                    string _tenHH = gridView2.GetRowCellValue(i, "TenHangHoa").ToString();
+                    string _mau = gridView2.GetRowCellValue(i, "MaMau").ToString();
+                    string _size = gridView2.GetRowCellValue(i, "MaSize").ToString();
+                    string _dvt = gridView2.GetRowCellValue(i, "MaDVT").ToString();
+                    int _soluong = Convert.ToInt32(gridView2.GetRowCellValue(i, "SoLuong").ToString());
+                    string _maCTDH = MaCTPhieuDatNCC();
+                    if (_phieuDatModel.ThemCTPhieuDatNCC(txtMaPD.Text, _maCTDH, _maLoai, _maHH, _tenHH, _mau, _size, _dvt, _soluong) != true)
+                    {
+                        return false;
+                    }
+                }
+                tran.Complete();
+                return true;
+            }
+        }
+
+        public string MaPhieuDatNCC()
+        {
+            string strCode = string.Empty;
+            for (int i = 0; i < i + 1; i++)
+            {
+                int dtCout = _phieuDatModel.DatHangNCC_MaTang("DHNCC000" + i).Rows.Count;
+                if (dtCout == 0)
+                {
+                    strCode = "DHNCC000" + i;
+                    break;
+                }
+            }
+            return strCode;
+        }
+
+        public string MaCTPhieuDatNCC()
+        {
+            string strCode = string.Empty;
+            for (int i = 0; i < i + 1; i++)
+            {
+                int dtCout = _phieuDatModel.CTDatHangNCC_MaTang("CTDH000" + i).Rows.Count;
+                if (dtCout == 0)
+                {
+                    strCode = "CTDH000" + i;
+                    break;
+                }
+            }
+            return strCode;
         }
     }
 
