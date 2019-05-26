@@ -61,13 +61,26 @@ namespace GiaoDien.Views
             {
                 for (int i = 0; i < grdViewNgDungNhomNgDung.DataRowCount; i++)
                 {
+                    int flag = -1;
                     if (grdViewNgDungNhomNgDung.GetRowCellValue(i, "CoQuyen").ToString() == "True")
+                    {
+                        string mamh = iGridDataSourceNgDungNhomNgD.Rows[i]["MaManHinh"].ToString();
+                        DataRowView row = (DataRowView)grdViewNhomND.GetRow(grdViewNhomND.GetSelectedRows()[0]);
+                        flag = 1;
+                        string manhom = row["MaNhom"].ToString();
+                        DataTable dtCheckUpdate = _phanQuyenModel.UpdatePhanQuyen(manhom.ToString(), mamh.ToString(), flag);
+                        if (dtCheckUpdate.Rows.Count <= 0 || dtCheckUpdate == null)
+                        {
+                            return false;
+                        }
+                    }
+                    if (grdViewNgDungNhomNgDung.GetRowCellValue(i, "CoQuyen").ToString() == "False")
                     {
                         string mamh = iGridDataSourceNgDungNhomNgD.Rows[i]["MaManHinh"].ToString();
                         DataRowView row = (DataRowView)grdViewNhomND.GetRow(grdViewNhomND.GetSelectedRows()[0]);
 
                         string manhom = row["MaNhom"].ToString();
-                        DataTable dtCheckUpdate = _phanQuyenModel.UpdatePhanQuyen(manhom.ToString(), mamh.ToString());
+                        DataTable dtCheckUpdate = _phanQuyenModel.UpdatePhanQuyen(manhom.ToString(), mamh.ToString(), flag);
                         if (dtCheckUpdate.Rows.Count <= 0 || dtCheckUpdate == null)
                         {
                             return false;
