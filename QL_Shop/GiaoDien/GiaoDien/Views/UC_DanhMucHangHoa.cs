@@ -1,8 +1,10 @@
 ﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
+using GiaoDien.DTO;
 using GiaoDien.Models;
 using GiaoDien.Unity;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -29,6 +31,10 @@ namespace GiaoDien.Views
             lk_loaihang.ReadOnly = true;
             txtSoLuong.ReadOnly = true;
             txt_Barcode.ReadOnly = true;
+            txtTenHH.ReadOnly = true;
+            txtMaHH.ReadOnly = true;
+            Image image = Image.FromFile(@"C:\Users\HUY\Desktop\ShopThoiTrang\DoAnLapTrinhWindowsNangCao\QL_Shop\GiaoDien\GiaoDien\Resources\tải xuống.png");
+            imgChonAnh.Image = image;
         }
        
 
@@ -39,88 +45,141 @@ namespace GiaoDien.Views
 
         private void tileViewHangHoa_Click(object sender, EventArgs e)
         {
-            DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
-            txtMaHH.Text = row[0].ToString();
-            txtTenHH.Text = row[1].ToString();
-            lk_size.Properties.NullText = row[10].ToString();        
-            lk_mausac.Properties.NullText = row[8].ToString();
-            txtGianhap.Text = row[13].ToString();
-            txtgiaban.Text = row[3].ToString();
-            lk_dvt.Properties.NullText = row[11].ToString();
-            lk_loaihang.Properties.NullText = row[5].ToString();
-            txtSoLuong.Text = row[6].ToString();
-            txt_Barcode.Text = row[12].ToString();
-            //chuyển hình ảnh load lên picturebox
-            if (row[2] == null || string.IsNullOrEmpty(row[2].ToString()))
-                return;
-            byte[] data = new byte[0];
-            data = (byte[])(row[2]);
-            MemoryStream ms = new MemoryStream(data);
-            imgChonAnh.Image = Image.FromStream(ms);
+            try
+            {
+                DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
+                txtMaHH.Text = row[0].ToString();
+                txtTenHH.Text = row[1].ToString();
+                lk_size.Properties.NullText = row[10].ToString();
+                lk_mausac.Properties.NullText = row[8].ToString();
+                txtGianhap.Text = row[14].ToString();
+                txtgiaban.Text = row[3].ToString();
+                lk_dvt.Properties.NullText = row[11].ToString();
+                lk_loaihang.Properties.NullText = row[5].ToString();
+                txtSoLuong.Text = row[6].ToString();
+                txt_Barcode.Text = row[13].ToString();
+                //chuyển hình ảnh load lên picturebox
+                if (row[2] == null || string.IsNullOrEmpty(row[2].ToString()))
+                    return;
+                byte[] data = new byte[0];
+                data = (byte[])(row[2]);
+                MemoryStream ms = new MemoryStream(data);
+                imgChonAnh.Image = Image.FromStream(ms);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
+           
         }
 
         private void bt_chonanh_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = Commons.FilterImage;
-            openFileDialog.FilterIndex = 1;
-            openFileDialog.RestoreDirectory = true;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                imgChonAnh.ImageLocation = openFileDialog.FileName;
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = Commons.FilterImage;
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    imgChonAnh.ImageLocation = openFileDialog.FileName;
+                }
             }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
+           
         }
 
         private void bt_luu_Click(object sender, EventArgs e)
         {
-
-            if (string.IsNullOrEmpty(imgChonAnh.ImageLocation))
+            try
             {
-                XtraMessageBox.Show(Commons.ChooseImage, Commons.Notify, MessageBoxButtons.OK);
-                return;
-            }
-         
-            byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
-            DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
-            string mau = row[7].ToString();
-            if (_hangHoaModel.UpdateGiaHinhAnh(txtMaHH.Text, mau, image, txtgiaban.Text))
-            {
-                XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
-                txtMaHH.Text = string.Empty;
-                txtTenHH.Text = string.Empty;
-                LoadGridProduct();
-                return;
-            }
-            XtraMessageBox.Show(Commons.InsertError, Commons.Notify, MessageBoxButtons.OK);
+                if (string.IsNullOrEmpty(imgChonAnh.ImageLocation))
+                {
+                    XtraMessageBox.Show(Commons.ChooseImage, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
 
-        }
-
-        private void txtMaHH_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnSearch.PerformClick();
+                byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
+                DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
+                string mau = row[7].ToString();
+                if (_hangHoaModel.UpdateGiaHinhAnh(txtMaHH.Text, mau, image, txtgiaban.Text))
+                {
+                    XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
+                    txtMaHH.Text = string.Empty;
+                    txtTenHH.Text = string.Empty;
+                    LoadGridProduct();
+                    return;
+                }
+                XtraMessageBox.Show(Commons.InsertError, Commons.Notify, MessageBoxButtons.OK);
 
             }
-        }
-
-        private void txtTenHH_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            catch (Exception ex)
             {
-                btnSearch.PerformClick();
-
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
+            
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                ExcelExport excel = new ExcelExport();
+
+
+                if (iDataSource.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu để xuất");
+                    return;
+                }
+
+                List<HangHoaDTO> pListKhoa = new List<HangHoaDTO>();
+
+                // Đổ dữ liệu vào danh sách
+                //foreach (DataGridViewRow item in tileViewHangHoa)
+                //{
+                //    HangHoaDTO i = new HangHoaDTO();
+                //    //i.MaKhoa = item.Cells[0].Value.ToString();
+                //    //i.TenKhoa = item.Cells[1].Value.ToString();
+                //    pListKhoa.Add(i);
+                //}
+                foreach (DataRow dr in this.iDataSource.Rows)
+                {
+                    HangHoaDTO i = new HangHoaDTO();
+                    i.MaHangHoa = dr["MaHangHoa"].ToString();
+                    i.TenHangHoa = dr["TenHangHoa"].ToString();
+                    i.GiaBan = (float)Convert.ToDouble(dr["GiaBan"].ToString());
+                    i.TenLoaiHang = dr["TenLoaiHangHoa"].ToString();
+                    i.SoLuongTon = Convert.ToInt32(dr["SoLuongTon"].ToString());
+                    i.TenMau = dr["TenMau"].ToString();
+                    i.TenSize = dr["TenSize"].ToString();
+                    i.TenDonViTinh = dr["TenDonViTinh"].ToString();
+                    i.Barcode = dr["Barcode"].ToString();
+                    i.DonGaiDat = (float)Convert.ToDouble(dr["DonGiaDat"].ToString());
+                    pListKhoa.Add(i);
+                }
+                string path = string.Empty;
+                excel.ExportKhoa(pListKhoa, ref path, false);
+                // Confirm for open file was exported
+                if (!string.IsNullOrEmpty(path) && MessageBox.Show("Bạn có muốn mở file không?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
+           
         }
         #region "các hàm con"
         private void LoadGridProduct()
         {
-            DataTable dt = _hangHoaModel.GetDataProduct(txtMaHH.Text, txtTenHH.Text);
+            DataTable dt = _hangHoaModel.GetDataProduct(txt_timkiem.Text);
             iDataSource = dt.Copy();
             grdHangHoa.DataSource = iDataSource.Copy();
         }
@@ -155,5 +214,30 @@ namespace GiaoDien.Views
 
         //}
         #endregion
+
+        private void txt_timkiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.PerformClick();
+
+            }
+        }
+
+        private void txtgiaban_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtgiaban_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtgiaban.Text, "  ^ [0-9]"))
+            {
+                txtgiaban.Text = "";
+            }
+        }
     }
 }

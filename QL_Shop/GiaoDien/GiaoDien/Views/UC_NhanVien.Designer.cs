@@ -33,10 +33,10 @@ namespace GiaoDien.Views
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_NhanVien));
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.ColImageNV = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.NameNV = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -136,9 +136,9 @@ namespace GiaoDien.Views
             this.labelControl1.Location = new System.Drawing.Point(36, 39);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(116, 22);
+            this.labelControl1.Size = new System.Drawing.Size(114, 22);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Tên nhân viên:";
+            this.labelControl1.Text = "Nhập thông tin";
             // 
             // txtEmployessName
             // 
@@ -220,7 +220,7 @@ namespace GiaoDien.Views
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(36, 404);
+            this.labelControl5.Location = new System.Drawing.Point(20, 404);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(81, 22);
@@ -242,7 +242,7 @@ namespace GiaoDien.Views
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(36, 353);
+            this.labelControl3.Location = new System.Drawing.Point(20, 353);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(83, 22);
@@ -262,6 +262,7 @@ namespace GiaoDien.Views
             // 
             // imgChonAnh
             // 
+            this.imgChonAnh.Image = global::GiaoDien.Properties.Resources.bb87c06b8cb8fad5ffe9abab11679fae;
             this.imgChonAnh.Location = new System.Drawing.Point(7, 34);
             this.imgChonAnh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.imgChonAnh.Name = "imgChonAnh";
@@ -324,7 +325,7 @@ namespace GiaoDien.Views
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(36, 452);
+            this.labelControl2.Location = new System.Drawing.Point(20, 452);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(66, 22);
@@ -335,7 +336,7 @@ namespace GiaoDien.Views
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(36, 304);
+            this.labelControl11.Location = new System.Drawing.Point(20, 304);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(71, 22);
@@ -346,7 +347,7 @@ namespace GiaoDien.Views
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(36, 261);
+            this.labelControl12.Location = new System.Drawing.Point(20, 261);
             this.labelControl12.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(58, 22);
@@ -357,7 +358,7 @@ namespace GiaoDien.Views
             // 
             this.labelControl13.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl13.Appearance.Options.UseFont = true;
-            this.labelControl13.Location = new System.Drawing.Point(36, 210);
+            this.labelControl13.Location = new System.Drawing.Point(20, 210);
             this.labelControl13.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(104, 22);
@@ -424,7 +425,6 @@ namespace GiaoDien.Views
             // txtMaNV
             // 
             this.txtMaNV.EditValue = "";
-            this.txtMaNV.Enabled = false;
             this.txtMaNV.Location = new System.Drawing.Point(142, 76);
             this.txtMaNV.Margin = new System.Windows.Forms.Padding(5);
             this.txtMaNV.Name = "txtMaNV";
@@ -488,19 +488,19 @@ namespace GiaoDien.Views
             this.tileViewNhanVien.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileViewNhanVien.OptionsTiles.RowCount = 0;
             this.tileViewNhanVien.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
-            tableRowDefinition1.Length.Value = 132D;
-            tableRowDefinition2.Length.Value = 32D;
-            this.tileViewNhanVien.TileRows.Add(tableRowDefinition1);
-            this.tileViewNhanVien.TileRows.Add(tableRowDefinition2);
-            tileViewItemElement1.Column = this.ColImageNV;
-            tileViewItemElement1.Text = "ColImageNV";
-            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement2.Column = this.NameNV;
-            tileViewItemElement2.RowIndex = 1;
-            tileViewItemElement2.Text = "NameNV";
-            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileViewNhanVien.TileTemplate.Add(tileViewItemElement1);
-            this.tileViewNhanVien.TileTemplate.Add(tileViewItemElement2);
+            tableRowDefinition3.Length.Value = 132D;
+            tableRowDefinition4.Length.Value = 32D;
+            this.tileViewNhanVien.TileRows.Add(tableRowDefinition3);
+            this.tileViewNhanVien.TileRows.Add(tableRowDefinition4);
+            tileViewItemElement3.Column = this.ColImageNV;
+            tileViewItemElement3.Text = "ColImageNV";
+            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement4.Column = this.NameNV;
+            tileViewItemElement4.RowIndex = 1;
+            tileViewItemElement4.Text = "NameNV";
+            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileViewNhanVien.TileTemplate.Add(tileViewItemElement3);
+            this.tileViewNhanVien.TileTemplate.Add(tileViewItemElement4);
             this.tileViewNhanVien.ItemDoubleClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileViewNhanVien_ItemDoubleClick);
             // 
             // UC_NhanVien
