@@ -54,15 +54,17 @@
             // 
             // grdNgDungNhomNgD
             // 
+            this.grdNgDungNhomNgD.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             gridLevelNode1.RelationName = "Level1";
             this.grdNgDungNhomNgD.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.grdNgDungNhomNgD.Location = new System.Drawing.Point(675, 47);
+            this.grdNgDungNhomNgD.Location = new System.Drawing.Point(787, 58);
             this.grdNgDungNhomNgD.MainView = this.grdViewNgDungNhomNgDung;
+            this.grdNgDungNhomNgD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdNgDungNhomNgD.Name = "grdNgDungNhomNgD";
             this.grdNgDungNhomNgD.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.grdNgDungNhomNgD.Size = new System.Drawing.Size(673, 494);
+            this.grdNgDungNhomNgD.Size = new System.Drawing.Size(785, 608);
             this.grdNgDungNhomNgD.TabIndex = 4;
             this.grdNgDungNhomNgD.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewNgDungNhomNgDung});
@@ -74,6 +76,7 @@
             this.gridColumn1,
             this.gridColumn2,
             this.colCoQuyen});
+            this.grdViewNgDungNhomNgDung.DetailHeight = 431;
             this.grdViewNgDungNhomNgDung.GridControl = this.grdNgDungNhomNgD;
             this.grdViewNgDungNhomNgDung.Name = "grdViewNgDungNhomNgDung";
             this.grdViewNgDungNhomNgDung.OptionsPrint.PrintSelectedRowsOnly = true;
@@ -92,11 +95,12 @@
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.Caption = "STT";
             this.gridColumn7.FieldName = "ROWN";
+            this.gridColumn7.MinWidth = 23;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.ReadOnly = true;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
-            this.gridColumn7.Width = 83;
+            this.gridColumn7.Width = 97;
             // 
             // gridColumn1
             // 
@@ -110,11 +114,12 @@
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "Mã màn hình";
             this.gridColumn1.FieldName = "MaManHinh";
+            this.gridColumn1.MinWidth = 23;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 1;
-            this.gridColumn1.Width = 160;
+            this.gridColumn1.Width = 187;
             // 
             // gridColumn2
             // 
@@ -128,11 +133,12 @@
             this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "Tên màng hình";
             this.gridColumn2.FieldName = "TenManHinh";
+            this.gridColumn2.MinWidth = 23;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 2;
-            this.gridColumn2.Width = 639;
+            this.gridColumn2.Width = 745;
             // 
             // colCoQuyen
             // 
@@ -145,10 +151,11 @@
             this.colCoQuyen.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colCoQuyen.Caption = "Có quyền";
             this.colCoQuyen.FieldName = "CoQuyen";
+            this.colCoQuyen.MinWidth = 23;
             this.colCoQuyen.Name = "colCoQuyen";
             this.colCoQuyen.Visible = true;
             this.colCoQuyen.VisibleIndex = 3;
-            this.colCoQuyen.Width = 186;
+            this.colCoQuyen.Width = 217;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -163,8 +170,9 @@
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1351, 41);
+            this.panel1.Size = new System.Drawing.Size(1576, 50);
             this.panel1.TabIndex = 6;
             // 
             // btnSave
@@ -172,19 +180,22 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(1256, 3);
+            this.btnSave.Location = new System.Drawing.Point(1465, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(92, 33);
+            this.btnSave.Size = new System.Drawing.Size(107, 41);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // grdNhomND
             // 
-            this.grdNhomND.Location = new System.Drawing.Point(3, 47);
+            this.grdNhomND.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grdNhomND.Location = new System.Drawing.Point(3, 58);
             this.grdNhomND.MainView = this.grdViewNhomND;
+            this.grdNhomND.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdNhomND.Name = "grdNhomND";
-            this.grdNhomND.Size = new System.Drawing.Size(666, 494);
+            this.grdNhomND.Size = new System.Drawing.Size(777, 608);
             this.grdNhomND.TabIndex = 8;
             this.grdNhomND.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewNhomND});
@@ -197,6 +208,7 @@
             this.gridColumn6,
             this.gridColumn4,
             this.gridColumn5});
+            this.grdViewNhomND.DetailHeight = 431;
             this.grdViewNhomND.GridControl = this.grdNhomND;
             this.grdViewNhomND.Name = "grdViewNhomND";
             this.grdViewNhomND.OptionsBehavior.ReadOnly = true;
@@ -217,10 +229,12 @@
             this.gridColumn6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn6.Caption = "STT";
             this.gridColumn6.FieldName = "ROWN";
+            this.gridColumn6.MinWidth = 23;
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 0;
+            this.gridColumn6.Width = 87;
             // 
             // gridColumn4
             // 
@@ -236,11 +250,12 @@
             this.gridColumn4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn4.Caption = "Mã nhóm";
             this.gridColumn4.FieldName = "MaNhom";
+            this.gridColumn4.MinWidth = 23;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 185;
+            this.gridColumn4.Width = 216;
             // 
             // gridColumn5
             // 
@@ -256,21 +271,23 @@
             this.gridColumn5.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn5.Caption = "Tên nhóm";
             this.gridColumn5.FieldName = "TenNhom";
+            this.gridColumn5.MinWidth = 23;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 463;
+            this.gridColumn5.Width = 540;
             // 
             // UC_PhanQuyen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grdNhomND);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grdNgDungNhomNgD);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_PhanQuyen";
-            this.Size = new System.Drawing.Size(1351, 548);
+            this.Size = new System.Drawing.Size(1576, 674);
             ((System.ComponentModel.ISupportInitialize)(this.grdNgDungNhomNgD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewNgDungNhomNgDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
