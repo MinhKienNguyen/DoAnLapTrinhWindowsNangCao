@@ -87,5 +87,29 @@ namespace GiaoDien.Views
         //        MouseHelper.MouseArrow(this);
         //    }
         }
+
+        private void dtimeTuNgay_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+            }
+        }
+
+        private void dtimeDenNgay_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+            }
+        }
+
+        private void txtMaDH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+            }
+        }
     }
 }

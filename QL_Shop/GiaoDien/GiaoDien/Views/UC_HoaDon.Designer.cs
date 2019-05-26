@@ -52,6 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_mahd = new System.Windows.Forms.TextBox();
+            this.TrangThai = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewhoadon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -124,7 +125,8 @@
             this.gridColumn3,
             this.gridColumn2,
             this.gridColumn5,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.TrangThai});
             this.gridViewhoadon.DetailHeight = 431;
             this.gridViewhoadon.GridControl = this.grdHoaDon;
             this.gridViewhoadon.GroupCount = 1;
@@ -137,6 +139,7 @@
             this.gridViewhoadon.OptionsView.ShowGroupPanel = false;
             this.gridViewhoadon.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn1, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridViewhoadon.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewhoadon_RowStyle);
             this.gridViewhoadon.DoubleClick += new System.EventHandler(this.gridViewhoadon_DoubleClick);
             // 
             // gridColumn6
@@ -205,6 +208,12 @@
             // 
             // gridColumn4
             // 
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceCell.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "Số Lượng";
             this.gridColumn4.FieldName = "SoLuong";
             this.gridColumn4.MinWidth = 24;
@@ -215,6 +224,12 @@
             // 
             // gridColumn3
             // 
+            this.gridColumn3.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceCell.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn3.Caption = "Đơn vị tính";
             this.gridColumn3.FieldName = "TenDonViTinh";
             this.gridColumn3.MinWidth = 24;
@@ -241,6 +256,12 @@
             // 
             // gridColumn5
             // 
+            this.gridColumn5.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceCell.Options.UseFont = true;
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn5.Caption = "Thành tiền";
             this.gridColumn5.FieldName = "ThanhTien";
             this.gridColumn5.MinWidth = 25;
@@ -373,6 +394,14 @@
             this.txt_mahd.Size = new System.Drawing.Size(595, 30);
             this.txt_mahd.TabIndex = 69;
             // 
+            // TrangThai
+            // 
+            this.TrangThai.Caption = "Trạng thái";
+            this.TrangThai.FieldName = "TrangThai";
+            this.TrangThai.MinWidth = 25;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.Width = 94;
+            // 
             // UC_HoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -422,5 +451,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_mahd;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn TrangThai;
     }
 }
