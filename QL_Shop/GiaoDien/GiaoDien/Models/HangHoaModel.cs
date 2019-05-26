@@ -11,9 +11,9 @@ namespace GiaoDien.Models
     public class HangHoaModel
     {
         HangHoaControllers _hangHoaControllers = new HangHoaControllers();
-        public DataTable GetDataProduct(string _maHang, string _tenHang)
+        public DataTable GetDataProduct(string _maHang)
         {
-            return _hangHoaControllers.GetProduct(_maHang.ToString(), _tenHang.ToString());
+            return _hangHoaControllers.GetProduct(_maHang.ToString());
         }
         public DataTable GetImage(string EmployessCde)
         {
