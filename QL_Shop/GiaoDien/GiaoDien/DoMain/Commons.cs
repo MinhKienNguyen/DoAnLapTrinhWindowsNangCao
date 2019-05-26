@@ -64,6 +64,9 @@
         public const string XuatHDThatBai = "Xuất hóa đơn thất bại";
         public const string HangTonTai = "Mặt hàng đã tồn tại trong phiếu đặt"; 
         public const string HoaDonKhongTonTai = "Hóa đơn này không tồn tại";
+        public const string PhieuDatThanhCong = "Hoàn thành lập phiếu đặt";
+        public const string LapPDatThatBai = "Lập phiếu đặt thất bại";
+        public const string ChonNCC = "Bạn chưa chọn nhà cung cấp";
     }
 
     public class ReportTemplate

@@ -61,6 +61,11 @@ namespace GiaoDien.Controllers
             return _unity.filldb("HH_DonViTinh_Lookup");
         }
 
+        public DataTable GetLkNCC()
+        {
+            return _unity.filldb("HH_NhaCungCap_GetComboboxNCC");
+        }
+
         /// <summary>
         /// thêm sản phẩm mới để đặt hàng
         /// </summary>
