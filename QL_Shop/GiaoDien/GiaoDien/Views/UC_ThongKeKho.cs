@@ -30,7 +30,7 @@ namespace GiaoDien.Views
         #region "các hàm con"
         private void LoadGridProduct()
         {
-            DataTable dt = _hangHoaModel.GetDataProduct(txt_mahh.Text, txt_tenhh.Text);
+            DataTable dt = _hangHoaModel.GetDataProduct(txt_mahh.Text);
             iDataSource = dt.Copy();
             bt_xuatexcel.DataSource = iDataSource.Copy();
         }
@@ -39,6 +39,14 @@ namespace GiaoDien.Views
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_mahh_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                bt_timkiem.PerformClick();
+            }
         }
     }
 }
