@@ -46,9 +46,9 @@ namespace GiaoDien.Models
         /// <param name="pMaNhom"></param>
         /// <param name="pMaMH"></param>
         /// <returns></returns>
-        public DataTable UpdatePhanQuyen(string pMaNhom, string pMaMH)
+        public DataTable UpdatePhanQuyen(string pMaNhom, string pMaMH, int flag)
         {
-            return _phanQuyenControllers.UpdatePhanQuyen(pMaNhom.ToString(), pMaMH.ToString());
+            return _phanQuyenControllers.UpdatePhanQuyen(pMaNhom.ToString(), pMaMH.ToString(), flag);
         }
     }
 }

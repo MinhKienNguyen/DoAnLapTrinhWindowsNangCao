@@ -33,10 +33,10 @@ namespace GiaoDien.Controllers
             return dt;
         }
 
-        public DataTable UpdatePhanQuyen(string pMaNhom, string pMaMH)
+        public DataTable UpdatePhanQuyen(string pMaNhom, string pMaMH, int flag)
         {
             DataTable dt = new DataTable();
-            dt = _unity.filldb("QL_PhanQuyen_InsertOrUpdate", pMaNhom.ToString(), pMaMH.ToString());
+            dt = _unity.filldb("QL_PhanQuyen_InsertOrUpdate", pMaNhom.ToString(), pMaMH.ToString(), flag);
             return dt;
         }
     }

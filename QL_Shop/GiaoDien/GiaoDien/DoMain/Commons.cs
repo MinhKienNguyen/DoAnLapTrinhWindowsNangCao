@@ -49,7 +49,7 @@
         public const double ChietKhau = 0.1;
     }
 
-public class ScanBarcode
+    public class ScanBarcode
     {
         public const string PhieuKhongTonTai = "Phiếu không tồn tại";
         public const string SoLuongQuetPhaiLon0 = "Số lượng phải lớn hơn không";
@@ -64,5 +64,15 @@ public class ScanBarcode
         public const string XuatHDThatBai = "Xuất hóa đơn thất bại";
         public const string HangTonTai = "Mặt hàng đã tồn tại trong phiếu đặt"; 
         public const string HoaDonKhongTonTai = "Hóa đơn này không tồn tại";
+    }
+
+    public class ReportTemplate
+    {
+        public const string ThongKeKho = "RP_ThongKeKho.xlsx";
+    }
+
+    public class Filter
+    {
+        public const string FilterExcel = "Excel files (*.xls or .xlsx)|.xls;*.xlsx";
     }
 }
