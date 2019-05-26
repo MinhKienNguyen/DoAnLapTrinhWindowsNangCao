@@ -11,9 +11,9 @@ namespace GiaoDien.Controllers
     public class HangHoaControllers
     {
         UnityClass _unity = new UnityClass();
-        public DataTable GetProduct(string _maHang, string _tenHang)
+        public DataTable GetProduct(string _maHang)
         {
-            return _unity.filldb("HH_HangHoa_GetData", _maHang.ToString(), _tenHang.ToString());
+            return _unity.filldb("HH_HangHoa_GetData", _maHang.ToString());
         }
         public DataTable GetImage(string EmployessCde)
         {
