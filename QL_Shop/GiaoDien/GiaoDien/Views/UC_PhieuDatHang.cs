@@ -12,24 +12,6 @@ namespace GiaoDien.Views
         private DataTable iGirDataSource = null;
         private DataTable iGridDataSourceDat = null;
         PhieuDatModel _phieuDatModel = new PhieuDatModel();
-        public string MaHH { get => _maHH; set => _maHH = value; }
-        public string TenHang { get => _tenHang; set => _tenHang = value; }
-        public string MaLoaiHang { get => _maLoaiHang; set => _maLoaiHang = value; }
-        public string TenLoaiHang { get => _tenLoaiHang; set => _tenLoaiHang = value; }
-        public string MaMua { get => _maMua; set => _maMua = value; }
-        public string TenMau { get => _tenMau; set => _tenMau = value; }
-        public string MaSize { get => _maSize; set => _maSize = value; }
-        public string TenSize { get => _tenSize; set => _tenSize = value; }
-        public int SoLuong { get => _soLuong; set => _soLuong = value; }
-        public string _maHH;
-        string _tenHang;
-        string _maLoaiHang;
-        string _tenLoaiHang;
-        string _maMua;
-        string _tenMau;
-        string _maSize;
-        string _tenSize;
-        int _soLuong;
         public UC_PhieuDatHang()
         {
             InitializeComponent();
@@ -37,13 +19,14 @@ namespace GiaoDien.Views
             TableBindings();
             btnChuyen.Click += BtnChuyen_Click;
             btnXoa.Click += BtnXoa_Click;
-            btnThem.Click += BtnThem_Click;
+            btnThemHH.Click += BtnThemHH_Click;
         }
 
-        private void BtnThem_Click(object sender, EventArgs e)
+        private void BtnThemHH_Click(object sender, EventArgs e)
         {
-            popop_DatHang dh = new popop_DatHang();
+            popop_DatHang dh = new popop_DatHang("","","","","","","");
             dh.ShowDialog();
+            LoadGridKhoHang();
         }
 
         /// <summary>
@@ -53,18 +36,22 @@ namespace GiaoDien.Views
         /// <param name="e"></param>
         private void BtnXoa_Click(object sender, EventArgs e)
         {
-
-            string ma = _maHH;
-            MessageBox.Show(ma.ToString());
-            if (XtraMessageBox.Show(Commons.ThongBaoXoa, Commons.Notify, MessageBoxButtons.OK) != DialogResult.No)
+            try
             {
-                if (this.iGridDataSourceDat != null || this.iGridDataSourceDat.Rows.Count > 0)
+                if (XtraMessageBox.Show(Commons.ThongBaoXoa, Commons.Notify, MessageBoxButtons.OK) != DialogResult.No)
                 {
-                    DataRowView row = (DataRowView)gridView2.GetRow(gridView2.GetSelectedRows()[0]);
-                    this.iGridDataSourceDat.Rows.RemoveAt(gridView2.GetSelectedRows()[0]);
-                    this.iGridDataSourceDat.AcceptChanges();
-                    grdDatHang.DataSource = iGridDataSourceDat.Copy();
+                    if (this.iGridDataSourceDat != null || this.iGridDataSourceDat.Rows.Count > 0)
+                    {
+                        DataRowView row = (DataRowView)gridView2.GetRow(gridView2.GetSelectedRows()[0]);
+                        this.iGridDataSourceDat.Rows.RemoveAt(gridView2.GetSelectedRows()[0]);
+                        this.iGridDataSourceDat.AcceptChanges();
+                        grdDatHang.DataSource = iGridDataSourceDat.Copy();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
         }
 
@@ -73,20 +60,27 @@ namespace GiaoDien.Views
         /// </summary>
         private void TableBindings()
         {
-            this.iGridDataSourceDat = new DataTable();
-            iGridDataSourceDat.Columns.Add("MaLoaiHangHoa", typeof(string));
-            iGridDataSourceDat.Columns.Add("TenLoaiHangHoa", typeof(string));
-            iGridDataSourceDat.Columns.Add("Barcode", typeof(string));
-            iGridDataSourceDat.Columns.Add("MaHangHoa", typeof(string));
-            iGridDataSourceDat.Columns.Add("TenHangHoa", typeof(string));
-            iGridDataSourceDat.Columns.Add("MaMau", typeof(string));
-            iGridDataSourceDat.Columns.Add("TenMau", typeof(string));
-            iGridDataSourceDat.Columns.Add("MaSize", typeof(string));
-            iGridDataSourceDat.Columns.Add("TenSize", typeof(string));
-            iGridDataSourceDat.Columns.Add("MaDVT", typeof(string));
-            iGridDataSourceDat.Columns.Add("TenDonViTinh", typeof(string));
-            iGridDataSourceDat.Columns.Add("SoLuong", typeof(int));
-            grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
+            try
+            {
+                this.iGridDataSourceDat = new DataTable();
+                iGridDataSourceDat.Columns.Add("MaLoaiHangHoa", typeof(string));
+                iGridDataSourceDat.Columns.Add("TenLoaiHangHoa", typeof(string));
+                iGridDataSourceDat.Columns.Add("Barcode", typeof(string));
+                iGridDataSourceDat.Columns.Add("MaHangHoa", typeof(string));
+                iGridDataSourceDat.Columns.Add("TenHangHoa", typeof(string));
+                iGridDataSourceDat.Columns.Add("MaMau", typeof(string));
+                iGridDataSourceDat.Columns.Add("TenMau", typeof(string));
+                iGridDataSourceDat.Columns.Add("MaSize", typeof(string));
+                iGridDataSourceDat.Columns.Add("TenSize", typeof(string));
+                iGridDataSourceDat.Columns.Add("MaDVT", typeof(string));
+                iGridDataSourceDat.Columns.Add("TenDonViTinh", typeof(string));
+                iGridDataSourceDat.Columns.Add("SoLuong", typeof(int));
+                grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
+            }
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
         }
 
         /// <summary>
@@ -96,45 +90,51 @@ namespace GiaoDien.Views
         /// <param name="e"></param>
         private void BtnChuyen_Click(object sender, EventArgs e)
         {
-            
-            DataRow drRow = iGridDataSourceDat.NewRow();
-            DataRowView row = (DataRowView)gridView1.GetRow(gridView1.GetSelectedRows()[0]);
-            if(this.iGridDataSourceDat != null && this.iGridDataSourceDat.Rows.Count > 0)
+            try
             {
-                DataRow[] drRows = this.iGridDataSourceDat.Select("Barcode='" + row["Barcode"].ToString() + "'");
-                if (drRows == null || drRows.Length <= 0)
+                DataRow drRow = iGridDataSourceDat.NewRow();
+                DataRowView row = (DataRowView)gridView1.GetRow(gridView1.GetSelectedRows()[0]);
+                if (this.iGridDataSourceDat != null && this.iGridDataSourceDat.Rows.Count > 0)
                 {
-                    drRow["MaLoaiHangHoa"] = row["MaLoaiHangHoa"];
-                    drRow["TenLoaiHangHoa"] = row["TenLoaiHangHoa"];
-                    drRow["Barcode"] = row["Barcode"];
-                    drRow["MaHangHoa"] = row["MaHangHoa"];
-                    drRow["TenHangHoa"] = row["TenHangHoa"];
-                    drRow["MaMau"] = row["MaMau"];
-                    drRow["TenMau"] = row["TenMau"];
-                    drRow["MaSize"] = row["MaSize"];
-                    drRow["TenSize"] = row["TenSize"];
-                    drRow["MaDVT"] = row["MaDVT"];
-                    drRow["TenDonViTinh"] = row["TenDonViTinh"];
-                    this.iGridDataSourceDat.Rows.Add(drRow);
-                    grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
+                    DataRow[] drRows = this.iGridDataSourceDat.Select("Barcode='" + row["Barcode"].ToString() + "'");
+                    if (drRows == null || drRows.Length <= 0)
+                    {
+                        drRow["MaLoaiHangHoa"] = row["MaLoaiHangHoa"];
+                        drRow["TenLoaiHangHoa"] = row["TenLoaiHangHoa"];
+                        drRow["Barcode"] = row["Barcode"];
+                        drRow["MaHangHoa"] = row["MaHangHoa"];
+                        drRow["TenHangHoa"] = row["TenHangHoa"];
+                        drRow["MaMau"] = row["MaMau"];
+                        drRow["TenMau"] = row["TenMau"];
+                        drRow["MaSize"] = row["MaSize"];
+                        drRow["TenSize"] = row["TenSize"];
+                        drRow["MaDVT"] = row["MaDVT"];
+                        drRow["TenDonViTinh"] = row["TenDonViTinh"];
+                        this.iGridDataSourceDat.Rows.Add(drRow);
+                        grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
+                        return;
+                    }
+                    XtraMessageBox.Show(ScanBarcode.HangTonTai, Commons.Notify, MessageBoxButtons.OK);
                     return;
                 }
-                XtraMessageBox.Show(ScanBarcode.HangTonTai, Commons.Notify, MessageBoxButtons.OK);
-                return;
+                drRow["MaLoaiHangHoa"] = row["MaLoaiHangHoa"];
+                drRow["TenLoaiHangHoa"] = row["TenLoaiHangHoa"];
+                drRow["Barcode"] = row["Barcode"];
+                drRow["MaHangHoa"] = row["MaHangHoa"];
+                drRow["TenHangHoa"] = row["TenHangHoa"];
+                drRow["MaMau"] = row["MaMau"];
+                drRow["TenMau"] = row["TenMau"];
+                drRow["MaSize"] = row["MaSize"];
+                drRow["TenSize"] = row["TenSize"];
+                drRow["MaDVT"] = row["MaDVT"];
+                drRow["TenDonViTinh"] = row["TenDonViTinh"];
+                this.iGridDataSourceDat.Rows.Add(drRow);
+                grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
             }
-            drRow["MaLoaiHangHoa"] = row["MaLoaiHangHoa"];
-            drRow["TenLoaiHangHoa"] = row["TenLoaiHangHoa"];
-            drRow["Barcode"] = row["Barcode"];
-            drRow["MaHangHoa"] = row["MaHangHoa"];
-            drRow["TenHangHoa"] = row["TenHangHoa"];
-            drRow["MaMau"] = row["MaMau"];
-            drRow["TenMau"] = row["TenMau"];
-            drRow["MaSize"] = row["MaSize"];
-            drRow["TenSize"] = row["TenSize"];
-            drRow["MaDVT"] = row["MaDVT"];
-            drRow["TenDonViTinh"] = row["TenDonViTinh"];
-            this.iGridDataSourceDat.Rows.Add(drRow);
-            grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
         }
 
         /// <summary>
@@ -145,6 +145,45 @@ namespace GiaoDien.Views
             DataTable dt = _phieuDatModel.GetKhoHang();
             this.iGirDataSource = dt.Copy();
             grdHang.DataSource = this.iGirDataSource.Copy();
+        }
+
+        private void grdHang_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRowView row = (DataRowView)gridView1.GetRow(gridView1.GetSelectedRows()[0]);
+                popop_DatHang dh = new popop_DatHang(row[0].ToString(),
+                                                     row[1].ToString(),
+                                                     row[4].ToString(),
+                                                     row[13].ToString(),
+                                                     row[9].ToString(),
+                                                     row[7].ToString(),
+                                                     row[12].ToString());
+                dh.ShowDialog();
+                LoadGridKhoHang();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnLapPD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var tran = new System.Transactions.TransactionScope(System.Transactions.TransactionScopeOption.Required,
+                new System.Transactions.TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))
+                {
+
+                    tran.Complete();
+                    //return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
         }
     }
 

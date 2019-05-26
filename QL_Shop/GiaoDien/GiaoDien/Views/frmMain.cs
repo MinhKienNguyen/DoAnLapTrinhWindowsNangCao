@@ -278,9 +278,14 @@ namespace GiaoDien
 
         private void BarItemDangXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.Close();
-            frmDagNhap dn = new frmDagNhap();
-            dn.Show();
+            DialogResult dr;
+            dr = XtraMessageBox.Show("Bạn có muốn thoát không ?", "Thông báo !", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                this.Hide();
+                frmDagNhap dn = new frmDagNhap();
+                dn.Show();
+            }
         }
 
         private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
@@ -292,19 +297,19 @@ namespace GiaoDien
         private void barButtonItem48_ItemClick(object sender, ItemClickEventArgs e)
         {
             UC_PhieuDatHang pd = new UC_PhieuDatHang();
-            AddTabControl(pd, "phiếu đặt hàng");
+            AddTabControl(pd, "Phiếu đặt hàng");
         }
 
         private void barButtonItem49_ItemClick(object sender, ItemClickEventArgs e)
         {
             UC_DoanhThu dt = new UC_DoanhThu();
-            AddTabControl(dt, "doanh thu");
+            AddTabControl(dt, "Doanh thu");
         }
 
         private void barButtonItem31_ItemClick(object sender, ItemClickEventArgs e)
         {
             UC_HoaDonDoiTra hddt = new UC_HoaDonDoiTra();
-            AddTabControl(hddt,"hóa đơn đổi trả");
+            AddTabControl(hddt,"Hóa đơn đổi trả");
         }
     }
 }
