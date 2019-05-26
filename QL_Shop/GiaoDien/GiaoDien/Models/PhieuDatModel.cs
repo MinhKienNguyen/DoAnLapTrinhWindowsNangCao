@@ -31,6 +31,11 @@ namespace GiaoDien.Models
             return _phieuDatControllers.GetLkDVT();
         }
 
+        public DataTable GetLkNCC()
+        {
+            return _phieuDatControllers.GetLkNCC();
+        }
+
         /// <summary>
         /// mã hàng hóa mới tăng
         /// </summary>
