@@ -70,6 +70,7 @@
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txt_timkiem = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.LOAIHANGHOA = new DevExpress.XtraGrid.Columns.TileViewColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grpttthucp)).BeginInit();
             this.grpttthucp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgChonAnh)).BeginInit();
@@ -496,8 +497,11 @@
             // 
             this.tileViewHangHoa.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.ColImageNV,
-            this.NameNV});
+            this.NameNV,
+            this.LOAIHANGHOA});
+            this.tileViewHangHoa.ColumnSet.GroupColumn = this.LOAIHANGHOA;
             this.tileViewHangHoa.DetailHeight = 431;
+            this.tileViewHangHoa.FocusBorderColor = System.Drawing.Color.White;
             this.tileViewHangHoa.GridControl = this.grdHangHoa;
             this.tileViewHangHoa.Name = "tileViewHangHoa";
             this.tileViewHangHoa.OptionsTiles.ColumnCount = 4;
@@ -509,6 +513,8 @@
             this.tileViewHangHoa.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
             this.tileViewHangHoa.OptionsTiles.RowCount = 0;
             this.tileViewHangHoa.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.tileViewHangHoa.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.LOAIHANGHOA, DevExpress.Data.ColumnSortOrder.Ascending)});
             tableRowDefinition1.Length.Value = 132D;
             tableRowDefinition2.Length.Value = 32D;
             this.tileViewHangHoa.TileRows.Add(tableRowDefinition1);
@@ -572,6 +578,28 @@
             this.btnSearch.TabIndex = 67;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // LOAIHANGHOA
+            // 
+            this.LOAIHANGHOA.AppearanceCell.BackColor = System.Drawing.Color.LightGreen;
+            this.LOAIHANGHOA.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LOAIHANGHOA.AppearanceCell.Options.UseBackColor = true;
+            this.LOAIHANGHOA.AppearanceCell.Options.UseFont = true;
+            this.LOAIHANGHOA.AppearanceHeader.BackColor = System.Drawing.Color.LightGreen;
+            this.LOAIHANGHOA.AppearanceHeader.BackColor2 = System.Drawing.Color.LightGreen;
+            this.LOAIHANGHOA.AppearanceHeader.BorderColor = System.Drawing.Color.LightGreen;
+            this.LOAIHANGHOA.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LOAIHANGHOA.AppearanceHeader.Options.UseBackColor = true;
+            this.LOAIHANGHOA.AppearanceHeader.Options.UseBorderColor = true;
+            this.LOAIHANGHOA.AppearanceHeader.Options.UseFont = true;
+            this.LOAIHANGHOA.Caption = "Loại Sản phẩm";
+            this.LOAIHANGHOA.FieldName = "TenLoaiHangHoa";
+            this.LOAIHANGHOA.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.Value;
+            this.LOAIHANGHOA.MinWidth = 25;
+            this.LOAIHANGHOA.Name = "LOAIHANGHOA";
+            this.LOAIHANGHOA.Visible = true;
+            this.LOAIHANGHOA.VisibleIndex = 2;
+            this.LOAIHANGHOA.Width = 94;
             // 
             // UC_DanhMucHangHoa
             // 
@@ -645,5 +673,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.TextEdit txt_timkiem;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
+        private DevExpress.XtraGrid.Columns.TileViewColumn LOAIHANGHOA;
     }
 }

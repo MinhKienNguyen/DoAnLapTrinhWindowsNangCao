@@ -311,5 +311,11 @@ namespace GiaoDien
             UC_HoaDonDoiTra hddt = new UC_HoaDonDoiTra();
             AddTabControl(hddt,"Hóa đơn đổi trả");
         }
+
+        private void barButtonItem50_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UC_ThongTin tt = new UC_ThongTin();
+            AddTabControl(tt,"thông tin phần mềm");
+        }
     }
 }
