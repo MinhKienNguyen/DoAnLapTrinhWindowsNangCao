@@ -38,5 +38,6 @@ namespace GiaoDien.DTO
         public float GiaBan { get => _GiaBan; set => _GiaBan = value; }
         public int SoLuongTon { get => _SoLuongTon; set => _SoLuongTon = value; }
         public float DonGaiDat { get => _DonGaiDat; set => _DonGaiDat = value; }
+
     }
 }
