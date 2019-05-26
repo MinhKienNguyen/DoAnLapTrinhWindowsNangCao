@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using GiaoDien.Models;
+using GiaoDien.DoMain;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace GiaoDien.Views
 {
@@ -16,6 +18,8 @@ namespace GiaoDien.Views
     {
         private DataTable iGirDataSource = null;
         HoaDonModel _hoaDonModel = new HoaDonModel();
+        private object gridView;
+
         public UC_HoaDon()
         {
             InitializeComponent();
@@ -43,10 +47,18 @@ namespace GiaoDien.Views
 
         private void gridViewhoadon_DoubleClick(object sender, EventArgs e)
         {
-            txt_nvlap.ReadOnly = true;
-            DataRowView row = (DataRowView)gridViewhoadon.GetRow(gridViewhoadon.GetSelectedRows()[0]);
-            txt_mahd.Text = row[0].ToString();
-            txt_nvlap.Text = row[4].ToString();
+            try
+            {
+                txt_nvlap.ReadOnly = true;
+                DataRowView row = (DataRowView)gridViewhoadon.GetRow(gridViewhoadon.GetSelectedRows()[0]);
+                txt_mahd.Text = row[0].ToString();
+                txt_nvlap.Text = row[4].ToString();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
+           
 
         }
 
@@ -71,6 +83,20 @@ namespace GiaoDien.Views
             if (e.KeyCode == Keys.Enter)
             {
                 btntimkiem.PerformClick();
+            }
+        }
+
+        private void gridViewhoadon_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            GridView gv = sender as GridView;
+            if(e.RowHandle >=0)
+            {
+                string TrangThai = gv.GetRowCellDisplayText(e.RowHandle,gv.Columns["TrangThai"]);
+                if(TrangThai == "Đã đổi trả")
+                {
+                    e.Appearance.BackColor = Color.FromArgb(150,Color.Red);
+                    e.Appearance.BackColor2 = Color.White;
+                }
             }
         }
     }
