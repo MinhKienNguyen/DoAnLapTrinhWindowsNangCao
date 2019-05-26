@@ -18,9 +18,9 @@ namespace GiaoDien.Controllers
         /// </summary>
         /// <param name="EmployessName"></param>
         /// <returns></returns>
-        public DataTable GetEmployees(string EmployessName,string EmployessMa)
+        public DataTable GetEmployees(string EmployessName)
         {
-            return _unity.filldb("KH_KhachHang_Data", EmployessName.ToString(), EmployessMa.ToString());
+            return _unity.filldb("KH_KhachHang_Data", EmployessName.ToString());
         }
         /// <summary>
         /// GetEmployessCde -- lấy mã khách hàng để ktra khóa chính khi thêm vào

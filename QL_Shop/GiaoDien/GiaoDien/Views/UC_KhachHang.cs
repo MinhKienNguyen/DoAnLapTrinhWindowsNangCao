@@ -31,8 +31,7 @@ namespace GiaoDien.Views
         /// </summary>
         public void LoadGridKhachHang()
         {
-            string S = txt_tenkhachhang.Text;
-            DataTable dt = _khachHangModels.GetEmployees(txt_tenkhachhang.Text,txt_makhachhang.Text);
+            DataTable dt = _khachHangModels.GetEmployees(txt_makhachhang.Text);
             this.dtEmployess = dt.Copy();
            gridControl1 .DataSource = dtEmployess;
         }
@@ -118,6 +117,14 @@ namespace GiaoDien.Views
             txtdiachi.Text = row[3].ToString();
             txt_mathe.Text = row[1].ToString();
             txt_tongtien.Text = row[5].ToString();
+        }
+
+        private void txt_makhachhang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem.PerformClick();
+            }
         }
     }
 }
