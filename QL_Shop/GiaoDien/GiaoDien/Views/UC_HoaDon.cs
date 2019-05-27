@@ -65,7 +65,7 @@ namespace GiaoDien.Views
         private void bt_inlaihd_Click(object sender, EventArgs e)
         {
             dtReport();
-            RP_HoaDon don = new RP_HoaDon(dtReport(), dtReport());
+            RP_PrintReBill don = new RP_PrintReBill(dtReport(), dtReportHeard());
             don.ShowDialog();
         }
 
@@ -110,11 +110,11 @@ namespace GiaoDien.Views
             dt.Columns.Add("TongTien", typeof(string));
             dt.Columns.Add("TenNhanVien", typeof(string));
             DataRow drRow = dt.NewRow();
-            drRow["MaHoaDon"] = txt_mahd.Text;
-            drRow["TenKhachHang"] = iGirDataSource.Rows[0]["TenKhachHang"].ToString();
+            drRow["MaHoaDon"] = dtReport().Rows[0]["MaHoaDon"].ToString();
+            drRow["TenKhachHang"] = dtReport().Rows[0]["TenKhachHang"].ToString();
             drRow["NgayLapHD"] = DateTime.Now;
-            drRow["TongTien"] = iGirDataSource.Rows[0]["TenKhachHang"].ToString();
-            drRow["TenNhanVien"] = GiaoDien.Properties.Settings.Default.TenNV;
+            drRow["TongTien"] = dtReport().Rows[0]["TongTien"].ToString();
+            drRow["TenNhanVien"] = dtReport().Rows[0]["TenNhanVien"].ToString();
             dt.Rows.Add(drRow);
             return dt;
         }

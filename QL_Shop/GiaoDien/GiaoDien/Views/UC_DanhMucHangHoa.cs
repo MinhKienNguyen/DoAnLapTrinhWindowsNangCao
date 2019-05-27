@@ -32,8 +32,8 @@ namespace GiaoDien.Views
             txt_Barcode.ReadOnly = true;
             txtTenHH.ReadOnly = true;
             txtMaHH.ReadOnly = true;
-            Image image = Image.FromFile(@"C:\Users\HUY\Desktop\ShopThoiTrang\DoAnLapTrinhWindowsNangCao\QL_Shop\GiaoDien\GiaoDien\Resources\tải xuống.png");
-            imgChonAnh.Image = image;
+            //Image image = Image.FromFile(@"C:\Users\HUY\Desktop\ShopThoiTrang\DoAnLapTrinhWindowsNangCao\QL_Shop\GiaoDien\GiaoDien\Resources\tải xuống.png");
+            //imgChonAnh.Image = image;
         }
        
 

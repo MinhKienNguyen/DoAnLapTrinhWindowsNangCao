@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
 using GiaoDien.Models;
+using GiaoDien.RP;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -231,13 +232,20 @@ namespace GiaoDien.Views
         {
             if(XtraMessageBox.Show(ScanBarcode.BanCoMuonXuatHD, Commons.Notify, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.No)
             {
-                    if (XuatHoaDonDoiTra())
-                    {
-                        this.iGridDataSource.Clear();
-                        this.iGridDataSourceScanBarCode.Clear();
-                        XtraMessageBox.Show(Commons.LuuThanhCong, Commons.Notify, MessageBoxButtons.OK);
-                        return;
-                    }
+                if (XuatHoaDonDoiTra())
+                {
+                    DataTable dtReport = _doiModel.GetDataBill(txtMaHD.Text);
+                    RP_PrintReBill don = new RP_PrintReBill(dtReport, dtReport);
+                    don.ShowDialog();
+                    this.iGridDataSource.Clear();
+                    this.iGridDataSourceScanBarCode.Clear();
+                    this.iGridHangDoi.Clear();
+                    this.grdHangDoi.DataSource = iGridHangDoi.Copy();
+                    this.grdPhieuNhap.DataSource = iGridDataSource.Copy();
+                    this.grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
+                    XtraMessageBox.Show(Commons.LuuThanhCong, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
                 XtraMessageBox.Show(Commons.LuuBai, Commons.Notify, MessageBoxButtons.OK);
             }
         }
@@ -257,13 +265,17 @@ namespace GiaoDien.Views
             return strCode;
         }
 
-        private string TangMaCTHDDoiTra(int i)
+        private string TangMaCTHDDoiTra(string _ma)
         {
             string strCode = string.Empty;
-            int dtCout = _doiModel.TangMaCTHDDoiTra(TangMaHDDoiTra() + "CT00" + i).Rows.Count;
-            if (dtCout == 0)
+            for (int i = 0; i < i + 1; i++)
             {
-                strCode = TangMaHDDoiTra() + "CT00" + i;
+                int dtCout = _doiModel.TangMaCTHDDoiTra(_ma + "CT00" + i).Rows.Count;
+                if (dtCout == 0)
+                {
+                    strCode = _ma + "CT00" + i;
+                    break;
+                }
             }
             return strCode;
         }
@@ -278,10 +290,9 @@ namespace GiaoDien.Views
                 {
                     return false;
                 }
-                int i = 0;
                 foreach(DataRow dr in this.iGridDataSourceScanBarCode.Rows)
                 {
-                    string _maCTHDTra = TangMaCTHDDoiTra(i);
+                    string _maCTHDTra = TangMaCTHDDoiTra(_maHDTra);
                     if (_doiModel.Insert_CT_HDTra(_maCTHDTra,
                                                   _maHDTra,
                                                   dr["MaHangHoa"].ToString(),
