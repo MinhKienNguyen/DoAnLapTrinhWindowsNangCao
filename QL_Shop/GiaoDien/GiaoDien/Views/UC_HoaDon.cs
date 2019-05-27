@@ -56,7 +56,7 @@ namespace GiaoDien.Views
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+                return;
             }
            
 

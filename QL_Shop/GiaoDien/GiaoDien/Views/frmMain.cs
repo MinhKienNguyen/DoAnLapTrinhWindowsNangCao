@@ -253,11 +253,6 @@ namespace GiaoDien
             AddTabControl(uC_Nhap, "Nhập hàng");
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBanHang_ItemClick(object sender, ItemClickEventArgs e)
         {
             UC_BanHang bh = new UC_BanHang();

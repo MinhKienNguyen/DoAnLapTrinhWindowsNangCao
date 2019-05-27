@@ -39,7 +39,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SoLuongTon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -117,13 +117,14 @@
             this.gridColumn7,
             this.gridColumn9,
             this.gridColumn10,
-            this.gridColumn4,
+            this.SoLuongTon,
             this.gridColumn3,
             this.gridColumn2});
             this.gridViewthongke.DetailHeight = 431;
             this.gridViewthongke.GridControl = this.bt_xuatexcel;
             this.gridViewthongke.Name = "gridViewthongke";
             this.gridViewthongke.OptionsView.ShowGroupPanel = false;
+            this.gridViewthongke.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewthongke_RowStyle);
             // 
             // gridColumn1
             // 
@@ -207,21 +208,21 @@
             this.gridColumn10.VisibleIndex = 4;
             this.gridColumn10.Width = 76;
             // 
-            // gridColumn4
+            // SoLuongTon
             // 
-            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn4.AppearanceCell.Options.UseFont = true;
-            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn4.Caption = "Số Lượng tồn";
-            this.gridColumn4.FieldName = "SoLuongTon";
-            this.gridColumn4.MinWidth = 24;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 6;
-            this.gridColumn4.Width = 133;
+            this.SoLuongTon.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.SoLuongTon.AppearanceCell.Options.UseFont = true;
+            this.SoLuongTon.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.SoLuongTon.AppearanceHeader.Options.UseFont = true;
+            this.SoLuongTon.AppearanceHeader.Options.UseTextOptions = true;
+            this.SoLuongTon.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.SoLuongTon.Caption = "Số Lượng tồn";
+            this.SoLuongTon.FieldName = "SoLuongTon";
+            this.SoLuongTon.MinWidth = 24;
+            this.SoLuongTon.Name = "SoLuongTon";
+            this.SoLuongTon.Visible = true;
+            this.SoLuongTon.VisibleIndex = 6;
+            this.SoLuongTon.Width = 133;
             // 
             // gridColumn3
             // 
@@ -325,7 +326,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn SoLuongTon;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;

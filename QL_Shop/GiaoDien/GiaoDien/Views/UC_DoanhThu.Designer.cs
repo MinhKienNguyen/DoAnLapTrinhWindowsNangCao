@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_DoanhThu));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.bt_tiemkiem = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dtime_denngay = new DevExpress.XtraEditors.DateEdit();
             this.dtime_TuNgay = new DevExpress.XtraEditors.DateEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.label3 = new System.Windows.Forms.Label();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.bt_tiemkiem = new DevExpress.XtraEditors.SimpleButton();
             this.griddoanhthu = new DevExpress.XtraGrid.GridControl();
             this.gridViewDoanhthu = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,16 +45,16 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtime_denngay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtime_denngay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtime_TuNgay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtime_TuNgay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.griddoanhthu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDoanhthu)).BeginInit();
             this.SuspendLayout();
@@ -72,39 +72,6 @@
             this.groupControl1.Size = new System.Drawing.Size(1567, 84);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin tìm kiếm";
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.simpleButton1);
-            this.panelControl1.Controls.Add(this.bt_tiemkiem);
-            this.panelControl1.Location = new System.Drawing.Point(3, 3);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1564, 60);
-            this.panelControl1.TabIndex = 1;
-            // 
-            // bt_tiemkiem
-            // 
-            this.bt_tiemkiem.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_tiemkiem.Appearance.Options.UseFont = true;
-            this.bt_tiemkiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_tiemkiem.ImageOptions.Image")));
-            this.bt_tiemkiem.Location = new System.Drawing.Point(1259, 5);
-            this.bt_tiemkiem.Name = "bt_tiemkiem";
-            this.bt_tiemkiem.Size = new System.Drawing.Size(138, 41);
-            this.bt_tiemkiem.TabIndex = 0;
-            this.bt_tiemkiem.Text = "Tìm kiếm ";
-            this.bt_tiemkiem.Click += new System.EventHandler(this.bt_tiemkiem_Click);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1421, 5);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(138, 41);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Xuất Excel";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // dtime_denngay
             // 
@@ -158,6 +125,39 @@
             this.label3.TabIndex = 75;
             this.label3.Text = "Đến ngày";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.bt_tiemkiem);
+            this.panelControl1.Location = new System.Drawing.Point(3, 3);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1564, 60);
+            this.panelControl1.TabIndex = 1;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(1421, 5);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(138, 41);
+            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.Text = "Xuất Excel";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // bt_tiemkiem
+            // 
+            this.bt_tiemkiem.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_tiemkiem.Appearance.Options.UseFont = true;
+            this.bt_tiemkiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_tiemkiem.ImageOptions.Image")));
+            this.bt_tiemkiem.Location = new System.Drawing.Point(1259, 5);
+            this.bt_tiemkiem.Name = "bt_tiemkiem";
+            this.bt_tiemkiem.Size = new System.Drawing.Size(138, 41);
+            this.bt_tiemkiem.TabIndex = 0;
+            this.bt_tiemkiem.Text = "Tìm kiếm ";
+            this.bt_tiemkiem.Click += new System.EventHandler(this.bt_tiemkiem_Click);
+            // 
             // griddoanhthu
             // 
             this.griddoanhthu.Location = new System.Drawing.Point(0, 159);
@@ -182,7 +182,7 @@
             this.gridViewDoanhthu.GridControl = this.griddoanhthu;
             this.gridViewDoanhthu.GroupCount = 1;
             this.gridViewDoanhthu.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ThanhTien", this.gridColumn2, "Tổng tiền: {0:N0} VNĐ")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ThanhTien", this.gridColumn7, "Tổng tiền: {0:N0} VNĐ")});
             this.gridViewDoanhthu.Name = "gridViewDoanhthu";
             this.gridViewDoanhthu.OptionsBehavior.ReadOnly = true;
             this.gridViewDoanhthu.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
@@ -284,6 +284,22 @@
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
             // 
+            // gridColumn8
+            // 
+            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn8.AppearanceCell.Options.UseFont = true;
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn8.Caption = "Đơn vị tính";
+            this.gridColumn8.FieldName = "TenDonViTinh";
+            this.gridColumn8.MinWidth = 25;
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 5;
+            this.gridColumn8.Width = 100;
+            // 
             // gridColumn7
             // 
             this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
@@ -302,22 +318,6 @@
             this.gridColumn7.VisibleIndex = 6;
             this.gridColumn7.Width = 158;
             // 
-            // gridColumn8
-            // 
-            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn8.AppearanceCell.Options.UseFont = true;
-            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn8.Caption = "Đơn vị tính";
-            this.gridColumn8.FieldName = "TenDonViTinh";
-            this.gridColumn8.MinWidth = 25;
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 5;
-            this.gridColumn8.Width = 100;
-            // 
             // UC_DoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -330,12 +330,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtime_denngay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtime_denngay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtime_TuNgay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtime_TuNgay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.griddoanhthu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDoanhthu)).EndInit();
             this.ResumeLayout(false);

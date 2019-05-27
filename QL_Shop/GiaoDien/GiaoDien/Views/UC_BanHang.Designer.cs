@@ -545,7 +545,9 @@
             this.txtNumberScan.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNumberScan.Size = new System.Drawing.Size(363, 28);
             this.txtNumberScan.TabIndex = 48;
+            this.txtNumberScan.TextChanged += new System.EventHandler(this.txtNumberScan_TextChanged);
             this.txtNumberScan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumberScan_KeyDown);
+            this.txtNumberScan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumberScan_KeyPress);
             // 
             // txtBarcode
             // 
@@ -558,6 +560,7 @@
             this.txtBarcode.Size = new System.Drawing.Size(365, 28);
             this.txtBarcode.TabIndex = 50;
             this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
+            this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
             // 
             // labelControl3
             // 
