@@ -145,8 +145,6 @@
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongTien.Properties.Appearance.Options.UseFont = true;
-            this.txtTongTien.Properties.Mask.EditMask = "{0:N0} VNÐ";
-            this.txtTongTien.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtTongTien.Size = new System.Drawing.Size(311, 26);
             this.txtTongTien.TabIndex = 40;
             // 

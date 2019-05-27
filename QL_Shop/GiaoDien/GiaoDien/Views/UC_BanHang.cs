@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using DevExpress.Xpf.Printing;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using GiaoDien.Models;
+﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
+using GiaoDien.Models;
 using GiaoDien.RP;
-using System.Drawing.Printing;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace GiaoDien.Views
 {
@@ -255,7 +247,7 @@ namespace GiaoDien.Views
                 iDataSourceHeaderRP.Columns.Add("TenKhachHang", typeof(string));
                 iDataSourceHeaderRP.Columns.Add("NgayLapHD", typeof(string));
                 iDataSourceHeaderRP.Columns.Add("TongTien", typeof(string));
-                iDataSourceHeaderRP.Columns.Add("NhanVien", typeof(string));
+                iDataSourceHeaderRP.Columns.Add("TenNhanVien", typeof(string));
             }
             catch (Exception ex)
             {
@@ -265,12 +257,17 @@ namespace GiaoDien.Views
 
         private void dtHeaderRP()
         {
+            string tenKH = "";
+            if(DataTableKhachHang != null && DataTableKhachHang.Rows.Count > 0)
+            {
+                tenKH = DataTableKhachHang.Rows[0]["TenKhachHang"].ToString();
+            }
             DataRow drRow = iDataSourceHeaderRP.NewRow();
             drRow["MaHoaDon"] = txt_mahd.Text;
-            drRow["TenKhachHang"] = DataTableKhachHang.Rows[0]["TenKhachHang"].ToString();
+            drRow["TenKhachHang"] = tenKH;
             drRow["NgayLapHD"] = DateTime.Now;
             drRow["TongTien"] = txtTongTien.Text;
-            drRow["NhanVien"] = GiaoDien.Properties.Settings.Default.TenNV;
+            drRow["TenNhanVien"] = GiaoDien.Properties.Settings.Default.TenNV;
             this.iDataSourceHeaderRP.Rows.Add(drRow);
         }
 
@@ -293,6 +290,7 @@ namespace GiaoDien.Views
                     dtHeaderRP();
                     RP_HoaDon don = new RP_HoaDon(iGridDataSourceScanBarCode, iDataSourceHeaderRP);
                     don.ShowDialog();
+                    iDataSourceHeaderRP.Clear();
                     this.iGridDataSourceScanBarCode.Clear();
                     grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
                     this.iDataProducts.Clear();

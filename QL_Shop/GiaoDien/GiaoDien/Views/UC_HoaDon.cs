@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using GiaoDien.Models;
 using GiaoDien.DoMain;
 using DevExpress.XtraGrid.Views.Grid;
+using GiaoDien.RP;
+using System.Collections;
 
 namespace GiaoDien.Views
 {
@@ -18,7 +20,6 @@ namespace GiaoDien.Views
     {
         private DataTable iGirDataSource = null;
         HoaDonModel _hoaDonModel = new HoaDonModel();
-        private object gridView;
 
         public UC_HoaDon()
         {
@@ -59,13 +60,13 @@ namespace GiaoDien.Views
                 return;
             }
            
-
         }
 
         private void bt_inlaihd_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-
+            dtReport();
+            RP_HoaDon don = new RP_HoaDon(dtReport(), dtReport());
+            don.ShowDialog();
         }
 
         private void dtime_TuNgay_KeyDown(object sender, KeyEventArgs e)
@@ -98,6 +99,41 @@ namespace GiaoDien.Views
                     e.Appearance.BackColor2 = Color.White;
                 }
             }
+        }
+
+        private DataTable dtReportHeard()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaHoaDon", typeof(string));
+            dt.Columns.Add("TenKhachHang", typeof(string));
+            dt.Columns.Add("NgayLapHD", typeof(string));
+            dt.Columns.Add("TongTien", typeof(string));
+            dt.Columns.Add("TenNhanVien", typeof(string));
+            DataRow drRow = dt.NewRow();
+            drRow["MaHoaDon"] = txt_mahd.Text;
+            drRow["TenKhachHang"] = iGirDataSource.Rows[0]["TenKhachHang"].ToString();
+            drRow["NgayLapHD"] = DateTime.Now;
+            drRow["TongTien"] = iGirDataSource.Rows[0]["TenKhachHang"].ToString();
+            drRow["TenNhanVien"] = GiaoDien.Properties.Settings.Default.TenNV;
+            dt.Rows.Add(drRow);
+            return dt;
+        }
+
+        private DataTable dtReport()
+        {
+            DataTable dtReport = new DataTable();
+            dtReport = this.iGirDataSource.Clone();
+            Int32[] selectedRowHandles = gridViewhoadon.GetSelectedRows();
+            for (int i = 0; i < selectedRowHandles.Length; i++)
+            {
+                int selectedRowHandle = selectedRowHandles[i];
+                if (selectedRowHandle >= 0)
+                {
+                    DataRow dr = gridViewhoadon.GetDataRow(selectedRowHandle);
+                    dtReport.ImportRow(dr);
+                }
+            }
+            return dtReport;
         }
     }
 }
