@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using GiaoDien.DoMain;
 using GiaoDien.Models;
 using GiaoDien.RP;
 using System;
@@ -56,7 +58,17 @@ namespace GiaoDien.Views
 
         private void bt_inlaihd_Click(object sender, EventArgs e)
         {
+            if(this.iGirDataSource == null || this.iGirDataSource.Rows.Count <= 0)
+            {
+                XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                return;
+            }
             dtReport();
+            if(dtReport() == null || dtReport().Rows.Count <= 0)
+            {
+                XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                return;
+            }
             RP_PrintReBill don = new RP_PrintReBill(dtReport(), dtReportHeard());
             don.ShowDialog();
         }
@@ -109,6 +121,16 @@ namespace GiaoDien.Views
             drRow["TenNhanVien"] = dtReport().Rows[0]["TenNhanVien"].ToString();
             dt.Rows.Add(drRow);
             return dt;
+            //try
+            //{
+                
+            //}
+            //catch (Exception ex)
+            //{
+            //    return null;
+            //    //XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            //}
+
         }
 
         private DataTable dtReport()
@@ -116,6 +138,8 @@ namespace GiaoDien.Views
             DataTable dtReport = new DataTable();
             dtReport = this.iGirDataSource.Clone();
             Int32[] selectedRowHandles = gridViewhoadon.GetSelectedRows();
+            if (selectedRowHandles == null)
+                return null;
             for (int i = 0; i < selectedRowHandles.Length; i++)
             {
                 int selectedRowHandle = selectedRowHandles[i];

@@ -278,36 +278,49 @@ namespace GiaoDien.Views
         /// <param name="e"></param>
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
-            if(this.iDataProducts == null || this.iDataProducts.Rows.Count <= 0 || this.iGridDataSourceScanBarCode == null || this.iGridDataSourceScanBarCode.Rows.Count <= 0)
+            try
             {
-                XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                if (this.iDataProducts == null || this.iDataProducts.Rows.Count <= 0 || this.iGridDataSourceScanBarCode == null || this.iGridDataSourceScanBarCode.Rows.Count <= 0)
+                {
+                    XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
+                if (XtraMessageBox.Show(ScanBarcode.BanCoMuonXuatHD, Commons.Notify, MessageBoxButtons.YesNo) != DialogResult.No)
+                {
+                    if (ThemHoaDon())
+                    {
+                        dtHeaderRP();
+                        RP_HoaDon don = new RP_HoaDon(iGridDataSourceScanBarCode, iDataSourceHeaderRP);
+                        don.ShowDialog();
+                        iDataSourceHeaderRP.Clear();
+                        if(DataTableKhachHang != null && DataTableKhachHang.Rows.Count > 0)
+                        {
+                            DataTableKhachHang.Clear();
+                        }
+                        this.iGridDataSourceScanBarCode.Clear();
+                        grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
+                        this.iDataProducts.Clear();
+                        loadbanghang();
+                        txtBarCodeKhachHang.Text = String.Empty;
+                        txt_makh.Text = String.Empty;
+                        txtTienTich.Text = String.Empty;
+                        txtTenKH.Text = String.Empty;
+                        txt_SDT.Text = String.Empty;
+                        txtTongTien.Text = string.Empty;
+                        chek_thanhvien.Checked = false;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(ScanBarcode.XuatHDThatBai, Commons.Notify, MessageBoxButtons.OK);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
                 return;
+               // XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
-            if(XtraMessageBox.Show(ScanBarcode.BanCoMuonXuatHD, Commons.Notify, MessageBoxButtons.YesNo) != DialogResult.No)
-            {
-                if (ThemHoaDon())
-                {
-                    dtHeaderRP();
-                    RP_HoaDon don = new RP_HoaDon(iGridDataSourceScanBarCode, iDataSourceHeaderRP);
-                    don.ShowDialog();
-                    iDataSourceHeaderRP.Clear();
-                    this.iGridDataSourceScanBarCode.Clear();
-                    grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
-                    this.iDataProducts.Clear();
-                    loadbanghang();
-                    txtBarCodeKhachHang.Text=String.Empty;
-                    txt_makh.Text = String.Empty;
-                    txtTienTich.Text = String.Empty;
-                    txtTenKH.Text = String.Empty;
-                    txt_SDT.Text = String.Empty;
-                    txtTongTien.Text = string.Empty;
-                    chek_thanhvien.Checked = false;
-                }
-                else
-                {
-                    XtraMessageBox.Show(ScanBarcode.XuatHDThatBai, Commons.Notify, MessageBoxButtons.OK);
-                }
-            }
+            
             
         }
 
