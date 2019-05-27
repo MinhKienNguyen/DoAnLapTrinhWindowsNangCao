@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_NhapHang));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtNVLap = new DevExpress.XtraEditors.TextEdit();
             this.txtTongTien = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -44,6 +44,7 @@
             this.txtNCC = new DevExpress.XtraEditors.TextEdit();
             this.grdPhieuNhap = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,6 +52,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -71,8 +73,6 @@
             this.txtNumberScan = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnNhapHang = new DevExpress.XtraEditors.SimpleButton();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtNVLap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongTien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhap.Properties)).BeginInit();
@@ -96,19 +96,20 @@
             // txtNVLap
             // 
             this.txtNVLap.EditValue = "";
-            this.txtNVLap.Location = new System.Drawing.Point(766, 10);
-            this.txtNVLap.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNVLap.Location = new System.Drawing.Point(894, 12);
+            this.txtNVLap.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtNVLap.Name = "txtNVLap";
             this.txtNVLap.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNVLap.Properties.Appearance.Options.UseFont = true;
             this.txtNVLap.Properties.ReadOnly = true;
-            this.txtNVLap.Size = new System.Drawing.Size(573, 26);
+            this.txtNVLap.Size = new System.Drawing.Size(668, 28);
             this.txtNVLap.TabIndex = 48;
             // 
             // txtTongTien
             // 
             this.txtTongTien.EditValue = "";
-            this.txtTongTien.Location = new System.Drawing.Point(766, 43);
+            this.txtTongTien.Location = new System.Drawing.Point(894, 53);
+            this.txtTongTien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongTien.Properties.Appearance.Options.UseFont = true;
@@ -117,28 +118,29 @@
             this.txtTongTien.Properties.EditFormat.FormatString = "{0:N0} VNÐ";
             this.txtTongTien.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTongTien.Properties.ReadOnly = true;
-            this.txtTongTien.Size = new System.Drawing.Size(573, 26);
+            this.txtTongTien.Size = new System.Drawing.Size(668, 28);
             this.txtTongTien.TabIndex = 47;
             // 
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(5, 46);
+            this.labelControl7.Location = new System.Drawing.Point(6, 57);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(84, 19);
+            this.labelControl7.Size = new System.Drawing.Size(106, 22);
             this.labelControl7.TabIndex = 38;
             this.labelControl7.Text = "Nhà cung cấp";
             // 
             // txtMaNhap
             // 
             this.txtMaNhap.EditValue = "";
-            this.txtMaNhap.Location = new System.Drawing.Point(96, 10);
-            this.txtMaNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaNhap.Location = new System.Drawing.Point(112, 12);
+            this.txtMaNhap.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtMaNhap.Name = "txtMaNhap";
             this.txtMaNhap.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNhap.Properties.Appearance.Options.UseFont = true;
-            this.txtMaNhap.Size = new System.Drawing.Size(573, 26);
+            this.txtMaNhap.Size = new System.Drawing.Size(668, 28);
             this.txtMaNhap.TabIndex = 8;
             this.txtMaNhap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaNhap_KeyDown);
             // 
@@ -146,10 +148,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 13);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(2, 16);
+            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 19);
+            this.label6.Size = new System.Drawing.Size(84, 22);
             this.label6.TabIndex = 9;
             this.label6.Text = "Mã phiếu";
             // 
@@ -157,9 +159,10 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(679, 46);
+            this.labelControl3.Location = new System.Drawing.Point(792, 57);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(56, 19);
+            this.labelControl3.Size = new System.Drawing.Size(74, 22);
             this.labelControl3.TabIndex = 36;
             this.labelControl3.Text = "Tổng tiền";
             // 
@@ -167,31 +170,33 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(675, 13);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(787, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 19);
+            this.label5.Size = new System.Drawing.Size(120, 22);
             this.label5.TabIndex = 11;
             this.label5.Text = "Nhân viên lập";
             // 
             // txtNCC
             // 
             this.txtNCC.EditValue = "";
-            this.txtNCC.Location = new System.Drawing.Point(96, 46);
-            this.txtNCC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNCC.Location = new System.Drawing.Point(112, 57);
+            this.txtNCC.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtNCC.Name = "txtNCC";
             this.txtNCC.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNCC.Properties.Appearance.Options.UseFont = true;
             this.txtNCC.Properties.ReadOnly = true;
-            this.txtNCC.Size = new System.Drawing.Size(573, 26);
+            this.txtNCC.Size = new System.Drawing.Size(668, 28);
             this.txtNCC.TabIndex = 10;
             // 
             // grdPhieuNhap
             // 
-            this.grdPhieuNhap.Location = new System.Drawing.Point(5, 23);
+            this.grdPhieuNhap.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grdPhieuNhap.Location = new System.Drawing.Point(6, 28);
             this.grdPhieuNhap.MainView = this.gridView1;
+            this.grdPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdPhieuNhap.Name = "grdPhieuNhap";
-            this.grdPhieuNhap.Size = new System.Drawing.Size(658, 383);
+            this.grdPhieuNhap.Size = new System.Drawing.Size(768, 471);
             this.grdPhieuNhap.TabIndex = 32;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -208,6 +213,7 @@
             this.gridColumn8,
             this.gridColumn1,
             this.gridColumn15});
+            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.grdPhieuNhap;
             this.gridView1.GroupCount = 1;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -219,6 +225,16 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn16, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Loại hàng";
+            this.gridColumn16.FieldName = "TenLoaiHangHoa";
+            this.gridColumn16.MinWidth = 23;
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 0;
+            this.gridColumn16.Width = 87;
             // 
             // gridColumn2
             // 
@@ -232,10 +248,11 @@
             this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "Mã hàng hóa";
             this.gridColumn2.FieldName = "MaHangHoa";
+            this.gridColumn2.MinWidth = 23;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 92;
+            this.gridColumn2.Width = 107;
             // 
             // gridColumn3
             // 
@@ -249,10 +266,11 @@
             this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn3.Caption = "Tên hàng hóa";
             this.gridColumn3.FieldName = "TenHangHoa";
+            this.gridColumn3.MinWidth = 23;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 154;
+            this.gridColumn3.Width = 180;
             // 
             // gridColumn5
             // 
@@ -266,10 +284,11 @@
             this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn5.Caption = "Màu";
             this.gridColumn5.FieldName = "TenMau";
+            this.gridColumn5.MinWidth = 23;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
-            this.gridColumn5.Width = 72;
+            this.gridColumn5.Width = 84;
             // 
             // gridColumn6
             // 
@@ -283,10 +302,11 @@
             this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn6.Caption = "Size";
             this.gridColumn6.FieldName = "TenSize";
+            this.gridColumn6.MinWidth = 23;
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
-            this.gridColumn6.Width = 46;
+            this.gridColumn6.Width = 54;
             // 
             // gridColumn7
             // 
@@ -300,10 +320,11 @@
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.Caption = "SL";
             this.gridColumn7.FieldName = "SoLuongConLai";
+            this.gridColumn7.MinWidth = 23;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
-            this.gridColumn7.Width = 38;
+            this.gridColumn7.Width = 44;
             // 
             // gridColumn8
             // 
@@ -319,10 +340,11 @@
             this.gridColumn8.DisplayFormat.FormatString = "{0:N0} VNÐ";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "DonGiaDat";
+            this.gridColumn8.MinWidth = 23;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 6;
-            this.gridColumn8.Width = 118;
+            this.gridColumn8.Width = 138;
             // 
             // gridColumn1
             // 
@@ -336,284 +358,11 @@
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "STT";
             this.gridColumn1.FieldName = "ROWN";
+            this.gridColumn1.MinWidth = 23;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 46;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.txtNVLap);
-            this.panelControl1.Controls.Add(this.txtNCC);
-            this.panelControl1.Controls.Add(this.txtTongTien);
-            this.panelControl1.Controls.Add(this.label5);
-            this.panelControl1.Controls.Add(this.labelControl7);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.txtMaNhap);
-            this.panelControl1.Controls.Add(this.label6);
-            this.panelControl1.Location = new System.Drawing.Point(3, 53);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1345, 78);
-            this.panelControl1.TabIndex = 33;
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.grdPhieuNhap);
-            this.groupControl1.Location = new System.Drawing.Point(3, 137);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(668, 411);
-            this.groupControl1.TabIndex = 34;
-            this.groupControl1.Text = "Thông tin phiếu nhập";
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl2.AppearanceCaption.Options.UseFont = true;
-            this.groupControl2.Controls.Add(this.txtBarcode);
-            this.groupControl2.Controls.Add(this.grdScanBarCode);
-            this.groupControl2.Controls.Add(this.labelControl2);
-            this.groupControl2.Controls.Add(this.txtNumberScan);
-            this.groupControl2.Controls.Add(this.labelControl1);
-            this.groupControl2.Location = new System.Drawing.Point(677, 137);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(669, 411);
-            this.groupControl2.TabIndex = 35;
-            this.groupControl2.Text = "Thông tin quét nhập";
-            // 
-            // txtBarcode
-            // 
-            this.txtBarcode.EditValue = "";
-            this.txtBarcode.Location = new System.Drawing.Point(468, 30);
-            this.txtBarcode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBarcode.Properties.Appearance.Options.UseFont = true;
-            this.txtBarcode.Properties.ReadOnly = true;
-            this.txtBarcode.Size = new System.Drawing.Size(195, 26);
-            this.txtBarcode.TabIndex = 52;
-            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
-            // 
-            // grdScanBarCode
-            // 
-            this.grdScanBarCode.Location = new System.Drawing.Point(0, 63);
-            this.grdScanBarCode.MainView = this.gridViewScanBarcode;
-            this.grdScanBarCode.Name = "grdScanBarCode";
-            this.grdScanBarCode.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1,
-            this.btnXoa});
-            this.grdScanBarCode.Size = new System.Drawing.Size(664, 343);
-            this.grdScanBarCode.TabIndex = 33;
-            this.grdScanBarCode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewScanBarcode});
-            // 
-            // gridViewScanBarcode
-            // 
-            this.gridViewScanBarcode.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colxoa,
-            this.gridColumn9,
-            this.gridColumn10,
-            this.gridColumn11,
-            this.gridColumn13,
-            this.gridColumn14,
-            this.gridColumn4,
-            this.gridColumn12});
-            this.gridViewScanBarcode.GridControl = this.grdScanBarCode;
-            this.gridViewScanBarcode.GroupCount = 1;
-            this.gridViewScanBarcode.Name = "gridViewScanBarcode";
-            this.gridViewScanBarcode.OptionsBehavior.AutoExpandAllGroups = true;
-            this.gridViewScanBarcode.OptionsCustomization.AllowSort = false;
-            this.gridViewScanBarcode.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gridViewScanBarcode.OptionsView.ShowGroupPanel = false;
-            this.gridViewScanBarcode.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn12, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // colxoa
-            // 
-            this.colxoa.ColumnEdit = this.btnXoa;
-            this.colxoa.Name = "colxoa";
-            this.colxoa.Visible = true;
-            this.colxoa.VisibleIndex = 6;
-            this.colxoa.Width = 55;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
-            this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn9.AppearanceCell.Options.UseFont = true;
-            this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn9.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn9.Caption = "STT";
-            this.gridColumn9.FieldName = "ROWN";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 0;
-            this.gridColumn9.Width = 54;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn10.AppearanceCell.Options.UseFont = true;
-            this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn10.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn10.Caption = "Mã hàng hóa";
-            this.gridColumn10.FieldName = "MaHangHoa";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 1;
-            this.gridColumn10.Width = 119;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn11.AppearanceCell.Options.UseFont = true;
-            this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn11.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn11.Caption = "Tên hàng hóa";
-            this.gridColumn11.FieldName = "TenHangHoa";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 2;
-            this.gridColumn11.Width = 182;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn13.AppearanceCell.Options.UseFont = true;
-            this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn13.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn13.Caption = "Màu";
-            this.gridColumn13.FieldName = "TenMau";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 3;
-            this.gridColumn13.Width = 138;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn14.AppearanceCell.Options.UseFont = true;
-            this.gridColumn14.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn14.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn14.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn14.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn14.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn14.Caption = "Size";
-            this.gridColumn14.FieldName = "TenSize";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 4;
-            this.gridColumn14.Width = 76;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn4.AppearanceCell.Options.UseFont = true;
-            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn4.Caption = "SL quét";
-            this.gridColumn4.FieldName = "SoLuongGiao";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
-            this.gridColumn4.Width = 68;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn12.AppearanceCell.Options.UseFont = true;
-            this.gridColumn12.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.gridColumn12.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn12.Caption = "Loại hàng";
-            this.gridColumn12.FieldName = "TenLoaiHangHoa";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 7;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(348, 33);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(113, 19);
-            this.labelControl2.TabIndex = 51;
-            this.labelControl2.Text = "Barcode sản phẩm";
-            // 
-            // txtNumberScan
-            // 
-            this.txtNumberScan.EditValue = "";
-            this.txtNumberScan.Location = new System.Drawing.Point(103, 30);
-            this.txtNumberScan.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumberScan.Name = "txtNumberScan";
-            this.txtNumberScan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumberScan.Properties.Appearance.Options.UseFont = true;
-            this.txtNumberScan.Properties.Mask.EditMask = "n0";
-            this.txtNumberScan.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtNumberScan.Properties.ReadOnly = true;
-            this.txtNumberScan.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtNumberScan.Size = new System.Drawing.Size(195, 26);
-            this.txtNumberScan.TabIndex = 49;
-            this.txtNumberScan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumberScan_KeyDown);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(11, 33);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(85, 19);
-            this.labelControl1.TabIndex = 50;
-            this.labelControl1.Text = "Số lượng quét";
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHang.Appearance.Options.UseFont = true;
-            this.btnNhapHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapHang.ImageOptions.Image")));
-            this.btnNhapHang.Location = new System.Drawing.Point(1231, 3);
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(111, 44);
-            this.btnNhapHang.TabIndex = 36;
-            this.btnNhapHang.Text = "Nhập hàng";
-            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            this.gridColumn1.Width = 54;
             // 
             // gridColumn15
             // 
@@ -629,29 +378,316 @@
             this.gridColumn15.DisplayFormat.FormatString = "{0:N0} VNÐ";
             this.gridColumn15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn15.FieldName = "ThanhTien";
+            this.gridColumn15.MinWidth = 23;
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 7;
-            this.gridColumn15.Width = 126;
+            this.gridColumn15.Width = 147;
             // 
-            // gridColumn16
+            // panelControl1
             // 
-            this.gridColumn16.Caption = "Loại hàng";
-            this.gridColumn16.FieldName = "TenLoaiHangHoa";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 0;
+            this.panelControl1.Controls.Add(this.txtNVLap);
+            this.panelControl1.Controls.Add(this.txtNCC);
+            this.panelControl1.Controls.Add(this.txtTongTien);
+            this.panelControl1.Controls.Add(this.label5);
+            this.panelControl1.Controls.Add(this.labelControl7);
+            this.panelControl1.Controls.Add(this.labelControl3);
+            this.panelControl1.Controls.Add(this.txtMaNhap);
+            this.panelControl1.Controls.Add(this.label6);
+            this.panelControl1.Location = new System.Drawing.Point(3, 65);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1569, 96);
+            this.panelControl1.TabIndex = 33;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.grdPhieuNhap);
+            this.groupControl1.Location = new System.Drawing.Point(3, 169);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(779, 506);
+            this.groupControl1.TabIndex = 34;
+            this.groupControl1.Text = "Thông tin phiếu nhập";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl2.AppearanceCaption.Options.UseFont = true;
+            this.groupControl2.Controls.Add(this.txtBarcode);
+            this.groupControl2.Controls.Add(this.grdScanBarCode);
+            this.groupControl2.Controls.Add(this.labelControl2);
+            this.groupControl2.Controls.Add(this.txtNumberScan);
+            this.groupControl2.Controls.Add(this.labelControl1);
+            this.groupControl2.Location = new System.Drawing.Point(790, 169);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(780, 506);
+            this.groupControl2.TabIndex = 35;
+            this.groupControl2.Text = "Thông tin quét nhập";
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.EditValue = "";
+            this.txtBarcode.Location = new System.Drawing.Point(546, 37);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarcode.Properties.Appearance.Options.UseFont = true;
+            this.txtBarcode.Properties.ReadOnly = true;
+            this.txtBarcode.Size = new System.Drawing.Size(227, 28);
+            this.txtBarcode.TabIndex = 52;
+            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
+            // 
+            // grdScanBarCode
+            // 
+            this.grdScanBarCode.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grdScanBarCode.Location = new System.Drawing.Point(0, 78);
+            this.grdScanBarCode.MainView = this.gridViewScanBarcode;
+            this.grdScanBarCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grdScanBarCode.Name = "grdScanBarCode";
+            this.grdScanBarCode.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1,
+            this.btnXoa});
+            this.grdScanBarCode.Size = new System.Drawing.Size(775, 422);
+            this.grdScanBarCode.TabIndex = 33;
+            this.grdScanBarCode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewScanBarcode});
+            // 
+            // gridViewScanBarcode
+            // 
+            this.gridViewScanBarcode.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colxoa,
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn11,
+            this.gridColumn13,
+            this.gridColumn14,
+            this.gridColumn4,
+            this.gridColumn12});
+            this.gridViewScanBarcode.DetailHeight = 431;
+            this.gridViewScanBarcode.GridControl = this.grdScanBarCode;
+            this.gridViewScanBarcode.GroupCount = 1;
+            this.gridViewScanBarcode.Name = "gridViewScanBarcode";
+            this.gridViewScanBarcode.OptionsBehavior.AutoExpandAllGroups = true;
+            this.gridViewScanBarcode.OptionsBehavior.ReadOnly = true;
+            this.gridViewScanBarcode.OptionsCustomization.AllowSort = false;
+            this.gridViewScanBarcode.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewScanBarcode.OptionsView.ShowGroupPanel = false;
+            this.gridViewScanBarcode.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn12, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // colxoa
+            // 
+            this.colxoa.ColumnEdit = this.btnXoa;
+            this.colxoa.MinWidth = 23;
+            this.colxoa.Name = "colxoa";
+            this.colxoa.Visible = true;
+            this.colxoa.VisibleIndex = 6;
+            this.colxoa.Width = 64;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn9.AppearanceCell.Options.UseFont = true;
+            this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn9.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.Caption = "STT";
+            this.gridColumn9.FieldName = "ROWN";
+            this.gridColumn9.MinWidth = 23;
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 0;
+            this.gridColumn9.Width = 63;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn10.AppearanceCell.Options.UseFont = true;
+            this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn10.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn10.Caption = "Mã hàng hóa";
+            this.gridColumn10.FieldName = "MaHangHoa";
+            this.gridColumn10.MinWidth = 23;
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 1;
+            this.gridColumn10.Width = 139;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn11.AppearanceCell.Options.UseFont = true;
+            this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn11.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn11.Caption = "Tên hàng hóa";
+            this.gridColumn11.FieldName = "TenHangHoa";
+            this.gridColumn11.MinWidth = 23;
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 2;
+            this.gridColumn11.Width = 212;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn13.AppearanceCell.Options.UseFont = true;
+            this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn13.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn13.Caption = "Màu";
+            this.gridColumn13.FieldName = "TenMau";
+            this.gridColumn13.MinWidth = 23;
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 3;
+            this.gridColumn13.Width = 161;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn14.AppearanceCell.Options.UseFont = true;
+            this.gridColumn14.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn14.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn14.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn14.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn14.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn14.Caption = "Size";
+            this.gridColumn14.FieldName = "TenSize";
+            this.gridColumn14.MinWidth = 23;
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 4;
+            this.gridColumn14.Width = 89;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn4.AppearanceCell.Options.UseFont = true;
+            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.Caption = "SL quét";
+            this.gridColumn4.FieldName = "SoLuongGiao";
+            this.gridColumn4.MinWidth = 23;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 5;
+            this.gridColumn4.Width = 79;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn12.AppearanceCell.Options.UseFont = true;
+            this.gridColumn12.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.gridColumn12.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn12.Caption = "Loại hàng";
+            this.gridColumn12.FieldName = "TenLoaiHangHoa";
+            this.gridColumn12.MinWidth = 23;
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 7;
+            this.gridColumn12.Width = 87;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(406, 41);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(145, 22);
+            this.labelControl2.TabIndex = 51;
+            this.labelControl2.Text = "Barcode sản phẩm";
+            // 
+            // txtNumberScan
+            // 
+            this.txtNumberScan.EditValue = "";
+            this.txtNumberScan.Location = new System.Drawing.Point(120, 37);
+            this.txtNumberScan.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtNumberScan.Name = "txtNumberScan";
+            this.txtNumberScan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumberScan.Properties.Appearance.Options.UseFont = true;
+            this.txtNumberScan.Properties.Mask.EditMask = "n0";
+            this.txtNumberScan.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtNumberScan.Properties.ReadOnly = true;
+            this.txtNumberScan.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtNumberScan.Size = new System.Drawing.Size(227, 28);
+            this.txtNumberScan.TabIndex = 49;
+            this.txtNumberScan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumberScan_KeyDown);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(13, 41);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(110, 22);
+            this.labelControl1.TabIndex = 50;
+            this.labelControl1.Text = "Số lượng quét";
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHang.Appearance.Options.UseFont = true;
+            this.btnNhapHang.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapHang.ImageOptions.Image")));
+            this.btnNhapHang.Location = new System.Drawing.Point(1436, 4);
+            this.btnNhapHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Size = new System.Drawing.Size(129, 54);
+            this.btnNhapHang.TabIndex = 36;
+            this.btnNhapHang.Text = "Nhập hàng";
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
             // 
             // UC_NhapHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnNhapHang);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_NhapHang";
-            this.Size = new System.Drawing.Size(1351, 548);
+            this.Size = new System.Drawing.Size(1576, 674);
             this.Load += new System.EventHandler(this.UC_NhapHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNVLap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongTien.Properties)).EndInit();

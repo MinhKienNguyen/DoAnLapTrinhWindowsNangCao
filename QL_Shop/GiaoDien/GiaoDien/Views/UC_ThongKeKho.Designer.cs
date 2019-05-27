@@ -123,6 +123,7 @@
             this.gridViewthongke.DetailHeight = 431;
             this.gridViewthongke.GridControl = this.bt_xuatexcel;
             this.gridViewthongke.Name = "gridViewthongke";
+            this.gridViewthongke.OptionsBehavior.ReadOnly = true;
             this.gridViewthongke.OptionsView.ShowGroupPanel = false;
             this.gridViewthongke.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewthongke_RowStyle);
             // 
@@ -272,7 +273,7 @@
             // 
             this.bt_indanhsach.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_indanhsach.Appearance.Options.UseFont = true;
-            this.bt_indanhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.bt_indanhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_indanhsach.ImageOptions.Image")));
             this.bt_indanhsach.Location = new System.Drawing.Point(1415, 4);
             this.bt_indanhsach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_indanhsach.Name = "bt_indanhsach";
