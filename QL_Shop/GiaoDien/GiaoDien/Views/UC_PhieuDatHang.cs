@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
 using GiaoDien.Models;
+using GiaoDien.RP;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -16,9 +17,11 @@ namespace GiaoDien.Views
         {
             InitializeComponent();
             LoadGridKhoHang();
-            txtNhanVien.Text = GiaoDien.Properties.Settings.Default.MaNV;
+            txtNhanVien.Text = GiaoDien.Properties.Settings.Default.TenNV;
             txtMaPD.Text = MaPhieuDatNCC();
             LoadLkLoaiHangHoa();
+            txtNhanVien.ReadOnly = true;
+            dtNgay.ReadOnly = true;
             dtNgay.EditValue = DateTime.Now;
             TableBindings();
             btnChuyen.Click += BtnChuyen_Click;
@@ -99,9 +102,11 @@ namespace GiaoDien.Views
 
         private void Refesh()
         {
-            txtNhanVien.Text = GiaoDien.Properties.Settings.Default.MaNV;
+            txtNhanVien.Text = GiaoDien.Properties.Settings.Default.TenNV;
             txtMaPD.Text = MaPhieuDatNCC();
             this.iGridDataSourceDat.Clear();
+            grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
+
         }
 
         /// <summary>
@@ -189,29 +194,49 @@ namespace GiaoDien.Views
             }
         }
 
+        private DataTable DataReport()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Ngay", typeof(DateTime));
+            dt.Columns.Add("MaDatHang", typeof(String));
+            dt.Columns.Add("TenNhanVien", typeof(String));
+            dt.Columns.Add("TenNhanCungCap", typeof(String));
+       
+            DataRow dr = dt.NewRow();
+            dr["Ngay"] = DateTime.Now;
+            dr["MaDatHang"] = txtMaPD.EditValue.ToString();
+            dr["TenNhanVien"] = txtNhanVien.EditValue.ToString();
+            dr["TenNhanCungCap"] = lkNCC.Text;
+         
+            dt.Rows.Add(dr);
+            return dt;
+        }
         private void btnLapPD_Click(object sender, EventArgs e)
         {
+           
             try
             {
-                //if (lkNCC.EditValue.ToString()=="")
-                //{
-                //    XtraMessageBox.Show(ScanBarcode.ChonNCC, Commons.Notify, MessageBoxButtons.OK);
-                //    return;
-                //}
-                if(ThemPhieuDatNCC()!= true)
+                if (lkNCC.Text.Trim() == "---Chọn nhà cung cấp---")
+                {
+                    XtraMessageBox.Show(ScanBarcode.ChonNCC, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
+                if (ThemPhieuDatNCC()!= true)
                 {
                     XtraMessageBox.Show(ScanBarcode.LapPDatThatBai, Commons.Notify, MessageBoxButtons.OK);
                     return;
                 }
                 XtraMessageBox.Show(ScanBarcode.PhieuDatThanhCong, Commons.Notify, MessageBoxButtons.OK);
-
+                RP_DatHang don = new RP_DatHang(iGridDataSourceDat, DataReport());
+                don.ShowDialog();
                 Refesh();
-
+            
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
+
         }
 
         private bool ThemPhieuDatNCC()
@@ -232,6 +257,7 @@ namespace GiaoDien.Views
                     string _size = gridView2.GetRowCellValue(i, "MaSize").ToString();
                     string _dvt = gridView2.GetRowCellValue(i, "MaDVT").ToString();
                     int _soluong = Convert.ToInt32(gridView2.GetRowCellValue(i, "SoLuong").ToString());
+                    this.iGridDataSourceDat.Rows[i]["SoLuong"] = gridView2.GetRowCellValue(i, "SoLuong").ToString();
                     string _maCTDH = MaCTPhieuDatNCC();
                     if (_phieuDatModel.ThemCTPhieuDatNCC(txtMaPD.Text, _maCTDH, _maLoai, _maHH, _tenHH, _mau, _size, _dvt, _soluong) != true)
                     {
