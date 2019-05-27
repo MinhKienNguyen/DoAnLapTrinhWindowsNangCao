@@ -1109,6 +1109,13 @@
   <metadata name="popupMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="label6.Text" xml:space="preserve">
+    <value>+ Thêm, Xóa, Sửa  ,Tìm kiếm thông tin nhân viên
++ Thêm, Xóa, Sửa  ,Tìm kiếm thông tin hàng hóa
++ Thêm, Xóa, Sửa mã khuyễn mãi
++ Thêm, Xóa, Sửa ,Tìm kiếm thông tin khách hàng
++ Thêm, Xóa, Sửa  ,Tìm kiếm thông tin nhà cung cấp,...</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

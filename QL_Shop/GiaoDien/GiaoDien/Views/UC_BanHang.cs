@@ -34,14 +34,16 @@ namespace GiaoDien.Views
         private void loadbanghang()
         {
             txtBarCodeKhachHang.Enabled = false;
-            txt_makh.Enabled = false;
-            txtTienTich.Enabled = false;
-            txtTenKH.Enabled = false;
-            txt_SDT.Enabled = false;
+            txt_makh.ReadOnly = true;
+            txtTienTich.ReadOnly = true;
+            txtTenKH.ReadOnly = true;
+            txt_SDT.ReadOnly = true;
+            txtTongTien.ReadOnly = true;
             DataTable dt = _banHangModel.GetDataProduct();
             iDataProducts = dt.Copy();
             txtNumberScan.Text = "1";
             txt_mahd.Text = Getincreaseinvoicecode();
+            
         }
         private void chek_thanhvien_CheckedChanged(object sender, EventArgs e)
         {
@@ -224,7 +226,7 @@ namespace GiaoDien.Views
             }
             catch (Exception ex)
             {
-                return;
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
         }
 
@@ -256,14 +258,23 @@ namespace GiaoDien.Views
                 if (ThemHoaDon())
                 {
                     this.iGridDataSourceScanBarCode.Clear();
+                    grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
                     this.iDataProducts.Clear();
+                    loadbanghang();
+                    txtBarCodeKhachHang.Text=String.Empty;
+                    txt_makh.Text = String.Empty;
+                    txtTienTich.Text = String.Empty;
+                    txtTenKH.Text = String.Empty;
+                    txt_SDT.Text = String.Empty;
+                    txtTongTien.Text = string.Empty;
+                    chek_thanhvien.Checked = false;
                 }
                 else
                 {
                     XtraMessageBox.Show(ScanBarcode.XuatHDThatBai, Commons.Notify, MessageBoxButtons.OK);
                 }
             }
-            loadbanghang();
+            
         }
 
         public bool ThemHoaDon()
@@ -332,14 +343,21 @@ namespace GiaoDien.Views
 
         private void txtBarCodeKhachHang_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                DataTable dt = new DataTable();
-                dt = _banHangModel.GetDataCustomers(txtBarCodeKhachHang.Text);
-                txtTenKH.Text = dt.Rows[0]["TenKhachHang"].ToString();
-                txt_makh.Text = dt.Rows[0]["MaKhachHang"].ToString();
-                txt_SDT.Text = dt.Rows[0]["SDT_KH"].ToString();
-                txtTienTich.Text = dt.Rows[0]["TichTien"].ToString();
+                if (e.KeyCode == Keys.Enter)
+                {
+                    DataTable dt = new DataTable();
+                    dt = _banHangModel.GetDataCustomers(txtBarCodeKhachHang.Text);
+                    txtTenKH.Text = dt.Rows[0]["TenKhachHang"].ToString();
+                    txt_makh.Text = dt.Rows[0]["MaKhachHang"].ToString();
+                    txt_SDT.Text = dt.Rows[0]["SDT_KH"].ToString();
+                    txtTienTich.Text = dt.Rows[0]["TichTien"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
         }
 
@@ -366,7 +384,31 @@ namespace GiaoDien.Views
             }
             catch (Exception ex)
             {
-                return;
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
+        }
+
+        private void txtNumberScan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumberScan_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtNumberScan.Text, "  ^ [0-9]"))
+            {
+                txtNumberScan.Text = "";
+            }
+        }
+
+        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

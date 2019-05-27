@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using GiaoDien.Models;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace GiaoDien.Views
 {
@@ -46,6 +47,20 @@ namespace GiaoDien.Views
             if(e.KeyCode == Keys.Enter)
             {
                 bt_timkiem.PerformClick();
+            }
+        }
+
+        private void gridViewthongke_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            GridView gv = sender as GridView;
+            if (e.RowHandle >= 0)
+            {
+                string SoLuongTon = gv.GetRowCellDisplayText(e.RowHandle, gv.Columns["SoLuongTon"]);
+                if (SoLuongTon == "0")
+                {
+                    e.Appearance.BackColor = Color.FromArgb(200, Color.Red);
+                    e.Appearance.BackColor2 = Color.GreenYellow;
+                }
             }
         }
     }
