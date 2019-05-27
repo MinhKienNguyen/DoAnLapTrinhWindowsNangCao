@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DevExpress.Xpf.Printing;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
@@ -10,6 +11,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using GiaoDien.Models;
 using GiaoDien.DoMain;
+using GiaoDien.RP;
+using System.Drawing.Printing;
 
 namespace GiaoDien.Views
 {
@@ -253,10 +256,17 @@ namespace GiaoDien.Views
         /// <param name="e"></param>
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
+            if(this.iDataProducts == null || this.iDataProducts.Rows.Count <= 0 || this.iGridDataSourceScanBarCode == null || this.iGridDataSourceScanBarCode.Rows.Count <= 0)
+            {
+                XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                return;
+            }
             if(XtraMessageBox.Show(ScanBarcode.BanCoMuonXuatHD, Commons.Notify, MessageBoxButtons.YesNo) != DialogResult.No)
             {
                 if (ThemHoaDon())
                 {
+                    RP_HoaDon don = new RP_HoaDon(iGridDataSourceScanBarCode);
+                    don.ShowDialog();
                     this.iGridDataSourceScanBarCode.Clear();
                     grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
                     this.iDataProducts.Clear();
@@ -413,6 +423,11 @@ namespace GiaoDien.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
