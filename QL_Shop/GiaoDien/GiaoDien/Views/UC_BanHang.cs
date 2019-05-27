@@ -22,18 +22,15 @@ namespace GiaoDien.Views
         private DataTable iDataProducts = null; 
         private string MaNV = GiaoDien.Properties.Settings.Default.MaNV;
         private DataTable iGridDataSourceScanBarCode = null;
-
+        private DataTable iDataSourceHeaderRP = null;
+        private DataTable DataTableKhachHang = null;
         public UC_BanHang()
         {
             InitializeComponent();
             loadbanghang();
-
+            TableBindings();
         }
 
-        private void UC_BanHang_Load(object sender, EventArgs e)
-        {
-            
-        }
         private void loadbanghang()
         {
             txtBarCodeKhachHang.Enabled = false;
@@ -249,6 +246,34 @@ namespace GiaoDien.Views
             return strCode;
         }
 
+        private void TableBindings()
+        {
+            try
+            {
+                this.iDataSourceHeaderRP = new DataTable();
+                iDataSourceHeaderRP.Columns.Add("MaHoaDon", typeof(string));
+                iDataSourceHeaderRP.Columns.Add("TenKhachHang", typeof(string));
+                iDataSourceHeaderRP.Columns.Add("NgayLapHD", typeof(string));
+                iDataSourceHeaderRP.Columns.Add("TongTien", typeof(string));
+                iDataSourceHeaderRP.Columns.Add("NhanVien", typeof(string));
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
+            }
+        }
+
+        private void dtHeaderRP()
+        {
+            DataRow drRow = iDataSourceHeaderRP.NewRow();
+            drRow["MaHoaDon"] = txt_mahd.Text;
+            drRow["TenKhachHang"] = DataTableKhachHang.Rows[0]["TenKhachHang"].ToString();
+            drRow["NgayLapHD"] = DateTime.Now;
+            drRow["TongTien"] = txtTongTien.Text;
+            drRow["NhanVien"] = GiaoDien.Properties.Settings.Default.TenNV;
+            this.iDataSourceHeaderRP.Rows.Add(drRow);
+        }
+
         /// <summary>
         /// In hóa đơn
         /// </summary>
@@ -265,7 +290,8 @@ namespace GiaoDien.Views
             {
                 if (ThemHoaDon())
                 {
-                    RP_HoaDon don = new RP_HoaDon(iGridDataSourceScanBarCode);
+                    dtHeaderRP();
+                    RP_HoaDon don = new RP_HoaDon(iGridDataSourceScanBarCode, iDataSourceHeaderRP);
                     don.ShowDialog();
                     this.iGridDataSourceScanBarCode.Clear();
                     grdBill.DataSource = iGridDataSourceScanBarCode.Copy();
@@ -363,10 +389,11 @@ namespace GiaoDien.Views
                 {
                     DataTable dt = new DataTable();
                     dt = _banHangModel.GetDataCustomers(txtBarCodeKhachHang.Text);
-                    txtTenKH.Text = dt.Rows[0]["TenKhachHang"].ToString();
-                    txt_makh.Text = dt.Rows[0]["MaKhachHang"].ToString();
-                    txt_SDT.Text = dt.Rows[0]["SDT_KH"].ToString();
-                    txtTienTich.Text = dt.Rows[0]["TichTien"].ToString();
+                    DataTableKhachHang = dt.Copy();
+                    txtTenKH.Text = DataTableKhachHang.Rows[0]["TenKhachHang"].ToString();
+                    txt_makh.Text = DataTableKhachHang.Rows[0]["MaKhachHang"].ToString();
+                    txt_SDT.Text = DataTableKhachHang.Rows[0]["SDT_KH"].ToString();
+                    txtTienTich.Text = DataTableKhachHang.Rows[0]["TichTien"].ToString();
                 }
             }
             catch (Exception ex)
@@ -423,11 +450,6 @@ namespace GiaoDien.Views
             {
                 e.Handled = true;
             }
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
