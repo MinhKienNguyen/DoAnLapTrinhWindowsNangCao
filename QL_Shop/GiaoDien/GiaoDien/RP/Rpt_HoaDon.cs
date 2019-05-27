@@ -2,10 +2,10 @@
 
 namespace GiaoDien.RP
 {
-    public partial class Rpt_PrintPacking : Report
+    public partial class Rpt_HoaDon : Report
     {
         private int iNo = 1;
-        public Rpt_PrintPacking()
+        public Rpt_HoaDon()
         {
             InitializeComponent();
         }
@@ -14,13 +14,11 @@ namespace GiaoDien.RP
             DataTable dt = (DataTable)_obj;
             if (dt != null && dt.Rows.Count > 0)
             {
-                
-                this.colCustName.DataBindings.Add("Text", dt, "CustName");
-                this.colAddress.DataBindings.Add("Text", dt, "Address");
-                this.colNote.DataBindings.Add("Text", dt, "Note");
-                this.lblUser.DataBindings.Add("Text", dt, "UserInfor");
-                string path = System.IO.Directory.GetCurrentDirectory();
-                //this.xrPictureBox1.ImageUrl =string.Format("{0}\\Images\\imgpsh_fullsize.png", path);
+                this.colMaHD.DataBindings.Add("Text", dt, "MaHoaDon");
+                this.colKhachHang.DataBindings.Add("Text", dt, "TenKhachHang");
+                this.colNgay.DataBindings.Add("Text", dt, "NgayLapHD");
+                this.ColNhanVien.DataBindings.Add("Text", dt, "NhanVien");
+                this.colTongTien.DataBindings.Add("Text", dt, "TongTien", "{0:N0} VNĐ");
             }
         }
 
@@ -31,8 +29,8 @@ namespace GiaoDien.RP
             this.colT3.DataBindings.Add("Text", this.DataSource, "TenSize");
             this.colT4.DataBindings.Add("Text", this.DataSource, "SoLuong", "{0:#,##0.##}");
             this.colT5.DataBindings.Add("Text", this.DataSource, "TenDonViTinh");
-            this.colT6.DataBindings.Add("Text", this.DataSource, "GiaBan");
-            this.colT7.DataBindings.Add("Text", this.DataSource, "TongTien");
+            this.colT6.DataBindings.Add("Text", this.DataSource, "GiaBan", "{0:N0} VNĐ");
+            this.colT7.DataBindings.Add("Text", this.DataSource, "TongTien", "{0:N0} VNĐ");
         }
         private void xrTable1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
