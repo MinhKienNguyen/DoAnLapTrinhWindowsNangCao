@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
-using GiaoDien.DTO;
 using GiaoDien.Models;
 using GiaoDien.Unity;
 using System;
@@ -99,7 +98,7 @@ namespace GiaoDien.Views
             {
                 if (string.IsNullOrEmpty(imgChonAnh.ImageLocation))
                 {
-                    XtraMessageBox.Show(Commons.ChooseImage, Commons.Notify, MessageBoxButtons.OK);
+                    XtraMessageBox.Show(Commons.ChooseImage, Commons.Notify,  MessageBoxButtons.OK);
                     return;
                 }
 
@@ -126,54 +125,7 @@ namespace GiaoDien.Views
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ExcelExport excel = new ExcelExport();
-
-
-                if (iDataSource.Rows.Count == 0)
-                {
-                    MessageBox.Show("Không có dữ liệu để xuất");
-                    return;
-                }
-
-                List<HangHoaDTO> pListKhoa = new List<HangHoaDTO>();
-
-                // Đổ dữ liệu vào danh sách
-                //foreach (DataGridViewRow item in tileViewHangHoa)
-                //{
-                //    HangHoaDTO i = new HangHoaDTO();
-                //    //i.MaKhoa = item.Cells[0].Value.ToString();
-                //    //i.TenKhoa = item.Cells[1].Value.ToString();
-                //    pListKhoa.Add(i);
-                //}
-                foreach (DataRow dr in this.iDataSource.Rows)
-                {
-                    HangHoaDTO i = new HangHoaDTO();
-                    i.MaHangHoa = dr["MaHangHoa"].ToString();
-                    i.TenHangHoa = dr["TenHangHoa"].ToString();
-                    i.GiaBan = (float)Convert.ToDouble(dr["GiaBan"].ToString());
-                    i.TenLoaiHang = dr["TenLoaiHangHoa"].ToString();
-                    i.SoLuongTon = Convert.ToInt32(dr["SoLuongTon"].ToString());
-                    i.TenMau = dr["TenMau"].ToString();
-                    i.TenSize = dr["TenSize"].ToString();
-                    i.TenDonViTinh = dr["TenDonViTinh"].ToString();
-                    i.Barcode = dr["Barcode"].ToString();
-                    i.DonGaiDat = (float)Convert.ToDouble(dr["DonGiaDat"].ToString());
-                    pListKhoa.Add(i);
-                }
-                string path = string.Empty;
-                excel.ExportKhoa(pListKhoa, ref path, false);
-                // Confirm for open file was exported
-                if (!string.IsNullOrEmpty(path) && MessageBox.Show("Bạn có muốn mở file không?", "Thông tin", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    System.Diagnostics.Process.Start(path);
-                }
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
-            }
+            
            
         }
         #region "các hàm con"

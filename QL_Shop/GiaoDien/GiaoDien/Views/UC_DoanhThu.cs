@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using GiaoDien.Models;
+using GiaoDien.RP;
+using GiaoDien.DoMain;
 
 namespace GiaoDien.Views
 {
@@ -39,6 +41,24 @@ namespace GiaoDien.Views
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
+            if (this.iGirDataSource == null || this.iGirDataSource.Rows.Count <= 0)
+            {
+                XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                return;
+            }
+            DataTable dt = new DataTable();
+            dt.Columns.Add("TuNgay", typeof(DateTime));
+            dt.Columns.Add("DenNgay", typeof(DateTime));
+            dt.Columns.Add("Ngay", typeof(DateTime));
+            dt.Columns.Add("TongTien", typeof(decimal));
+            DataRow dr = dt.NewRow();
+            dr["Ngay"] = DateTime.Now;
+            dr["TuNgay"] = dtime_TuNgay.EditValue.ToString() ;
+            dr["DenNgay"] = dtime_denngay.EditValue.ToString();
+            dr["TongTien"] = this.iGirDataSource.Compute("sum(ThanhTien)","").ToString();
+            dt.Rows.Add(dr);
+            RP_DoanhThu don = new RP_DoanhThu(iGirDataSource, dt);
+            don.ShowDialog();
         }
 
         private void dtime_TuNgay_KeyDown(object sender, KeyEventArgs e)

@@ -43,7 +43,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.bt_indanhsach = new DevExpress.XtraEditors.SimpleButton();
             this.bt_timkiem = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -260,7 +260,7 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.bt_indanhsach);
             this.panelControl1.Controls.Add(this.bt_timkiem);
             this.panelControl1.Location = new System.Drawing.Point(3, 4);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -268,28 +268,29 @@
             this.panelControl1.Size = new System.Drawing.Size(1568, 58);
             this.panelControl1.TabIndex = 68;
             // 
-            // simpleButton1
+            // bt_indanhsach
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1262, 5);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(135, 48);
-            this.simpleButton1.TabIndex = 78;
-            this.simpleButton1.Tag = "";
-            this.simpleButton1.Text = "Xuất Excel";
+            this.bt_indanhsach.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_indanhsach.Appearance.Options.UseFont = true;
+            this.bt_indanhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.bt_indanhsach.Location = new System.Drawing.Point(1415, 4);
+            this.bt_indanhsach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bt_indanhsach.Name = "bt_indanhsach";
+            this.bt_indanhsach.Size = new System.Drawing.Size(147, 48);
+            this.bt_indanhsach.TabIndex = 78;
+            this.bt_indanhsach.Tag = "";
+            this.bt_indanhsach.Text = "In danh sách";
+            this.bt_indanhsach.Click += new System.EventHandler(this.bt_indanhsach_Click);
             // 
             // bt_timkiem
             // 
             this.bt_timkiem.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_timkiem.Appearance.Options.UseFont = true;
             this.bt_timkiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_timkiem.ImageOptions.Image")));
-            this.bt_timkiem.Location = new System.Drawing.Point(1428, 5);
+            this.bt_timkiem.Location = new System.Drawing.Point(1242, 6);
             this.bt_timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_timkiem.Name = "bt_timkiem";
-            this.bt_timkiem.Size = new System.Drawing.Size(134, 48);
+            this.bt_timkiem.Size = new System.Drawing.Size(149, 48);
             this.bt_timkiem.TabIndex = 77;
             this.bt_timkiem.Tag = "";
             this.bt_timkiem.Text = "Tìm kiếm";
@@ -331,7 +332,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton bt_indanhsach;
         private DevExpress.XtraEditors.SimpleButton bt_timkiem;
     }
 }
