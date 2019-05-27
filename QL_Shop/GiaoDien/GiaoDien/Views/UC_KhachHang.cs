@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GiaoDien.Models;
+﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
-using DevExpress.XtraEditors;
+using GiaoDien.Models;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace GiaoDien.Views
 {

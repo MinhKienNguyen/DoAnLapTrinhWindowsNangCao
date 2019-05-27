@@ -1,15 +1,11 @@
-﻿using DevExpress.Utils.Extensions;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using GiaoDien.DoMain;
 using GiaoDien.Models;
-using GiaoDien.Properties;
 using GiaoDien.Unity;
 using System;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GiaoDien.Views
