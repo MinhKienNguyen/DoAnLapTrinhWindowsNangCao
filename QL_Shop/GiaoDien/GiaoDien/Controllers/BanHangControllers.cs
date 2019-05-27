@@ -99,6 +99,21 @@ namespace GiaoDien.Controllers
         }
 
         /// <summary>
+        /// update lại tiền tích đc của khách hàng khi đã đủ đk giảm giá
+        /// </summary>
+        /// <param name="_barCdeKH"></param>
+        /// <returns></returns>
+        public bool UpdateChietKhau(string _barCdeKH)
+        {
+            DataTable dtCheck = _unity.filldb("KH_KhachHang_UpDateChietKhau", _barCdeKH);
+            if (dtCheck.Rows.Count <= 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// cập nhật lại số lượng trong kho
         /// </summary>
         /// <param name="_barcode"></param>

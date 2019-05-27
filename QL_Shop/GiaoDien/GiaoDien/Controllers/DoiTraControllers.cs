@@ -1,10 +1,6 @@
 ﻿using GiaoDien.Unity;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GiaoDien.Controllers
 {
@@ -34,15 +30,14 @@ namespace GiaoDien.Controllers
         }
 
         /// <summary>
-        /// cập nhật lại số lượng hàng trong CT hóa đơn xuống
+        /// cập nhật lại số lượng sản phẩm trong kho xuống sau khi đã quét sô lượng đổi
         /// </summary>
         /// <param name="_barcode"></param>
         /// <param name="_soLuong"></param>
-        /// <param name="_tienTra"></param>
         /// <returns></returns>
-        public bool Update_CTHD(string _barcode, int _soLuong, float _tienTra)
+        public bool UpdateSLHangQuet_Kho(string _barcode, int _soLuong)
         {
-            DataTable dt = _unity.filldb("PH_CT_HoaDon_UpdateTraHang", _barcode, _soLuong, _tienTra);
+            DataTable dt = _unity.filldb("HH_CT_HangHoa_UpdateSLDoi", _barcode, _soLuong);
             if (dt.Rows.Count <= 0 || Convert.ToInt16(dt.Rows[0][0].ToString()) <= 0)
             {
                 return false;
@@ -51,14 +46,51 @@ namespace GiaoDien.Controllers
         }
 
         /// <summary>
-        /// cập nhật tiền trong hóa đơn khi trả hàng
+        /// cập nhật lại số lượng hàng trong CT hóa đơn xuống
         /// </summary>
-        /// <param name="_maHD"></param>
+        /// <param name="_barcode"></param>
+        /// <param name="_soLuong"></param>
         /// <param name="_tienTra"></param>
         /// <returns></returns>
-        public bool Update_HD(string _maHD, float _tienTra)
+        public bool Update_CTHD(string _barcode, int _soLuong, float _thanhTien)
         {
-            DataTable dt = _unity.filldb("PH_HoaDon_UpdateTraHang", _maHD, _tienTra);
+            DataTable dt = _unity.filldb("PH_CT_HoaDon_UpdateTraHang", _barcode, _soLuong, _thanhTien);
+            if (dt.Rows.Count <= 0 || Convert.ToInt16(dt.Rows[0][0].ToString()) <= 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        /// <summary>
+        /// update lại chi tiết hóa đơn khi đã quét chọn hàng cần đổi
+        /// </summary>
+        /// <param name="_maCTietHDTra"></param>
+        /// <param name="_maHDTra"></param>
+        /// <param name="_maHH"></param>
+        /// <param name="_barcode"></param>
+        /// <param name="_soLuong"></param>
+        /// <param name="_thanhTien"></param>
+        /// <returns></returns>
+        public bool Insert_CT_HDHangQuet(string _maCTietHDTra, string _maHDTra, string _maHH, string _barcode, int _soLuong, float _thanhTien)
+        {
+            DataTable dt = _unity.filldb("PH_CT_HoaDon_InsertOrUpdateTraHang", _maCTietHDTra, _maHDTra, _maHH, _barcode, _soLuong, _thanhTien);
+            if (dt.Rows.Count <= 0 || Convert.ToInt16(dt.Rows[0][0].ToString()) <= 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// cập nhật trạng thái trong hóa đơn khi trả hàng
+        /// </summary>
+        /// <param name="_maHD"></param>
+        /// <returns></returns>
+        public bool Update_HD(string _maHD)
+        {
+            DataTable dt = _unity.filldb("PH_HoaDon_UpdateTraHang", _maHD);
             if (dt.Rows.Count <= 0 || Convert.ToInt16(dt.Rows[0][0].ToString()) <= 0)
             {
                 return false;
@@ -94,9 +126,9 @@ namespace GiaoDien.Controllers
         /// <param name="_soLuong"></param>
         /// <param name="_thanhTien"></param>
         /// <returns></returns>
-        public bool Insert_CT_HDTra(string _maCTietHDTra, string _maHDTra, string _maHH, string _barcode, int _soLuong, float _thanhTien)
+        public bool Insert_CT_HDTra(string _maCTietHD, string _maHD, string _maHH, string _barcode, int _soLuong, float _thanhTien)
         {
-            DataTable dt = _unity.filldb("PH_CT_HDDoiTra_InsertDetailBill", _maCTietHDTra, _maHDTra, _maHH, _barcode, _soLuong, _thanhTien);
+            DataTable dt = _unity.filldb("PH_CT_HDDoiTra_InsertDetailBill", _maCTietHD, _maHD, _maHH, _barcode, _soLuong, _thanhTien);
             if (dt.Rows.Count <= 0 || Convert.ToInt16(dt.Rows[0][0].ToString()) <= 0)
             {
                 return false;
@@ -122,6 +154,11 @@ namespace GiaoDien.Controllers
         public DataTable TangMaCTHDDoiTra(string _maCTHDTra)
         {
             return _unity.filldb("PH_CT_HDDoiTra_MaTang", _maCTHDTra);
+        }
+
+        public DataTable TangMaCTHD(string _maCTHD)
+        {
+            return _unity.filldb("PH_CT_HoaDon_MaTang", _maCTHD);
         }
     }
 }
