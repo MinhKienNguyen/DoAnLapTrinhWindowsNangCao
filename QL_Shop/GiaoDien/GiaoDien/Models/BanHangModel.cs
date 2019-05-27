@@ -27,6 +27,11 @@ namespace GiaoDien.Models
             return _banHangControllers.Getsell(productcode.ToString());
         }
 
+        public bool UpdateChietKhau(string _barCdeKH)
+        {
+            return _banHangControllers.UpdateChietKhau(_barCdeKH);
+        }
+
         /// <summary>
         /// tăng mã CT_Hóa đơn
         /// </summary>

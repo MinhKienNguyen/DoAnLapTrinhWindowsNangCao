@@ -23,14 +23,14 @@ namespace GiaoDien.Models
             return _doiControllers.UpdateSL_CTHH(_barcode, _soLuong);
         }
 
-        public bool Update_CTHD(string _barcode, int _soLuong, float _tienTra)
+        public bool Update_CTHD(string _barcode, int _soLuong, float _thanhTien)
         {
-            return _doiControllers.Update_CTHD(_barcode, _soLuong, _tienTra);
+            return _doiControllers.Update_CTHD(_barcode, _soLuong, _thanhTien);
         }
 
-        public bool Update_HD(string _maHD, float _tienTra)
+        public bool Update_HD(string _maHD)
         {
-            return _doiControllers.Update_HD(_maHD, _tienTra);
+            return _doiControllers.Update_HD(_maHD);
         }
 
         public bool Insert_HDTra(string _maHDTra, string _maHD, string _maNV, float _tienTra)
@@ -51,6 +51,21 @@ namespace GiaoDien.Models
         public DataTable TangMaCTHDDoiTra(string _maCTHDTra)
         {
             return _doiControllers.TangMaCTHDDoiTra(_maCTHDTra);
+        }
+
+        public bool UpdateSLHangQuet_Kho(string _barcode, int _soLuong)
+        {
+            return _doiControllers.UpdateSLHangQuet_Kho(_barcode, _soLuong);
+        }
+
+        public bool Insert_CT_HDHangQuet(string _maCTietHD, string _maHD, string _maHH, string _barcode, int _soLuong, float _thanhTien)
+        {
+            return _doiControllers.Insert_CT_HDHangQuet(_maCTietHD, _maHD, _maHH, _barcode, _soLuong, _thanhTien);
+        }
+
+        public DataTable TangMaCTHD(string _maCTHD)
+        {
+            return _doiControllers.TangMaCTHD(_maCTHD);
         }
     }
 }
