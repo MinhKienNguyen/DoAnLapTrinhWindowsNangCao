@@ -67,6 +67,7 @@
         public const string PhieuDatThanhCong = "Hoàn thành lập phiếu đặt";
         public const string LapPDatThatBai = "Lập phiếu đặt thất bại";
         public const string ChonNCC = "Bạn chưa chọn nhà cung cấp";
+        public const string SoLuogLonHonSLDoi = "Số lượng mặt hàng vượt quá số lượng mặt hàng cần đổi";
     }
 
     public class ReportTemplate
