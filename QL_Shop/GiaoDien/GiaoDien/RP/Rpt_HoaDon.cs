@@ -18,7 +18,7 @@ namespace GiaoDien.RP
                 this.colKhachHang.DataBindings.Add("Text", dt, "TenKhachHang");
                 this.colNgay.DataBindings.Add("Text", dt, "NgayLapHD");
                 this.ColNhanVien.DataBindings.Add("Text", dt, "NhanVien");
-                this.colTongTien.DataBindings.Add("Text", dt, "TongTien", "{0:N0} VNĐ");
+                this.colTongTien.DataBindings.Add("Text", dt, "TongTien","{0:N0} VNĐ");
             }
         }
 
