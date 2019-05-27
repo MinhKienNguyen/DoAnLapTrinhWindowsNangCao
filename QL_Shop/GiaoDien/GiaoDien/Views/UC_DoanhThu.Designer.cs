@@ -139,11 +139,11 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1421, 5);
+            this.simpleButton1.Location = new System.Drawing.Point(1396, 5);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(138, 41);
+            this.simpleButton1.Size = new System.Drawing.Size(163, 41);
             this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Xuất Excel";
+            this.simpleButton1.Text = "Xuất báo cáo";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // bt_tiemkiem
@@ -151,9 +151,9 @@
             this.bt_tiemkiem.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_tiemkiem.Appearance.Options.UseFont = true;
             this.bt_tiemkiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_tiemkiem.ImageOptions.Image")));
-            this.bt_tiemkiem.Location = new System.Drawing.Point(1259, 5);
+            this.bt_tiemkiem.Location = new System.Drawing.Point(1205, 5);
             this.bt_tiemkiem.Name = "bt_tiemkiem";
-            this.bt_tiemkiem.Size = new System.Drawing.Size(138, 41);
+            this.bt_tiemkiem.Size = new System.Drawing.Size(159, 41);
             this.bt_tiemkiem.TabIndex = 0;
             this.bt_tiemkiem.Text = "Tìm kiếm ";
             this.bt_tiemkiem.Click += new System.EventHandler(this.bt_tiemkiem_Click);
@@ -184,6 +184,7 @@
             this.gridViewDoanhthu.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ThanhTien", this.gridColumn7, "Tổng tiền: {0:N0} VNĐ")});
             this.gridViewDoanhthu.Name = "gridViewDoanhthu";
+            this.gridViewDoanhthu.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridViewDoanhthu.OptionsBehavior.ReadOnly = true;
             this.gridViewDoanhthu.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.gridViewDoanhthu.OptionsView.ShowFooter = true;

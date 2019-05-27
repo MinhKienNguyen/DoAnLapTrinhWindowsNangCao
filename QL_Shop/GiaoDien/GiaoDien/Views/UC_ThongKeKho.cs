@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using GiaoDien.Models;
 using DevExpress.XtraGrid.Views.Grid;
+using GiaoDien.RP;
+using GiaoDien.DoMain;
 
 namespace GiaoDien.Views
 {
@@ -37,11 +39,7 @@ namespace GiaoDien.Views
         }
         #endregion
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void txt_mahh_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -56,12 +54,28 @@ namespace GiaoDien.Views
             if (e.RowHandle >= 0)
             {
                 string SoLuongTon = gv.GetRowCellDisplayText(e.RowHandle, gv.Columns["SoLuongTon"]);
-                if (SoLuongTon == "0")
+                if (Convert.ToInt32(SoLuongTon.ToString()) <= 10)
                 {
                     e.Appearance.BackColor = Color.FromArgb(200, Color.Red);
-                    e.Appearance.BackColor2 = Color.GreenYellow;
+                    e.Appearance.BackColor2 = Color.FromArgb(50, Color.Yellow);
                 }
             }
+        }
+
+        private void bt_indanhsach_Click(object sender, EventArgs e)
+        {
+            if (this.iDataSource == null || this.iDataSource.Rows.Count <= 0 )
+            {
+                XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                return;
+            }
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Ngay", typeof(DateTime));
+            DataRow dr = dt.NewRow();
+            dr["Ngay"] = DateTime.Now;
+            dt.Rows.Add(dr);
+            RP_ThongKeKho don = new RP_ThongKeKho(iDataSource, dt);
+            don.ShowDialog();
         }
     }
 }

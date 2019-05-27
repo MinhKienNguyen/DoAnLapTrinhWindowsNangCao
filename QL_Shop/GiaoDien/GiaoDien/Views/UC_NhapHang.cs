@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using GiaoDien.Models;
 using GiaoDien.DoMain;
 using System.Windows.Input;
+using GiaoDien.RP;
 
 namespace GiaoDien.Views
 {
@@ -249,6 +250,8 @@ namespace GiaoDien.Views
                         {
                             XtraMessageBox.Show(ScanBarcode.NhapThanhCong, Commons.Notify, MessageBoxButtons.OK);
                             LoadGridNhapHang();
+                            RP_NhapHang don = new RP_NhapHang(iGridDataSourceScanBarCode, DataReport());
+                            don.ShowDialog();
                             iGridDataSourceScanBarCode.Clear();
                             grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
                             return;
@@ -260,19 +263,44 @@ namespace GiaoDien.Views
                     {
                         XtraMessageBox.Show(ScanBarcode.NhapThanhCong, Commons.Notify, MessageBoxButtons.OK);
                         LoadGridNhapHang();
+                        RP_NhapHang don = new RP_NhapHang(iGridDataSourceScanBarCode, DataReport());
+                        don.ShowDialog();
                         iGridDataSourceScanBarCode.Clear();
                         grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
                         return;
                     }
                     XtraMessageBox.Show(ScanBarcode.NhapThatBai, Commons.Notify, MessageBoxButtons.OK);
                 }
-                
+                #region"in report"
+                if (this.iGridDataSourceScanBarCode == null || this.iGridDataSourceScanBarCode.Rows.Count <= 0)
+                {
+                    XtraMessageBox.Show(Commons.NoData, Commons.Notify, MessageBoxButtons.OK);
+                    return;
+                }
+                #endregion
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+        }
+
+        private DataTable DataReport()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Ngay", typeof(DateTime));
+            dt.Columns.Add("MaPhieuNhap", typeof(String));
+            dt.Columns.Add("TenNhanVien", typeof(String));
+            dt.Columns.Add("TenNhanCungCap", typeof(String));
+            dt.Columns.Add("TongTien", typeof(decimal));
+            DataRow dr = dt.NewRow();
+            dr["Ngay"] = DateTime.Now;
+            dr["MaPhieuNhap"] = txtMaNhap.EditValue.ToString();
+            dr["TenNhanVien"] = txtNVLap.EditValue.ToString();
+            dr["TenNhanCungCap"] = txtNCC.EditValue.ToString();
+            dr["TongTien"] = txtTongTien.EditValue.ToString();
+            dt.Rows.Add(dr);
+            return dt;
         }
 
         private bool InsertOrUpdateProduct(int _status)
