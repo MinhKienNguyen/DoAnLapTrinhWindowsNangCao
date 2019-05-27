@@ -297,6 +297,10 @@ namespace GiaoDien.Views
                         {
                             _chietKhau = 0.1;
                             _tongTien = _tongTien * Convert.ToDecimal(1 - _chietKhau);
+                            if(_banHangModel.UpdateChietKhau(txtBarCodeKhachHang.Text) != true)
+                            {
+                                return false;
+                            }
                         }
                     }
                     if (_banHangModel.ThemHoaDon(
@@ -363,7 +367,6 @@ namespace GiaoDien.Views
 
         private void txtNumberScan_KeyDown(object sender, KeyEventArgs e)
         {
-            
             try
             {
              if (e.KeyCode == Keys.Enter)
