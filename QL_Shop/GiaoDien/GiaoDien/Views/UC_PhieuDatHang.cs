@@ -223,7 +223,15 @@ namespace GiaoDien.Views
                     XtraMessageBox.Show(ScanBarcode.ChonNCC, Commons.Notify, MessageBoxButtons.OK);
                     return;
                 }
-                if (ThemPhieuDatNCC()!= true)
+                float tt = 0;
+                for (int i = 0; i < this.iGridDataSourceDat.Rows.Count; i++)
+                {
+                    this.iGridDataSourceDat.Rows[i]["SoLuong"] = gridView2.GetRowCellValue(i, "SoLuong").ToString();
+                    this.iGridDataSourceDat.Rows[i]["GiaDat"] = gridView2.GetRowCellValue(i, "GiaDat").ToString();
+                    tt = tt + (Convert.ToInt32(this.iGridDataSourceDat.Rows[i]["SoLuong"].ToString()) * (float)Convert.ToDouble(this.iGridDataSourceDat.Rows[i]["GiaDat"]));
+                    txtTongTien.Text = tt.ToString();
+                }
+                    if (ThemPhieuDatNCC()!= true)
                 {
                     XtraMessageBox.Show(ScanBarcode.LapPDatThatBai, Commons.Notify, MessageBoxButtons.OK);
                     return;
@@ -248,7 +256,10 @@ namespace GiaoDien.Views
                 {
                     return false;
                 }
-                float tt = 0;
+                if (_phieuDatModel.ThemPhieuDat(txtMaPD.Text.Trim(), lkNCC.EditValue.ToString(), _maNV,(float)Convert.ToDouble(txtTongTien.Text)) != true)
+                {
+                    return false;
+                }
                 for (int i = 0; i< this.iGridDataSourceDat.Rows.Count; i++)
                 {
                     string _maLoai = gridView2.GetRowCellValue(i, "MaLoaiHangHoa").ToString();
@@ -260,19 +271,12 @@ namespace GiaoDien.Views
                     string _barcode = this.iGridDataSourceDat.Rows[i]["Barcode"].ToString();
                     float _giaDat = (float)Convert.ToDouble(gridView2.GetRowCellValue(i, "GiaDat").ToString());
                     int _soluong = Convert.ToInt32(gridView2.GetRowCellValue(i, "SoLuong").ToString());
-                    this.iGridDataSourceDat.Rows[i]["SoLuong"] = gridView2.GetRowCellValue(i, "SoLuong").ToString();
-                    this.iGridDataSourceDat.Rows[i]["GiaDat"] = gridView2.GetRowCellValue(i,"GiaDat").ToString();
-                    tt = tt + (Convert.ToInt32(this.iGridDataSourceDat.Rows[i]["SoLuong"].ToString()) * (float)Convert.ToDouble(this.iGridDataSourceDat.Rows[i]["GiaDat"]));
-                    txtTongTien.Text = tt.ToString();
                     string _maCTDH = MaCTPhieuDatNCC();
                     if (_phieuDatModel.ThemCTPhieuDatNCC(txtMaPD.Text, _maCTDH, _maLoai, _maHH, _tenHH, _mau, _size, _dvt, _soluong, _giaDat) != true)
                     {
                         return false;
                     }
-                    if(_phieuDatModel.ThemPhieuDat(txtMaPD.Text.Trim(), lkNCC.EditValue.ToString(), _maNV, tt) != true)
-                    {
-                        return false;
-                    }
+
                     if (_phieuDatModel.ThemCTPhieuDat(_maCTDH, _maLoai, _maHH, _tenHH, txtMaPD.Text, _mau, _size, _dvt, _barcode, _soluong, _giaDat) != true)
                     {
                         return false;
