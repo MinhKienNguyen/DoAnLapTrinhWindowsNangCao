@@ -688,7 +688,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_NhapHang";
             this.Size = new System.Drawing.Size(1576, 674);
-            this.Load += new System.EventHandler(this.UC_NhapHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNVLap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongTien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhap.Properties)).EndInit();

@@ -28,7 +28,6 @@ namespace GiaoDien.Views
             TableBindings();
             btnChuyen.Click += BtnChuyen_Click;
             btnXoa.Click += BtnXoa_Click;
-            btnThemHH.Click += BtnThemHH_Click;
         }
 
         private void BtnThemHH_Click(object sender, EventArgs e)

@@ -33,11 +33,6 @@ namespace GiaoDien.Views
             }
         }
 
-        private void UC_NhapHang_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadGridNhapHang()
         {
             DataTable dt = _hangModel.GetDataHangHoaDonHang(txtMaNhap.Text);
@@ -67,13 +62,6 @@ namespace GiaoDien.Views
 
         private void txtNumberScan_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            //if(e.KeyCode == Keys.OemMinus)
-            //{
-            //    e.Handled = true;
-            //    //txtNumberScan.Text = string.Empty;
-            //    //XtraMessageBox.Show(Commons.SoLuongQuetPhaiLon0, Commons.Notify, MessageBoxButtons.OK);
-                
-            //}
             e.Handled = e.KeyCode == Keys.OemMinus;
         }
 
@@ -113,7 +101,7 @@ namespace GiaoDien.Views
                             drScan[0]["SoLuongGiao"] = Convert.ToDecimal(drScan[0]["SoLuongGiao"]) + quantityBarcode;
                             drScan[0]["TienNhanHang"] = Convert.ToDouble(drScan[0]["DonGiaDat"]) * Convert.ToInt16(drScan[0]["SoLuongGiao"]);
                             grdScanBarCode.DataSource = iGridDataSourceScanBarCode.Copy();
-                            txtTongTien.Text = drScan[0]["TienNhanHang"].ToString();
+                            txtTongTien.Text = iGridDataSourceScanBarCode.Compute("sum(TienNhanHang)", "").ToString();
                         }
                     }
                     else

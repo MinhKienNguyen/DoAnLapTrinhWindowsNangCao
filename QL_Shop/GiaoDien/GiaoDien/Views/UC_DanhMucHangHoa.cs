@@ -46,19 +46,19 @@ namespace GiaoDien.Views
                 DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
                 txtMaHH.Text = row[0].ToString();
                 txtTenHH.Text = row[1].ToString();
-                lk_size.Properties.NullText = row[10].ToString();
-                lk_mausac.Properties.NullText = row[8].ToString();
-                txtGianhap.Text = row[14].ToString();
-                txtgiaban.Text = row[3].ToString();
-                lk_dvt.Properties.NullText = row[11].ToString();
-                lk_loaihang.Properties.NullText = row[5].ToString();
-                txtSoLuong.Text = row[6].ToString();
-                txt_Barcode.Text = row[13].ToString();
+                lk_size.Properties.NullText = row[8].ToString();
+                lk_mausac.Properties.NullText = row[6].ToString();
+                txtGianhap.Text = row[12].ToString();
+                txtgiaban.Text = row[2].ToString();
+                lk_dvt.Properties.NullText = row[9].ToString();
+                lk_loaihang.Properties.NullText = row[4].ToString();
+                txtSoLuong.Text = row[13].ToString();
+                txt_Barcode.Text = row[11].ToString();
                 //chuyển hình ảnh load lên picturebox
-                if (row[2] == null || string.IsNullOrEmpty(row[2].ToString()))
+                if (row[20] == null || string.IsNullOrEmpty(row[20].ToString()))
                     return;
                 byte[] data = new byte[0];
-                data = (byte[])(row[2]);
+                data = (byte[])(row[20]);
                 MemoryStream ms = new MemoryStream(data);
                 imgChonAnh.Image = Image.FromStream(ms);
             }
@@ -98,7 +98,7 @@ namespace GiaoDien.Views
                 }
                 byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
                 DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
-                string mau = row[7].ToString();
+                string mau = row[5].ToString();
                 if (_hangHoaModel.UpdateGiaHinhAnh(txtMaHH.Text, mau, image, txtgiaban.Text))
                 {
                     XtraMessageBox.Show(Commons.InsertFinish, Commons.Notify, MessageBoxButtons.OK);
