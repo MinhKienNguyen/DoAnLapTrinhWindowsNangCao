@@ -135,16 +135,33 @@ namespace GiaoDien.Controllers
         /// <param name="_donvi"></param>
         /// <param name="_soLuong"></param>
         /// <returns></returns>
-        public bool ThemCTPhieuDatNCC(string _maPD, string _maCTPD, string _maLoaiHang, string _maHH, string _tenHH, string _mau, string _size, string _donvi, int _soLuong)
+        public bool ThemCTPhieuDatNCC(string _maPD, string _maCTPD, string _maLoaiHang, string _maHH, string _tenHH, string _mau, string _size, string _donvi, int _soLuong, float _giaDat)
         {
-            DataTable dtND = _unity.filldb("PH_CT_DatHangNCC_Insert", _maCTPD, _maPD, _maLoaiHang, _maHH, _tenHH, _mau, _size, _donvi, _soLuong);
+            DataTable dtND = _unity.filldb("PH_CT_DatHangNCC_Insert", _maCTPD, _maPD, _maLoaiHang, _maHH, _tenHH, _mau, _size, _donvi, _soLuong, _giaDat);
             if (dtND.Rows.Count <= 0 || Convert.ToInt16(dtND.Rows[0][0].ToString()) <= 0)
             {
                 return false;
             }
             return true;
         }
+        public bool ThemPhieuDat(string _maPD, string _maNCC, string _maNV, float _tongTien)
+        {
+            DataTable dtNH = _unity.filldb("PH_PhieuDatHang_Insert", _maPD, _maNCC, _maNV, _tongTien);
+            if (dtNH.Rows.Count <= 0 || Convert.ToInt16(dtNH.Rows[0][0].ToString()) <= 0)
+            {
+                return false;
+            }
+            return true;
+        }
 
-
+        public bool ThemCTPhieuDat(string _maCTPD, string _maLoaiHang, string _maHH, string _tenHH, string _maPD, string _mau, string _size, string _donvi, string _barcode, int _soLuong, float _giaDat)
+        {
+            DataTable dtNH = _unity.filldb("PH_CT_PhieuDat_Insert", _maCTPD, _maLoaiHang, _maHH, _tenHH, _maPD, _mau, _size, _donvi, _barcode, _soLuong, _giaDat);
+            if (dtNH.Rows.Count <= 0 || Convert.ToInt16(dtNH.Rows[0][0].ToString()) <= 0)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

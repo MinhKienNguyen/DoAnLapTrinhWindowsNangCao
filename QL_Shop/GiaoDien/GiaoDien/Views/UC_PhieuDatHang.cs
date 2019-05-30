@@ -13,11 +13,13 @@ namespace GiaoDien.Views
         private DataTable iGirDataSource = null;
         private DataTable iGridDataSourceDat = null;
         PhieuDatModel _phieuDatModel = new PhieuDatModel();
+        private string _maNV = null;
         public UC_PhieuDatHang()
         {
             InitializeComponent();
             LoadGridKhoHang();
             txtNhanVien.Text = GiaoDien.Properties.Settings.Default.TenNV;
+            _maNV = GiaoDien.Properties.Settings.Default.MaNV;
             txtMaPD.Text = MaPhieuDatNCC();
             LoadLkLoaiHangHoa();
             txtNhanVien.ReadOnly = true;
@@ -82,6 +84,7 @@ namespace GiaoDien.Views
                 iGridDataSourceDat.Columns.Add("MaDVT", typeof(string));
                 iGridDataSourceDat.Columns.Add("TenDonViTinh", typeof(string));
                 iGridDataSourceDat.Columns.Add("SoLuong", typeof(int));
+                iGridDataSourceDat.Columns.Add("GiaDat", typeof(float));
                 grdDatHang.DataSource = this.iGridDataSourceDat.Copy();
             }
             catch(Exception ex)
@@ -201,19 +204,18 @@ namespace GiaoDien.Views
             dt.Columns.Add("MaDatHang", typeof(String));
             dt.Columns.Add("TenNhanVien", typeof(String));
             dt.Columns.Add("TenNhanCungCap", typeof(String));
-       
+            dt.Columns.Add("TongTien", typeof(String));
             DataRow dr = dt.NewRow();
             dr["Ngay"] = DateTime.Now;
             dr["MaDatHang"] = txtMaPD.EditValue.ToString();
             dr["TenNhanVien"] = txtNhanVien.EditValue.ToString();
             dr["TenNhanCungCap"] = lkNCC.Text;
-         
+            dr["TongTien"] = txtTongTien.Text;
             dt.Rows.Add(dr);
             return dt;
         }
         private void btnLapPD_Click(object sender, EventArgs e)
         {
-           
             try
             {
                 if (lkNCC.Text.Trim() == "---Chọn nhà cung cấp---")
@@ -230,13 +232,11 @@ namespace GiaoDien.Views
                 RP_DatHang don = new RP_DatHang(iGridDataSourceDat, DataReport());
                 don.ShowDialog();
                 Refesh();
-            
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
-
         }
 
         private bool ThemPhieuDatNCC()
@@ -248,6 +248,7 @@ namespace GiaoDien.Views
                 {
                     return false;
                 }
+                float tt = 0;
                 for (int i = 0; i< this.iGridDataSourceDat.Rows.Count; i++)
                 {
                     string _maLoai = gridView2.GetRowCellValue(i, "MaLoaiHangHoa").ToString();
@@ -256,10 +257,23 @@ namespace GiaoDien.Views
                     string _mau = gridView2.GetRowCellValue(i, "MaMau").ToString();
                     string _size = gridView2.GetRowCellValue(i, "MaSize").ToString();
                     string _dvt = gridView2.GetRowCellValue(i, "MaDVT").ToString();
+                    string _barcode = this.iGridDataSourceDat.Rows[i]["Barcode"].ToString();
+                    float _giaDat = (float)Convert.ToDouble(gridView2.GetRowCellValue(i, "GiaDat").ToString());
                     int _soluong = Convert.ToInt32(gridView2.GetRowCellValue(i, "SoLuong").ToString());
                     this.iGridDataSourceDat.Rows[i]["SoLuong"] = gridView2.GetRowCellValue(i, "SoLuong").ToString();
+                    this.iGridDataSourceDat.Rows[i]["GiaDat"] = gridView2.GetRowCellValue(i,"GiaDat").ToString();
+                    tt = tt + (Convert.ToInt32(this.iGridDataSourceDat.Rows[i]["SoLuong"].ToString()) * (float)Convert.ToDouble(this.iGridDataSourceDat.Rows[i]["GiaDat"]));
+                    txtTongTien.Text = tt.ToString();
                     string _maCTDH = MaCTPhieuDatNCC();
-                    if (_phieuDatModel.ThemCTPhieuDatNCC(txtMaPD.Text, _maCTDH, _maLoai, _maHH, _tenHH, _mau, _size, _dvt, _soluong) != true)
+                    if (_phieuDatModel.ThemCTPhieuDatNCC(txtMaPD.Text, _maCTDH, _maLoai, _maHH, _tenHH, _mau, _size, _dvt, _soluong, _giaDat) != true)
+                    {
+                        return false;
+                    }
+                    if(_phieuDatModel.ThemPhieuDat(txtMaPD.Text.Trim(), lkNCC.EditValue.ToString(), _maNV, tt) != true)
+                    {
+                        return false;
+                    }
+                    if (_phieuDatModel.ThemCTPhieuDat(_maCTDH, _maLoai, _maHH, _tenHH, txtMaPD.Text, _mau, _size, _dvt, _barcode, _soluong, _giaDat) != true)
                     {
                         return false;
                     }

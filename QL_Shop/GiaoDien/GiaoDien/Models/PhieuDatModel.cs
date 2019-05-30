@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GiaoDien.Models
 {
-   public class PhieuDatModel
+    public class PhieuDatModel
     {
         PhieuDatControllers _phieuDatControllers = new PhieuDatControllers();
         public DataTable GetKhoHang()
@@ -105,10 +105,20 @@ namespace GiaoDien.Models
         /// <param name="_donvi"></param>
         /// <param name="_soLuong"></param>
         /// <returns></returns>
-        public bool ThemCTPhieuDatNCC(string _maPD, string _maCTPD, string _maLoaiHang, string _maHH, string _tenHH, string _mau, string _size, string _donvi, int _soLuong)
+        public bool ThemCTPhieuDatNCC(string _maPD, string _maCTPD, string _maLoaiHang, string _maHH, string _tenHH, string _mau, string _size, string _donvi, int _soLuong, float _giaDat)
         {
-            return _phieuDatControllers.ThemCTPhieuDatNCC(_maPD, _maCTPD, _maLoaiHang, _maHH, _tenHH, _mau, _size, _donvi, _soLuong);
+            return _phieuDatControllers.ThemCTPhieuDatNCC(_maPD, _maCTPD, _maLoaiHang, _maHH, _tenHH, _mau, _size, _donvi, _soLuong, _giaDat);
         }
 
+
+        public bool ThemPhieuDat(string _maPD, string _maNCC, string _maNV, float _tongTien)
+        {
+            return _phieuDatControllers.ThemPhieuDat(_maPD, _maNCC, _maNV, _tongTien);
+        }
+
+        public bool ThemCTPhieuDat(string _maCTPD, string _maLoaiHang, string _maHH, string _tenHH, string _maPD, string _mau, string _size, string _donvi, string _barcode, int _soLuong, float _giaDat)
+        {
+            return _phieuDatControllers.ThemCTPhieuDat(_maCTPD, _maLoaiHang, _maHH, _tenHH, _maPD, _mau, _size, _donvi, _barcode, _soLuong, _giaDat);
+        }
     }
 }
