@@ -20,7 +20,7 @@ namespace GiaoDien.RP
                 this.colTenncc.DataBindings.Add("Text", dt, "TenNhanCungCap");
                 this.colnv.DataBindings.Add("Text", dt, "TenNhanVien");
                 this.colMaHD.DataBindings.Add("Text", dt, "MaDatHang");
-              
+                this.colTongTien.DataBindings.Add("Text", dt, "TongTien", "{0:N0} VNĐ");
             }
         }
 
@@ -32,7 +32,7 @@ namespace GiaoDien.RP
             this.colT4.DataBindings.Add("Text", this.DataSource, "TenSize");         
             this.colT5.DataBindings.Add("Text", this.DataSource, "SoLuong", "{0:#,##0.##}");
             this.colT7.DataBindings.Add("Text", this.DataSource, "TenDonViTinh");
-
+            this.col8.DataBindings.Add("Text", this.DataSource, "GiaDat", "{0:N0} VNĐ");
         }
         private void xrTable1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
