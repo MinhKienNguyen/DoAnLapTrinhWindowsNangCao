@@ -31,8 +31,6 @@ namespace GiaoDien.Views
             txt_Barcode.ReadOnly = true;
             txtTenHH.ReadOnly = true;
             txtMaHH.ReadOnly = true;
-            //Image image = Image.FromFile(@"C:\Users\HUY\Desktop\ShopThoiTrang\DoAnLapTrinhWindowsNangCao\QL_Shop\GiaoDien\GiaoDien\Resources\tải xuống.png");
-            //imgChonAnh.Image = image;
         }
        
 
@@ -68,7 +66,6 @@ namespace GiaoDien.Views
             {
                 XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
-           
         }
 
         private void bt_chonanh_Click(object sender, EventArgs e)
@@ -88,7 +85,6 @@ namespace GiaoDien.Views
             {
                 XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
-           
         }
 
         private void bt_luu_Click(object sender, EventArgs e)
@@ -100,7 +96,6 @@ namespace GiaoDien.Views
                     XtraMessageBox.Show(Commons.ChooseImage, Commons.Notify,  MessageBoxButtons.OK);
                     return;
                 }
-
                 byte[] image = _unityClass.CoverFilltoByte(imgChonAnh.ImageLocation);
                 DataRowView row = (DataRowView)tileViewHangHoa.GetRow(tileViewHangHoa.GetSelectedRows()[0]);
                 string mau = row[7].ToString();
@@ -113,21 +108,12 @@ namespace GiaoDien.Views
                     return;
                 }
                 XtraMessageBox.Show(Commons.InsertError, Commons.Notify, MessageBoxButtons.OK);
-
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, Commons.Notify, MessageBoxButtons.OK);
             }
-            
         }
-
-        private void btnXuatExcel_Click(object sender, EventArgs e)
-        {
-            
-           
-        }
-        #region "các hàm con"
         private void LoadGridProduct()
         {
             DataTable dt = _hangHoaModel.GetDataProduct(txt_timkiem.Text);
@@ -141,31 +127,7 @@ namespace GiaoDien.Views
             lk_loaihang.Properties.DisplayMember = "TenLoaiHangHoa";
             lk_loaihang.Properties.ValueMember = "MaLoaiHangHoa";
         }
-        //public void ExportTableToExcel(System.Data.DataTable dt)
-        //{
-        //    using (SaveFileDialog saveDialog = new SaveFileDialog())
-        //    {
-        //        saveDialog.Filter = "Excel (Phiên ban 2007 tro lên (.xlsx)|*.xlsx";
-        //        if (saveDialog.ShowDialog() != DialogResult.Cancel)
-        //        {
-        //            ExcelPackage p = new ExcelPackage();
-        //            string exportFilePath = saveDialog.FileName;
-        //            var newFile = new FileInfo(exportFilePath);
-        //            using (var package = new ExcelPackage(newFile))
-        //            {
-        //                ExcelWorksheet ws = package.Workbook.Worksheets.Add("NewSheet1");
-
-        //                ws.Cells["C6"].LoadFromDataTable(dt, true);
-        //                //Luu file Excel
-        //                package.Save();
-        //            }
-        //            MessageBox.Show("Xuất excel thành công!");
-        //        }
-        //    }
-
-        //}
-        #endregion
-
+        
         private void txt_timkiem_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
